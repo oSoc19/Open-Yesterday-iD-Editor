@@ -1,8 +1,12 @@
 <p align="center"><h1>Open Yesterday Project</h1></p>
 
 <p align="center"><img src="svg/open-yesterday-project/crest.svg" width="96"><img src="https://github.com/oSoc19/website/blob/master/img/logo/logo-osoc-color.svg" width="128"></p>
-  
-<p align="center">Open Yesterday/Open Heritage Map is a open Summer of Code 2019 (<a href="https://2019.summerofcode.be/">#oSoC19</a>) project. This project is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/">OpenStreetMap</a></p>
+
+<p align="center">Main use is to permit the adding and the edition of geohistorical data about old factories that have been torn down. You can add a new factory on the map, add informations and pictures/photographs, even post a story about what you or someone lived there !</p>
+
+<p align="center"><b>Preserve elder memories, use Open Yesterday!</b></p>
+
+<p align="center">Open Yesterday/Open Heritage Map is a open Summer of Code 2019 (<a href="https://2019.summerofcode.be/">#oSoC19</a>) project. This project is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/">OpenStreetMap</a>. This project is sponsored by <a href="http://www.erfgoedzuidwest.be/">erfgoed zuidwest</a>.</p>
 
 ## Installation, Cloning & Building
 
