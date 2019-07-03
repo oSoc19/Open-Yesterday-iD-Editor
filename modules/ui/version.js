@@ -26,7 +26,7 @@ export function uiVersion(context) {
             .append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openstreetmap/iD')
+            .attr('href', 'https://github.com/oSoc19/Open-Yesterday-iD-Editor')
             .text(currVersion);
 
         // only show new version indicator to users that have used iD before
