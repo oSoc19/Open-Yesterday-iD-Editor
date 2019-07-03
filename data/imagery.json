@@ -2753,6 +2753,62 @@
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__1300/MapServer/tile/{z}/{y}/{x}",
       "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+    },
+    {
+      "id": "fricks_1745",
+      "name": "Frickx (1745)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.informatievlaanderen.be/raadpleegdiensten/histcart/wms?&service=WMS&request=GetMap&layers=Frickx&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "villaret_1745",
+      "name": "Villaret (1745)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.informatievlaanderen.be/raadpleegdiensten/histcart/wms?&service=WMS&request=GetMap&layers=Villaret&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "ferraris_1777_wal",
+      "name": "Ferraris (1777) - WAL",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/FERRARIS/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "foret_de_soignes_1661",
+      "name": "Forêt de Soignes (1661)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/SOIGNES_VANDERSTOCK_1661/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "atlas_der_buurtwegen_1840",
+      "name": "Atlas der Buurtwegen (1840)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.informatievlaanderen.be/raadpleegdiensten/histcart/wms?&service=WMS&request=GetMap&layers=abw&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "atlas_des_voiries_vicinales_1841",
+      "name": "Atlas des voiries vicinales (1841)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/PLAN_REGLEMENT/ATLAS_VV_MODIF/MapServer/WmsServer?&service=WMS&request=GetMap&layers=3%2C4&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "vandermaelen_1846_1854_WAL",
+      "name": "Vandermaelen (1846-1854) - WAL",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/VDML/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
     }
   ]
 } 
