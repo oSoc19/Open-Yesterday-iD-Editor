@@ -29,13 +29,15 @@ export function uiToolOldDrawModes(context) {
             preset: context.presets().item('point'),
             key: '1'
         }),
+        /*
+        !This is a disabled feature for Open Heritage Map!   
         modeAddLine(context, {
             title: t('modes.add_line.title'),
             button: 'line',
             description: t('modes.add_line.description'),
             preset: context.presets().item('line'),
             key: '2'
-        }),
+        }),*/
         modeAddArea(context, {
             title: t('modes.add_area.title'),
             button: 'area',
