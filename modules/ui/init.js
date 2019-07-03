@@ -114,14 +114,15 @@ export function uiInit(context) {
             .attr('class', 'map-control map-data-control')
             .call(mapData.renderToggleButton);
 
-        /*!These are disabled features for Open Heritage Map!  
+        
         var issues = uiIssues(context);
+        var help = uiHelp(context);
+        /*!These are disabled features for Open Heritage Map! 
         controls
             .append('div')
             .attr('class', 'map-control map-issues-control')
             .call(issues.renderToggleButton);
-            
-        var help = uiHelp(context);
+        
         controls
             .append('div')
             .attr('class', 'map-control help-control')
