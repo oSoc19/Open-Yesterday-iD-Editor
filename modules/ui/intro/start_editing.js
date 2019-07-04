@@ -46,6 +46,7 @@ export function uiIntroStartEditing(context, reveal) {
             }
         );
     }
+    
 
     function showStart() {
         d3_selectAll('.shaded').remove();  // in case user opened keyboard shortcuts
