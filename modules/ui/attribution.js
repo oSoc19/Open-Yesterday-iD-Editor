@@ -46,7 +46,7 @@ export function uiAttribution(context) {
 
                 var id_safe = d.id.replace(/\./g, '<TX_DOT>');
                 var terms_text = t('imagery.' + id_safe + '.attribution.text',
-                    { default: d.terms_text || d.id || d.name() }
+                    { default: d.terms_text || d.name() || d.id }
                 );
 
                 if (d.icon && !d.overlay) {

@@ -2673,7 +2673,7 @@
       "name": "NGI ortho 1995",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/ortho__default__3857__1995/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "masse_enkel_westhoek_1729",
@@ -2717,42 +2717,42 @@
       "name": "NGI Basemap 1873",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__140/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "ngi_basemap_1904",
       "name": "NGI Basemap 1904",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__450/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "ngi_basemap_1939",
       "name": "NGI Basemap 1939",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__800/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "ngi_basemap_1969",
       "name": "NGI Basemap 1969",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__1100/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "ngi_basemap_1981",
       "name": "NGI Basemap 1981",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__1220/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "ngi_basemap_1989",
       "name": "NGI Basemap 1989",
       "type": "tms",
       "template": "http://www.ngi.be/tiles/arcgis/rest/services/seamless_carto__default__3857__1300/MapServer/tile/{z}/{y}/{x}",
-      "terms_text": "<a href=\"http://www.ngi.be/\">NGI</a>"
+      "terms_text": "© NGI"
     },
     {
       "id": "fricks_1745",
