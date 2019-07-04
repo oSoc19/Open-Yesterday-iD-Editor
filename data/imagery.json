@@ -2809,6 +2809,30 @@
       "projection": "EPSG:3857",
       "template": "https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/VDML/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
       "terms_text": ""
+    },
+    {
+      "id": "carte_du_dépot_de_la_guerre_1865_1880",
+      "name": "Carte du dépôt de la guerre (1865 - 1880)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/DEPOT_GUERRE_1865_1880/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "ministerie_openbare_werken_1950_1970",
+      "name": "Ministerie Openbare Werken (1950-1970)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.informatievlaanderen.be/raadpleegdiensten/histcart/wms?&service=WMS&request=GetMap&layers=moww&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
+    },
+    {
+      "id": "plans_du_ministère_des_travaux_publics_1950_1973",
+      "name": "Plans du Ministère des Travaux publics (1950-1973)",
+      "type": "wms",
+      "projection": "EPSG:3857",
+      "template": "https://geoservices.wallonie.be/arcgis/services/TOPOGRAPHIE/PLANS_TRAVAUXPUBLICS_1950_1973/MapServer/WMSServer?&service=WMS&request=GetMap&layers=0%2C1&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width={width}&height={height}&srs=EPSG%3A3857&bbox={bbox}",
+      "terms_text": ""
     }
   ]
 } 
