@@ -171,7 +171,7 @@ a:hover {
 }
 
 .header_title {
-    /* margin-left: -5rem; */
+    margin-left: -10%;
 }
 
 .header_xploreer {
@@ -285,12 +285,17 @@ table.tags, table.tags td, table.tags th {
     color: #333;
 }
 .fillD {
-    background: rgba(0,0,0,.5);
-    color: #fff;
+    background: white;
+    color: #F15A29;
 }
+
 .fillD2 {
     background: rgba(0,0,0,.75);
     color: #fff;
+}
+
+.fillE {
+    color: #95c11f;
 }
 
 .fl { float: left;}
@@ -327,9 +332,9 @@ button {
     text-align: center;
     line-height: 20px;
     border: 0;
-    background: #fff;
+    background: #95c11f;
     font-weight: bold;
-    color: #333;
+    color: white;
     font-size: 12px;
     display: inline-block;
     height: 40px;
@@ -344,8 +349,8 @@ button.active {
     background: #7092ff;
 }
 button.disabled {
-    background-color: rgba(255,255,255,.25);
-    color: rgba(0,0,0,.4);
+    background-color:#5f771e;
+    color: rgba(255, 255, 255, 0.4);
     cursor: not-allowed;
 }
 
@@ -479,7 +484,7 @@ button[disabled].action:hover {
     position: absolute;
     padding: 10px 5px 0px 5px;
     left: 0;
-    bottom: 30px;
+    bottom: 50px;
     right: 0;
     z-index: 101;
 }
@@ -4206,6 +4211,7 @@ img.tile-debug {
 .orange  { color: rgba(255, 153, 0, 0.75); }
 .pink    { color: rgba(255, 0, 153, 0.75); }
 .purple  { color: rgba(153, 0, 255, 0.75); }
+.erfgoed { color: rgba(241, 90, 41); }
 
 .debug-legend {
     position: absolute;

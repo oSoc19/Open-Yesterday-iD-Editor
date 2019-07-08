@@ -40,23 +40,19 @@ import { uiVersion } from './version';
 import { uiZoom } from './zoom';
 import { uiCmd } from './cmd';
 
-
 export function uiInit(context) {
     var _initCounter = 0;
     var _initCallback;
     var _needWidth = {};
 
-
     function render(container) {
-        container
-            .attr('dir', textDirection);
+        container.attr('dir', textDirection);
 
         // setup fullscreen keybindings (no button shown at this time)
-        container
-            .call(uiFullScreen(context));
+        container.call(uiFullScreen(context));
 
         var map = context.map();
-        map.redrawEnable(false);  // don't draw until we've set zoom/lat/long
+        map.redrawEnable(false); // don't draw until we've set zoom/lat/long
 
         container
             .append('svg')
@@ -77,7 +73,7 @@ export function uiInit(context) {
         content
             .append('div')
             .attr('id', 'bar')
-            .attr('class', 'fillD')
+            .attr('class', 'fillE')
             .call(uiTopToolbar(context));
 
         content
@@ -86,11 +82,8 @@ export function uiInit(context) {
             .attr('dir', 'ltr')
             .call(map);
 
-
         // Map controls
-        var controls = content
-            .append('div')
-            .attr('class', 'map-controls');
+        var controls = content.append('div').attr('class', 'map-controls');
 
         controls
             .append('div')
@@ -114,15 +107,14 @@ export function uiInit(context) {
             .attr('class', 'map-control map-data-control')
             .call(mapData.renderToggleButton);
 
-        
         var issues = uiIssues(context);
         var help = uiHelp(context);
-        /*!These are disabled features for Open Heritage Map! 
+        /*!These are disabled features for Open Heritage Map!
         controls
             .append('div')
             .attr('class', 'map-control map-issues-control')
             .call(issues.renderToggleButton);
-        
+
         controls
             .append('div')
             .attr('class', 'map-control help-control')
@@ -135,9 +127,7 @@ export function uiInit(context) {
             .call(uiSpinner(context));
 
         // Add attribution and footer
-        var about = content
-            .append('div')
-            .attr('id', 'about');
+        var about = content.append('div').attr('id', 'about');
 
         about
             .append('div')
@@ -149,7 +139,6 @@ export function uiInit(context) {
             .append('div')
             .attr('class', 'api-status')
             .call(uiStatus(context));
-
 
         var footer = about
             .append('div')
@@ -178,8 +167,7 @@ export function uiInit(context) {
             .attr('id', 'about-list');
 
         if (!context.embed()) {
-            aboutList
-                .call(uiAccount(context));
+            aboutList.call(uiAccount(context));
         }
 
         aboutList
@@ -187,24 +175,34 @@ export function uiInit(context) {
             .attr('class', 'version')
             .call(uiVersion(context));
 
-        var issueLinks = aboutList
-            .append('li');
+        var issueLinks = aboutList.append('li');
 
         issueLinks
             .append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
             .attr('href', 'https://github.com/openstreetmap/iD/issues')
-            .call(svgIcon('#iD-icon-bug', 'light'))
-            .call(tooltip().title(t('report_a_bug')).placement('top'));
+            .call(svgIcon('#iD-icon-bug', 'erfgoed'))
+            .call(
+                tooltip()
+                    .title(t('report_a_bug'))
+                    .placement('top')
+            );
 
         issueLinks
             .append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openstreetmap/iD/blob/master/CONTRIBUTING.md#translating')
-            .call(svgIcon('#iD-icon-translate', 'light'))
-            .call(tooltip().title(t('help_translate')).placement('top'));
+            .attr(
+                'href',
+                'https://github.com/openstreetmap/iD/blob/master/CONTRIBUTING.md#translating'
+            )
+            .call(svgIcon('#iD-icon-translate', 'erfgoed'))
+            .call(
+                tooltip()
+                    .title(t('help_translate'))
+                    .placement('top')
+            );
 
         aboutList
             .append('li')
@@ -218,7 +216,6 @@ export function uiInit(context) {
             .attr('tabindex', -1)
             .call(uiContributors(context));
 
-
         // Setup map dimensions and move map to initial center/zoom.
         // This should happen after #content and toolbars exist.
         ui.onResize();
@@ -230,16 +227,11 @@ export function uiInit(context) {
             map.centerZoom([0, 0], 2);
         }
 
-
-        var overMap = content
-            .append('div')
-            .attr('class', 'over-map');
+        var overMap = content.append('div').attr('class', 'over-map');
 
         // Add panes
         // This should happen after map is initialized, as some require surface()
-        var panes = overMap
-            .append('div')
-            .attr('class', 'map-panes');
+        var panes = overMap.append('div').attr('class', 'map-panes');
 
         panes
             .call(background.renderPane)
@@ -254,14 +246,12 @@ export function uiInit(context) {
             .call(uiInfo(context))
             .call(uiNotice(context));
 
-
         overMap
             .append('div')
             .attr('id', 'photoviewer')
-            .classed('al', true)       // 'al'=left,  'ar'=right
+            .classed('al', true) // 'al'=left,  'ar'=right
             .classed('hide', true)
             .call(ui.photoviewer);
-
 
         // Bind events
         window.onbeforeunload = function() {
@@ -277,11 +267,13 @@ export function uiInit(context) {
             .on('gestureend.editor', eventCancel)
             .on('resize.editor', ui.onResize);
 
-
         var panPixels = 80;
-        context.keybinding()
-            .on('⌫', function() { d3_event.preventDefault(); })
-            .on([t('sidebar.key'), '`', '²'], ui.sidebar.toggle)   // #5663 - common QWERTY, AZERTY
+        context
+            .keybinding()
+            .on('⌫', function() {
+                d3_event.preventDefault();
+            })
+            .on([t('sidebar.key'), '`', '²'], ui.sidebar.toggle) // #5663 - common QWERTY, AZERTY
             .on('←', pan([panPixels, 0]))
             .on('↑', pan([0, panPixels]))
             .on('→', pan([-panPixels, 0]))
@@ -295,27 +287,26 @@ export function uiInit(context) {
 
         if (!_initCounter++) {
             if (!hash.startWalkthrough) {
-                context.container()
+                context
+                    .container()
                     .call(uiSplash(context))
                     .call(uiRestore(context));
             }
 
-            context.container()
-                .call(uiShortcuts(context));
+            context.container().call(uiShortcuts(context));
         }
 
         var osm = context.connection();
-        var auth = uiLoading(context).message(t('loading_auth')).blocking(true);
+        var auth = uiLoading(context)
+            .message(t('loading_auth'))
+            .blocking(true);
 
         if (osm && auth) {
-            osm
-                .on('authLoading.ui', function() {
-                    context.container()
-                        .call(auth);
-                })
-                .on('authDone.ui', function() {
-                    auth.close();
-                });
+            osm.on('authLoading.ui', function() {
+                context.container().call(auth);
+            }).on('authDone.ui', function() {
+                auth.close();
+            });
         }
 
         _initCounter++;
@@ -324,7 +315,6 @@ export function uiInit(context) {
             hash.startWalkthrough = false;
             context.container().call(uiIntro(context));
         }
-
 
         function pan(d) {
             return function() {
@@ -338,7 +328,6 @@ export function uiInit(context) {
             d3_event.preventDefault();
         }
     }
-
 
     function ui(node, callback) {
         _initCallback = callback;
@@ -354,19 +343,20 @@ export function uiInit(context) {
         });
     }
 
-
     ui.restart = function(arg) {
         context.keybinding().clear();
         context.locale(arg);
         context.loadLocale(function(err) {
             if (!err) {
-                context.container().selectAll('*').remove();
+                context
+                    .container()
+                    .selectAll('*')
+                    .remove();
                 render(context.container());
                 if (_initCallback) _initCallback();
             }
         });
     };
-
 
     ui.sidebar = uiSidebar(context);
 
@@ -402,7 +392,6 @@ export function uiInit(context) {
         document.dispatchEvent(resizeWindowEvent);
     };
 
-
     // Call checkOverflow when resizing or whenever the contents change.
     ui.checkOverflow = function(selector, reset) {
         if (reset) {
@@ -414,12 +403,12 @@ export function uiInit(context) {
         var clientWidth = element.property('clientWidth');
         var needed = _needWidth[selector] || scrollWidth;
 
-        if (scrollWidth > clientWidth) {    // overflow happening
+        if (scrollWidth > clientWidth) {
+            // overflow happening
             element.classed('narrow', true);
             if (!_needWidth[selector]) {
                 _needWidth[selector] = scrollWidth;
             }
-
         } else if (scrollWidth >= needed) {
             element.classed('narrow', false);
         }
@@ -430,23 +419,18 @@ export function uiInit(context) {
 
         var side = textDirection === 'ltr' ? 'right' : 'left';
 
-        shownPanes
-            .classed('shown', false);
+        shownPanes.classed('shown', false);
 
-        d3_selectAll('.map-control button')
-            .classed('active', false);
+        d3_selectAll('.map-control button').classed('active', false);
 
         if (showPane) {
-            shownPanes
-                .style('display', 'none')
-                .style(side, '-500px');
+            shownPanes.style('display', 'none').style(side, '-500px');
 
-            d3_selectAll('.' + showPane.attr('pane') + '-control button')
-                .classed('active', true);
+            d3_selectAll(
+                '.' + showPane.attr('pane') + '-control button'
+            ).classed('active', true);
 
-            showPane
-                .classed('shown', true)
-                .style('display', 'block');
+            showPane.classed('shown', true).style('display', 'block');
             if (shownPanes.empty()) {
                 showPane
                     .style('display', 'block')
@@ -455,8 +439,7 @@ export function uiInit(context) {
                     .duration(200)
                     .style(side, '0px');
             } else {
-                showPane
-                    .style(side, '0px');
+                showPane.style(side, '0px');
             }
         } else {
             shownPanes

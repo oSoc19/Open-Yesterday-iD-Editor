@@ -15,7 +15,6 @@ import { tooltip } from '../../util/tooltip';
 import { uiTooltipHtml } from '../tooltipHtml';
 
 export function uiToolOldDrawModes(context) {
-
     var tool = {
         id: 'old_modes',
         label: t('toolbar.add_feature')
@@ -28,9 +27,9 @@ export function uiToolOldDrawModes(context) {
             description: t('modes.add_point.description'),
             preset: context.presets().item('point'),
             key: '1'
-        }),
+        })
         /*
-        !This is a disabled feature for Open Heritage Map!   
+        !This is a disabled feature for Open Heritage Map!
         modeAddLine(context, {
             title: t('modes.add_line.title'),
             button: 'line',
@@ -38,15 +37,14 @@ export function uiToolOldDrawModes(context) {
             preset: context.presets().item('line'),
             key: '2'
         }),*/
-        modeAddArea(context, {
-            title: t('modes.add_area.title'),
-            button: 'area',
-            description: t('modes.add_area.description'),
-            preset: context.presets().item('area'),
-            key: '3'
-        })
+        // modeAddArea(context, {
+        //     title: t('modes.add_area.title'),
+        //     button: 'area',
+        //     description: t('modes.add_area.description'),
+        //     preset: context.presets().item('area'),
+        //     key: '3'
+        // })
     ];
-
 
     function enabled() {
         return osmEditable();
@@ -70,53 +68,56 @@ export function uiToolOldDrawModes(context) {
     });
 
     tool.render = function(selection) {
-
         var wrap = selection
             .append('div')
             .attr('class', 'joined')
             .style('display', 'flex');
 
-        context
-            .on('enter.editor', function(entered) {
-                selection.selectAll('button.add-button')
-                    .classed('active', function(mode) { return entered.button === mode.button; });
-                context.container()
-                    .classed('mode-' + entered.id, true);
-            });
+        context.on('enter.editor', function(entered) {
+            selection
+                .selectAll('button.add-button')
+                .classed('active', function(mode) {
+                    return entered.button === mode.button;
+                });
+            context.container().classed('mode-' + entered.id, true);
+        });
+
+        context.on('exit.editor', function(exited) {
+            context.container().classed('mode-' + exited.id, false);
+        });
+
+        var debouncedUpdate = _debounce(update, 500, {
+            leading: true,
+            trailing: true
+        });
 
         context
-            .on('exit.editor', function(exited) {
-                context.container()
-                    .classed('mode-' + exited.id, false);
-            });
-
-
-        var debouncedUpdate = _debounce(update, 500, { leading: true, trailing: true });
-
-        context.map()
+            .map()
             .on('move.modes', debouncedUpdate)
             .on('drawn.modes', debouncedUpdate);
 
-        context
-            .on('enter.modes', update);
+        context.on('enter.modes', update);
 
         update();
 
-
         function update() {
-
-            var buttons = wrap.selectAll('button.add-button')
-                .data(modes, function(d) { return d.id; });
+            var buttons = wrap
+                .selectAll('button.add-button')
+                .data(modes, function(d) {
+                    return d.id;
+                });
 
             // exit
-            buttons.exit()
-                .remove();
+            buttons.exit().remove();
 
             // enter
-            var buttonsEnter = buttons.enter()
+            var buttonsEnter = buttons
+                .enter()
                 .append('button')
                 .attr('tabindex', -1)
-                .attr('class', function(d) { return d.id + ' add-button bar-button'; })
+                .attr('class', function(d) {
+                    return d.id + ' add-button bar-button';
+                })
                 .on('click.mode-buttons', function(d) {
                     if (!enabled(d)) return;
 
@@ -130,22 +131,25 @@ export function uiToolOldDrawModes(context) {
                         context.enter(d);
                     }
                 })
-                .call(tooltip()
-                    .placement('bottom')
-                    .html(true)
-                    .title(function(d) { return uiTooltipHtml(d.description, d.key); })
+                .call(
+                    tooltip()
+                        .placement('bottom')
+                        .html(true)
+                        .title(function(d) {
+                            return uiTooltipHtml(d.description, d.key);
+                        })
                 );
 
-            buttonsEnter
-                .each(function(d) {
-                    d3_select(this)
-                        .call(svgIcon('#iD-icon-' + d.button));
-                });
+            buttonsEnter.each(function(d) {
+                d3_select(this).call(svgIcon('#iD-icon-' + d.button));
+            });
 
             buttonsEnter
                 .append('span')
                 .attr('class', 'label')
-                .text(function(mode) { return mode.title; });
+                .text(function(mode) {
+                    return mode.title;
+                });
 
             // if we are adding/removing the buttons, check if toolbar has overflowed
             if (buttons.enter().size() || buttons.exit().size()) {
@@ -155,7 +159,9 @@ export function uiToolOldDrawModes(context) {
             // update
             buttons = buttons
                 .merge(buttonsEnter)
-                .classed('disabled', function(d) { return !enabled(d); });
+                .classed('disabled', function(d) {
+                    return !enabled(d);
+                });
         }
     };
 
