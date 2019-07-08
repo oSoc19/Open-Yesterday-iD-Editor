@@ -171,7 +171,7 @@ a:hover {
 }
 
 .header_title {
-    margin-left: -5rem;
+    /* margin-left: -5rem; */
 }
 
 .header_xploreer {
@@ -479,7 +479,7 @@ button[disabled].action:hover {
     position: absolute;
     padding: 10px 5px 0px 5px;
     left: 0;
-    bottom: 0;
+    bottom: 30px;
     right: 0;
     z-index: 101;
 }
