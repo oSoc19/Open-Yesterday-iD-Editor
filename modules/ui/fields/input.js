@@ -14,7 +14,6 @@ export {
     uiFieldText as uiFieldEmail
 };
 
-
 export function uiFieldText(field, context) {
     var dispatch = d3_dispatch('change');
     var nominatim = services.geocoder;
@@ -30,29 +29,20 @@ export function uiFieldText(field, context) {
             .data([0]);
 
         //Check Image Field
-        var checkImageField = document.getElementsByClassName('form-field-image');
+        //var checkImageField = document.getElementsByClassName('form-field-image');
         /*var imageURL = document.getElementById('preset-input-image');
         console.log(imageURL.value);*/
-        if (checkImageField.length > 0) {
-            wrap = wrap.enter()
-            .append('div')
-            .attr('class', 'hello')
-            .append('img')
-            .attr('src', )
-            .merge(wrap);
-        } else {
-            wrap = wrap.enter()
-            .append('div')
-            .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
-            .merge(wrap);
-        }
+        wrap = wrap.enter()
+        .append('div')
+        .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
+        .merge(wrap);
             
         var fieldID = 'preset-input-' + field.safeid;
 
         input = wrap.selectAll('input')
             .data([0]);
 
-        input = input.enter()
+            input = input.enter()    
             .append('input')
             .attr('type', field.type)
             .attr('id', fieldID)
@@ -60,6 +50,13 @@ export function uiFieldText(field, context) {
             .classed(field.type, true)
             .call(utilNoAuto)
             .merge(input);
+        
+        // getting the image URI after creating the input HTML element, then adding it to the input children node
+        let imageURL = document.getElementById('preset-input-image').value;
+        wrap
+            .append('img')
+            .attr('src', imageURL)
+            .merge(wrap);
 
         input
             .classed('disabled', !!isLocked)
