@@ -29,11 +29,24 @@ export function uiFieldText(field, context) {
         var wrap = selection.selectAll('.form-field-input-wrap')
             .data([0]);
 
-        wrap = wrap.enter()
+        //Check Image Field
+        var checkImageField = document.getElementsByClassName('form-field-image');
+        /*var imageURL = document.getElementById('preset-input-image');
+        console.log(imageURL.value);*/
+        if (checkImageField.length > 0) {
+            wrap = wrap.enter()
+            .append('div')
+            .attr('class', 'hello')
+            .append('img')
+            .attr('src', )
+            .merge(wrap);
+        } else {
+            wrap = wrap.enter()
             .append('div')
             .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
             .merge(wrap);
-
+        }
+            
         var fieldID = 'preset-input-' + field.safeid;
 
         input = wrap.selectAll('input')
