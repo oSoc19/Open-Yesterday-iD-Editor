@@ -2714,6 +2714,10 @@
                 "communication_multi": {
                     "label": "Communication Types"
                 },
+                "condition": {
+                    "label": "Condition",
+                    "placeholder": "What is the actual statue's condition"
+                },
                 "construction": {
                     "label": "Type"
                 },
@@ -2838,7 +2842,8 @@
                     }
                 },
                 "description": {
-                    "label": "Description"
+                    "label": "Description",
+                    "placeholder": "Give a short description"
                 },
                 "design": {
                     "label": "Design"
@@ -2975,6 +2980,9 @@
                 "emergency": {
                     "label": "Emergency"
                 },
+                "end_date": {
+                    "label": "End date"
+                },
                 "enforcement": {
                     "label": "Type"
                 },
@@ -2983,6 +2991,10 @@
                 },
                 "except": {
                     "label": "Exceptions"
+                },
+                "fabrication_date": {
+                    "label": "Fabrication Year",
+                    "placeholder": "When was it made ?"
                 },
                 "faces": {
                     "label": "Faces"
@@ -5601,6 +5613,10 @@
                     "name": "Dormitory",
                     "terms": ""
                 },
+                "building/factory": {
+                    "name": "Factory",
+                    "terms": "assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery,factory,usine,fabriek"
+                },
                 "building/farm_auxiliary": {
                     "name": "Farm Building",
                     "terms": ""
@@ -7065,6 +7081,10 @@
                     "name": "Antenna",
                     "terms": "broadcast,cell phone,cell,communication,mobile phone,radio,television,transmission,tv"
                 },
+                "man_made/art/statues": {
+                    "name": "Statue",
+                    "terms": "statue,standbeeld"
+                },
                 "man_made/beacon": {
                     "name": "Beacon",
                     "terms": ""
@@ -7276,10 +7296,6 @@
                 "man_made/windmill": {
                     "name": "Windmill",
                     "terms": "wind,wheel,mill"
-                },
-                "man_made/works": {
-                    "name": "Factory",
-                    "terms": "assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery"
                 },
                 "manhole": {
                     "name": "Manhole",
@@ -8832,10 +8848,6 @@
                 "tourism/artwork/sculpture": {
                     "name": "Sculpture",
                     "terms": "statue,figure,carving"
-                },
-                "tourism/artwork/statue": {
-                    "name": "Statue",
-                    "terms": "sculpture,figure,carving"
                 },
                 "tourism/attraction": {
                     "name": "Tourist Attraction",

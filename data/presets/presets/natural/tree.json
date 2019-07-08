@@ -1,10 +1,12 @@
 {
     "icon": "maki-park",
     "fields": [
+        "name",
+        "height",
+        "diameter",
         "leaf_type_singular",
         "leaf_cycle_singular",
-        "denotation",
-        "diameter"
+        "denotation"
     ],
     "geometry": [
         "point",

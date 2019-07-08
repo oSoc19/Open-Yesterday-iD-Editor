@@ -1,22 +1,22 @@
 {
     "icon": "maki-industry",
     "fields": [
-	    "name",
-        "operator",
+        "name",
+        "height",
         "address",
         "building_area",
-        "product"
-    ],
-    "moreFields": [
-        "website",
-        "phone",
-        "email",
-        "fax"
+        "start_date",
+        "end_date",
+        "description"
     ],
     "geometry": [
         "point",
         "area"
     ],
+    "tags": {
+      "building": "factory",
+      "man_made": "works"
+    },
     "terms": [
         "assembly",
         "build",
@@ -26,10 +26,10 @@
         "plastic",
         "processing",
         "manufacture",
-        "refinery"
+        "refinery",
+        "factory",
+        "usine",
+        "fabriek"
     ],
-    "tags": {
-        "man_made": "works"
-    },
     "name": "Factory"
 }
