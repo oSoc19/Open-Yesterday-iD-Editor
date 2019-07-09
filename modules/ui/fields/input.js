@@ -52,12 +52,17 @@ export function uiFieldText(field, context) {
             .merge(input);
         
         // getting the image URI after creating the input HTML element, then adding it to the input children node
-        let imageURL = document.getElementById('preset-input-image').value;
-        wrap
+        var imageURL = document.getElementById('preset-input-image').value;
+        var renderedImage = document.getElementsByClassName('rendered-image');
+        if(imageURL !== "" && renderedImage.length < 1){
+            wrap
             .append('img')
             .attr('src', imageURL)
+            .attr('class', 'rendered-image')
             .merge(wrap);
-
+        }
+        
+        
         input
             .classed('disabled', !!isLocked)
             .attr('readonly', isLocked || null)

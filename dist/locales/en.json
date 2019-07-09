@@ -3173,6 +3173,10 @@
                 "icao": {
                     "label": "ICAO"
                 },
+                "image": {
+                    "label": "Image",
+                    "placeholder": "Display marker image here"
+                },
                 "incline_steps": {
                     "label": "Incline",
                     "options": {

@@ -879,6 +879,11 @@ en:
       icao:
         # icao=*
         label: ICAO
+      image:
+        # image_2=*
+        label: Image
+        # image field placeholder
+        placeholder: Display marker image here
       incline:
         # incline=*
         label: Incline
