@@ -28,10 +28,6 @@ export function uiFieldText(field, context) {
         var wrap = selection.selectAll('.form-field-input-wrap')
             .data([0]);
 
-        //Check Image Field
-        //var checkImageField = document.getElementsByClassName('form-field-image');
-        /*var imageURL = document.getElementById('preset-input-image');
-        console.log(imageURL.value);*/
         wrap = wrap.enter()
         .append('div')
         .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
@@ -51,12 +47,15 @@ export function uiFieldText(field, context) {
             .call(utilNoAuto)
             .merge(input);
         
-        // getting the image URI after creating the input HTML element, then adding it to the input children node
+        // Open Heritage Map: Display marker image(s)
         var imagesURL = document.getElementById('preset-input-image').value;
+        //value of imagesURL is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if(imagesURL !== "" && renderedImage.length < 1){
             imagesURL = imagesURL.split(',');
+            //split imagesURL-value into seperate URLS
             for(var i = 0; i < imagesURL.length; i++){
+                //add image tag for each URL
                 wrap
                 .append('img')
                 .attr('src', imagesURL[i])
