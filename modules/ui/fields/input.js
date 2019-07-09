@@ -52,16 +52,18 @@ export function uiFieldText(field, context) {
             .merge(input);
         
         // getting the image URI after creating the input HTML element, then adding it to the input children node
-        var imageURL = document.getElementById('preset-input-image').value;
+        var imagesURL = document.getElementById('preset-input-image').value;
         var renderedImage = document.getElementsByClassName('rendered-image');
-        if(imageURL !== "" && renderedImage.length < 1){
-            wrap
-            .append('img')
-            .attr('src', imageURL)
-            .attr('class', 'rendered-image')
-            .merge(wrap);
+        if(imagesURL !== "" && renderedImage.length < 1){
+            imagesURL = imagesURL.split(',');
+            for(var i = 0; i < imagesURL.length; i++){
+                wrap
+                .append('img')
+                .attr('src', imagesURL[i])
+                .attr('class', 'rendered-image')
+                .merge(wrap);
+            }
         }
-        
         
         input
             .classed('disabled', !!isLocked)

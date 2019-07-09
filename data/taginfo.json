@@ -1425,7 +1425,7 @@
     {"key": "amenity", "value": "stables", "description": "🄵 Riding Stable"},
     {"key": "iata", "description": "🄵 IATA"},
     {"key": "icao", "description": "🄵 ICAO"},
-    {"key": "image_2", "description": "🄵 Image"},
+    {"key": "image", "description": "🄵 Image"},
     {"key": "incline", "value": "up", "description": "🄵 Incline"},
     {"key": "incline", "value": "down", "description": "🄵 Incline"},
     {"key": "incline", "description": "🄵 Incline"},

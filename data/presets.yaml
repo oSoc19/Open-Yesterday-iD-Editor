@@ -880,7 +880,7 @@ en:
         # icao=*
         label: ICAO
       image:
-        # image_2=*
+        # image=*
         label: Image
         # image field placeholder
         placeholder: Display marker image here
