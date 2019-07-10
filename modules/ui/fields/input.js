@@ -52,15 +52,21 @@ export function uiFieldText(field, context) {
         //value of imagesURL is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if(imagesURL !== "" && renderedImage.length < 1){
+            //add image container
+            wrap
+            .append('div')
+            .attr('class', 'image-view-box')
+            .merge(wrap);   
             imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
             for(var i = 0; i < imagesURL.length; i++){
-                //add image tag for each URL
-                wrap
+                var imageViewBox = selection.selectAll('.image-view-box');
+                //select the image container, and add image tag inside of it for each URL
+                imageViewBox
                 .append('img')
                 .attr('src', imagesURL[i])
                 .attr('class', 'rendered-image')
-                .merge(wrap);
+                .merge(imageViewBox);
             }
         }
         
