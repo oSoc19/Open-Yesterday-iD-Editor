@@ -58,19 +58,39 @@ export function uiFieldText(field, context) {
             wrap
             .append('div')
             .attr('class', 'image-view-box siema')
-            .merge(wrap);   
+            .merge(wrap);
+            //add buttons (previous and next) for image carousel
+            wrap
+            .append('div')
+            .attr('class', 'image-buttons')
+            .merge(wrap);
+            let imageButtons = selection.selectAll('.image-buttons');
+
+            imageButtons
+            .append('i')
+            .attr('class', 'btn-prev fas fa-chevron-left')
+            .merge(imageButtons);
+
+            imageButtons
+            .append('button')
+            .attr('class', 'btn-next')
+            .merge(imageButtons);
+
             imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
+
             for(var i = 0; i < imagesURL.length; i++){
-                var imageViewBox = selection.selectAll('.image-view-box');
-                //select the image container, and add image tag inside of it for each URL
+                //select the image container 
+                let imageViewBox = selection.selectAll('.image-view-box');
+                 
+                //add image tag inside container for each URL
                 imageViewBox
                 .append('img')
                 .attr('src', imagesURL[i])
                 .attr('class', 'rendered-image imageslide')
                 .merge(imageViewBox);
             }
-            //Image carousel
+            //Initiate image carousel
             new Siema({
                 selector: '.siema',
                 duration: 200,
