@@ -5,6 +5,8 @@ import { t, textDirection } from '../../util/locale';
 import { dataPhoneFormats } from '../../../data';
 import { services } from '../../services';
 import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
+import Siema from 'siema';
+//Siema is the image carousel library used for the marker image feature
 
 
 export {
@@ -55,7 +57,7 @@ export function uiFieldText(field, context) {
             //add image container
             wrap
             .append('div')
-            .attr('class', 'image-view-box')
+            .attr('class', 'image-view-box siema')
             .merge(wrap);   
             imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
@@ -65,9 +67,18 @@ export function uiFieldText(field, context) {
                 imageViewBox
                 .append('img')
                 .attr('src', imagesURL[i])
-                .attr('class', 'rendered-image')
+                .attr('class', 'rendered-image imageslide')
                 .merge(imageViewBox);
             }
+            //Image carousel
+            new Siema({
+                selector: '.siema',
+                duration: 200,
+                easing: 'ease-out',
+                perPage: 1,
+                draggable: true,
+                loop: true
+            });
         }
         
         input

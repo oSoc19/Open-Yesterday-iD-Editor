@@ -1577,10 +1577,6 @@ button.preset-favorite-button.active .icon {
     border-top: 0;
     border-radius: 0 0 4px 4px;
 }
-.nowrap .form-field-input-wrap {
-    border-radius: 0;
-}
-
 
 .form-field-input-wrap > input,
 .form-field-input-wrap > label,
@@ -5690,4 +5686,18 @@ li.hide + li.version .badge .tooltip .tooltip-arrow {
     height: 100px;
     width: 100px;
     color: #7092ff;
+}
+
+ /*Open Heritage Map: 
+ Display marker image(s) feature*/
+ .form-field-image > .form-field-input-wrap {
+    flex-direction: column-reverse;
+}
+
+div.image-view-box, img.rendered-image {
+    width: 100%;
+}
+
+.nowrap .form-field-input-wrap {
+    border-radius: 0;
 }
