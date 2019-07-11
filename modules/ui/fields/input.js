@@ -5,9 +5,9 @@ import { t, textDirection } from '../../util/locale';
 import { dataPhoneFormats } from '../../../data';
 import { services } from '../../services';
 import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
-import Siema from 'siema';
-//Siema is the image carousel library used for the marker image feature
 
+import Siema from 'siema';
+//Siema is the image carousel library used for the marker image carousel feature
 
 export {
     uiFieldText as uiFieldUrl,
@@ -54,44 +54,46 @@ export function uiFieldText(field, context) {
         //value of imagesURL is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if(imagesURL !== "" && renderedImage.length < 1){
-            //add image container
+            imagesURL = imagesURL.split(',');
+            //split imagesURL-value into seperate URLS
+
             wrap
+            //add image container
             .append('div')
             .attr('class', 'image-view-box siema')
             .merge(wrap);
-            //add buttons (previous and next) for image carousel
+            
             wrap
+            //add image carousel buttons containers
             .append('div')
             .attr('class', 'image-buttons')
             .merge(wrap);
+        
             let imageButtons = selection.selectAll('.image-buttons');
-
+            //add image carousel buttons
             imageButtons
-            .append('i')
-            .attr('class', 'btn-prev fas fa-chevron-left')
+            .append('button')
+            .attr('class', 'btn-carousel btn-prev')
             .merge(imageButtons);
 
             imageButtons
             .append('button')
-            .attr('class', 'btn-next')
+            .attr('class', 'btn-carousel btn-next')
             .merge(imageButtons);
-
-            imagesURL = imagesURL.split(',');
-            //split imagesURL-value into seperate URLS
 
             for(var i = 0; i < imagesURL.length; i++){
                 //select the image container 
                 let imageViewBox = selection.selectAll('.image-view-box');
-                 
-                //add image tag inside container for each URL
+                
                 imageViewBox
+                //add image tag inside container for each URL
                 .append('img')
                 .attr('src', imagesURL[i])
                 .attr('class', 'rendered-image imageslide')
                 .merge(imageViewBox);
             }
             //Initiate image carousel
-            new Siema({
+            let initSiema = new Siema({
                 selector: '.siema',
                 duration: 200,
                 easing: 'ease-out',
@@ -99,6 +101,9 @@ export function uiFieldText(field, context) {
                 draggable: true,
                 loop: true
             });
+
+            document.querySelector('.btn-prev').addEventListener('click', () => initSiema.prev());
+            document.querySelector('.btn-next').addEventListener('click', () => initSiema.next());
         }
         
         input
