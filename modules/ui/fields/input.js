@@ -9,9 +9,6 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 import Siema from 'siema';
 //Siema is the image carousel library used for the marker image carousel feature
 
-/*import fontawesome from '@fortawesome/fontawesome';
-// Font Awesome icons*/
-
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -84,11 +81,6 @@ export function uiFieldText(field, context) {
             .attr('class', 'btn-carousel btn-next fas fa-chevron-right')
             .merge(imageButtons);
 
-            /*btnPrev
-            .append('i')
-            .attr('class', 'fas fa-chevron-left')
-            .merge(btnPrev);*/
-
             for(var i = 0; i < imagesURL.length; i++){
                 //select the image container 
                 let imageViewBox = selection.selectAll('.image-view-box');
@@ -109,7 +101,7 @@ export function uiFieldText(field, context) {
                 draggable: true,
                 loop: true
             });
-
+            //Carousel buttons functionality
             document.querySelector('.btn-prev').addEventListener('click', () => initSiema.prev());
             document.querySelector('.btn-next').addEventListener('click', () => initSiema.next());
         }
