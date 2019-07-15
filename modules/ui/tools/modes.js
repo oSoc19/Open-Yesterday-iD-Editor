@@ -3,6 +3,9 @@ import _debounce from 'lodash-es/debounce';
 import { select as d3_select } from 'd3-selection';
 
 import {
+    modeAddChimney,
+    modeAddChapel,
+    modeAddFactory,
     modeAddArea,
     modeAddLine,
     modeAddPoint,
@@ -21,29 +24,48 @@ export function uiToolOldDrawModes(context) {
     };
 
     var modes = [
+        modeAddChimney(context, {
+            title: t('modes.add_chimney.title'),
+            button: 'chimney',
+            description: t('modes.add_chimney.description'),
+            preset: context.presets().item('chimney'),
+            key: '4'
+        }),
+        modeAddChapel(context, {
+            title: t('modes.add_chapel.title'),
+            button: 'chapel',
+            description: t('modes.add_chapel.description'),
+            preset: context.presets().item('chapel'),
+            key: '5'
+        }),
+        modeAddFactory(context, {
+            title: t('modes.add_factory.title'),
+            button: 'factory',
+            description: t('modes.add_factory.description'),
+            preset: context.presets().item('factory'),
+            key: '6'
+        }),
         modeAddPoint(context, {
             title: t('modes.add_point.title'),
             button: 'point',
             description: t('modes.add_point.description'),
             preset: context.presets().item('point'),
             key: '1'
-        })
-        /*
-        !This is a disabled feature for Open Heritage Map!
+        }),
         modeAddLine(context, {
             title: t('modes.add_line.title'),
             button: 'line',
             description: t('modes.add_line.description'),
             preset: context.presets().item('line'),
             key: '2'
-        }),*/
-        // modeAddArea(context, {
-        //     title: t('modes.add_area.title'),
-        //     button: 'area',
-        //     description: t('modes.add_area.description'),
-        //     preset: context.presets().item('area'),
-        //     key: '3'
-        // })
+        }),
+        modeAddArea(context, {
+            title: t('modes.add_area.title'),
+            button: 'area',
+            description: t('modes.add_area.description'),
+            preset: context.presets().item('area'),
+            key: '3'
+        })
     ];
 
     function enabled() {
@@ -70,8 +92,12 @@ export function uiToolOldDrawModes(context) {
     tool.render = function(selection) {
         var wrap = selection
             .append('div')
-            .attr('class', 'joined')
-            .style('display', 'flex');
+            // .attr('class', 'joined')
+            .style('display', 'flex')
+            .style('width', '350px')
+            .style('height', '100px')
+            .style('flex-wrap', 'wrap')
+            .style('justify-content', 'center');
 
         context.on('enter.editor', function(entered) {
             selection

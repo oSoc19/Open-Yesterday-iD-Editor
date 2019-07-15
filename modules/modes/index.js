@@ -1,6 +1,9 @@
 export { modeAddArea } from './add_area';
 export { modeAddLine } from './add_line';
 export { modeAddPoint } from './add_point';
+export { modeAddChimney } from './add_chimney';
+export { modeAddChapel } from './add_chapel.js';
+export { modeAddFactory } from './add_factory.js';
 export { modeAddNote } from './add_note';
 export { modeBrowse } from './browse';
 export { modeDragNode } from './drag_node';
@@ -12,5 +15,5 @@ export { modeRotate } from './rotate';
 export { modeSave } from './save';
 export { modeSelect } from './select';
 export { modeSelectData } from './select_data';
-export { modeSelectError} from './select_error';
+export { modeSelectError } from './select_error';
 export { modeSelectNote } from './select_note';

@@ -380,6 +380,10 @@ button.disabled {
     border-radius: 4px 0 0 4px;
 }
 
+.add-button{
+    margin: 0 3px;
+}
+
 
 /* Action buttons */
 button.action {
@@ -484,7 +488,7 @@ button[disabled].action:hover {
     position: absolute;
     padding: 10px 5px 0px 5px;
     left: 0;
-    bottom: 50px;
+    bottom: 70px;
     right: 0;
     z-index: 101;
 }
@@ -499,10 +503,10 @@ button[disabled].action:hover {
 #bar .toolbar-item .item-content {
     display: flex;
     flex: 0 1 auto;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     position: relative;
-    height: 70px;
+    height: 100px;
     width: auto;
     margin: 0 5px;
 }
@@ -819,10 +823,10 @@ button.bar-button.add-preset {
     border-radius: 4px;
 }
 [dir='ltr'] button.bar-button.add-preset {
-    margin-left: 1px;
+    margin-left: 3px;
 }
 [dir='rtl'] button.bar-button.add-preset {
-    margin-right: 1px;
+    margin-right: 3px;
 }
 [dir='ltr'] button.bar-button.add-preset.first-recent {
     margin-left: 10px;
@@ -831,7 +835,7 @@ button.bar-button.add-preset {
     margin-right: 10px;
 }
 button.bar-button.add-preset {
-    padding: 0;
+    padding: 10px 6px;
 }
 button.add-preset.disabled .preset-icon-container {
     opacity: 0.5;
