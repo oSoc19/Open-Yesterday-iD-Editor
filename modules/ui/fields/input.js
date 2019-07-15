@@ -9,6 +9,8 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 import Siema from 'siema';
 //Siema is the image carousel library used for the marker image carousel feature
 
+//import addImage from 'addImage.js';
+
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -58,10 +60,22 @@ export function uiFieldText(field, context) {
             //split imagesURL-value into seperate URLS
 
             wrap
+            .append('div')
+            .attr('class', 'image-features')
+            .merge(wrap);
+
+            let imageFeatures = selection.selectAll('.image-features');
+
+            imageFeatures
+            .append('button')
+            .attr('class', 'btn-add-image')
+            .merge(imageFeatures);
+
+            imageFeatures
             //add image container
             .append('div')
             .attr('class', 'image-view-box siema')
-            .merge(wrap);
+            .merge(imageFeatures);
             
             wrap
             //add image carousel buttons containers
@@ -104,6 +118,23 @@ export function uiFieldText(field, context) {
             //Carousel buttons functionality
             document.querySelector('.btn-prev').addEventListener('click', () => initSiema.prev());
             document.querySelector('.btn-next').addEventListener('click', () => initSiema.next());
+
+            //Add image functionality
+            document.querySelector('.btn-add-image').addEventListener('click', addImage);
+
+            function addImage() {
+                let container = document.getElementById('id-container');
+                let addImageBox = document.createElement('div');
+                addImageBox.setAttribute('class', 'add-image-box');
+                container.appendChild(addImageBox);
+
+                let sidebar = document.getElementById('sidebar');
+                sidebar.style.filter = 'blur(5px)';
+
+                let containerContent = document.getElementById('content');
+                containerContent.style.filter = 'blur(5px)';
+
+            }
         }
         
         input
