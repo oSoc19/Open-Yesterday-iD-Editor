@@ -2,11 +2,12 @@
     "icon": "maki-industry",
     "fields": [
         "name",
-        "height",
         "address",
-        "building_area",
         "start_date",
         "end_date",
+        "function",
+        "products",
+        "newfunction",
         "description"
     ],
     "geometry": [
@@ -31,5 +32,5 @@
         "usine",
         "fabriek"
     ],
-    "name": "Factory"
+    "name": "Fabriek"
 }

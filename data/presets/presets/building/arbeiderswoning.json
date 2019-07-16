@@ -1,0 +1,23 @@
+{
+    "icon": "maki-town",
+    "fields": [
+        "name",
+        "address",
+        "status",
+        "description"
+    ],
+    "geometry": [
+        "point",
+        "area"
+    ],
+    "tags": {
+        "building": "arbeiderswoning"
+    },
+    "terms": [
+        "house",
+        "woning",
+        "arbeiderswoning",
+        "arbeidershuis"
+    ],
+    "name": "Arbeiderswoning"
+}

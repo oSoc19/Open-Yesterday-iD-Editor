@@ -2842,8 +2842,7 @@
                     }
                 },
                 "description": {
-                    "label": "Description",
-                    "placeholder": "Give a short description"
+                    "label": "Description"
                 },
                 "design": {
                     "label": "Design"
@@ -2981,7 +2980,7 @@
                     "label": "Emergency"
                 },
                 "end_date": {
-                    "label": "End date"
+                    "label": "Datum van sluiting"
                 },
                 "enforcement": {
                     "label": "Type"
@@ -3063,6 +3062,9 @@
                 },
                 "fuel": {
                     "label": "Fuel"
+                },
+                "function": {
+                    "label": "Functie"
                 },
                 "gauge": {
                     "label": "Gauge"
@@ -3357,7 +3359,8 @@
                     "label": "Type"
                 },
                 "material": {
-                    "label": "Material"
+                    "label": "Materiaal",
+                    "placeholder": "baksteen, metaal, beton,..."
                 },
                 "maxheight": {
                     "label": "Max Height",
@@ -3431,7 +3434,7 @@
                 },
                 "name": {
                     "label": "Name",
-                    "placeholder": "Common name (if any)"
+                    "placeholder": "Naam"
                 },
                 "natural": {
                     "label": "Natural"
@@ -3471,6 +3474,9 @@
                 },
                 "network": {
                     "label": "Network"
+                },
+                "newfunction": {
+                    "label": "Herbestemming"
                 },
                 "note": {
                     "label": "Note"
@@ -3691,6 +3697,13 @@
                 "product": {
                     "label": "Products"
                 },
+                "productieproces": {
+                    "label": "Productieproces van: (wat werd er gemaakt)"
+                },
+                "products": {
+                    "label": "Product",
+                    "placeholder": "textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…"
+                },
                 "railway": {
                     "label": "Type"
                 },
@@ -3761,6 +3774,9 @@
                 },
                 "relation": {
                     "label": "Type"
+                },
+                "relics": {
+                    "label": "Aanwezige relieken"
                 },
                 "religion": {
                     "label": "Religion"
@@ -3975,6 +3991,10 @@
                 "site": {
                     "label": "Type"
                 },
+                "situation": {
+                    "label": "Situatie",
+                    "placeholder": "zelfstanding/in opdracht,..."
+                },
                 "smoking": {
                     "label": "Smoking",
                     "placeholder": "No, Separated, Yes...",
@@ -4026,7 +4046,11 @@
                     "label": "Stars"
                 },
                 "start_date": {
-                    "label": "Start Date"
+                    "label": "Datum van oprichting"
+                },
+                "status": {
+                    "label": "Status",
+                    "placeholder": "bestaand/verdwenen/deels verdwenen/onduidelijk "
                 },
                 "step_count": {
                     "label": "Number of Steps"
@@ -4251,6 +4275,9 @@
                 },
                 "vending": {
                     "label": "Types of Goods"
+                },
+                "verbondenbedrijf": {
+                    "label": "Verbonden bedrijf"
                 },
                 "visibility": {
                     "label": "Visibility",
@@ -5557,6 +5584,14 @@
                     "name": "Apartment Building",
                     "terms": ""
                 },
+                "building/arbeiderscafe": {
+                    "name": "Arbeiderscafé",
+                    "terms": "cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar"
+                },
+                "building/arbeiderswoning": {
+                    "name": "Arbeiderswoning",
+                    "terms": "house,woning,arbeiderswoning,arbeidershuis"
+                },
                 "building/barn": {
                     "name": "Barn",
                     "terms": ""
@@ -5614,7 +5649,7 @@
                     "terms": ""
                 },
                 "building/factory": {
-                    "name": "Factory",
+                    "name": "Fabriek",
                     "terms": "assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery,factory,usine,fabriek"
                 },
                 "building/farm_auxiliary": {
@@ -5669,9 +5704,25 @@
                     "name": "Industrial Building",
                     "terms": ""
                 },
+                "building/industriele": {
+                    "name": "Industriële",
+                    "terms": "industriele,industriële,industrie"
+                },
+                "building/kapel": {
+                    "name": "Kapel",
+                    "terms": "kapel"
+                },
                 "building/kindergarten": {
                     "name": "Preschool/Kindergarten Building",
                     "terms": "kindergarden,pre-school"
+                },
+                "building/landschapelement": {
+                    "name": "Industrieel landschapelement",
+                    "terms": "industrieel element,industrieel landschapelement,landschapelement,factory element"
+                },
+                "building/molen": {
+                    "name": "Molen",
+                    "terms": "windmill,moulin,molen"
                 },
                 "building/mosque": {
                     "name": "Mosque Building",
@@ -5736,6 +5787,10 @@
                 "building/terrace": {
                     "name": "Row Houses",
                     "terms": "home,terrace,brownstone,family,residence,dwelling"
+                },
+                "building/thuisweverij": {
+                    "name": "Thuisweverij",
+                    "terms": "weverij,thuisweverij"
                 },
                 "building/transportation": {
                     "name": "Transportation Building",
@@ -7292,10 +7347,6 @@
                 "man_made/watermill": {
                     "name": "Watermill",
                     "terms": "water,wheel,mill"
-                },
-                "man_made/windmill": {
-                    "name": "Windmill",
-                    "terms": "wind,wheel,mill"
                 },
                 "manhole": {
                     "name": "Manhole",
