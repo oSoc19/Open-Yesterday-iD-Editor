@@ -19,7 +19,6 @@ import { uiKeepRightEditor } from './keepRight_editor';
 import { uiNoteEditor } from './note_editor';
 import { textDirection } from '../util/locale';
 
-
 export function uiSidebar(context) {
     var inspector = uiInspector(context);
     var dataEditor = uiDataEditor(context);
@@ -31,7 +30,6 @@ export function uiSidebar(context) {
     var _wasNote = false;
     var _wasQAError = false;
 
-
     function sidebar(selection) {
         var container = d3_select('#id-container');
         var minWidth = 280;
@@ -39,9 +37,7 @@ export function uiSidebar(context) {
         var containerWidth;
         var dragOffset;
 
-        var resizer = selection
-            .append('div')
-            .attr('id', 'sidebar-resizer');
+        var resizer = selection.append('div').attr('id', 'sidebar-resizer');
 
         // Set the initial width constraints
         selection
@@ -49,59 +45,68 @@ export function uiSidebar(context) {
             .style('max-width', '400px')
             .style('width', '33.3333%');
 
-        resizer.call(d3_drag()
-            .container(container.node())
-            .on('start', function() {
-                // offset from edge of sidebar-resizer
-                dragOffset = d3_event.sourceEvent.offsetX - 1;
+        resizer.call(
+            d3_drag()
+                .container(container.node())
+                .on('start', function() {
+                    // offset from edge of sidebar-resizer
+                    dragOffset = d3_event.sourceEvent.offsetX - 1;
 
-                sidebarWidth = selection.node().getBoundingClientRect().width;
-                containerWidth = container.node().getBoundingClientRect().width;
-                var widthPct = (sidebarWidth / containerWidth) * 100;
-                selection
-                    .style('width', widthPct + '%')    // lock in current width
-                    .style('max-width', '85%');        // but allow larger widths
-
-                resizer.classed('dragging', true);
-            })
-            .on('drag', function() {
-                var isRTL = (textDirection === 'rtl');
-                var scaleX = isRTL ? 0 : 1;
-                var xMarginProperty = isRTL ? 'margin-right' : 'margin-left';
-
-                var x = d3_event.x - dragOffset;
-                sidebarWidth = isRTL ? containerWidth - x : x;
-
-                var isCollapsed = selection.classed('collapsed');
-                var shouldCollapse = sidebarWidth < minWidth;
-
-                selection.classed('collapsed', shouldCollapse);
-
-                if (shouldCollapse) {
-                    if (!isCollapsed) {
-                        selection
-                            .style(xMarginProperty, '-400px')
-                            .style('width', '400px');
-
-                        context.ui().onResize([(sidebarWidth - d3_event.dx) * scaleX, 0]);
-                    }
-
-                } else {
+                    sidebarWidth = selection.node().getBoundingClientRect()
+                        .width;
+                    containerWidth = container.node().getBoundingClientRect()
+                        .width;
                     var widthPct = (sidebarWidth / containerWidth) * 100;
                     selection
-                        .style(xMarginProperty, null)
-                        .style('width', widthPct + '%');
+                        .style('width', widthPct + '%') // lock in current width
+                        .style('max-width', '85%'); // but allow larger widths
 
-                    if (isCollapsed) {
-                        context.ui().onResize([-sidebarWidth * scaleX, 0]);
+                    resizer.classed('dragging', true);
+                })
+                .on('drag', function() {
+                    var isRTL = textDirection === 'rtl';
+                    var scaleX = isRTL ? 0 : 1;
+                    var xMarginProperty = isRTL
+                        ? 'margin-right'
+                        : 'margin-left';
+
+                    var x = d3_event.x - dragOffset;
+                    sidebarWidth = isRTL ? containerWidth - x : x;
+
+                    var isCollapsed = selection.classed('collapsed');
+                    var shouldCollapse = sidebarWidth < minWidth;
+
+                    selection.classed('collapsed', shouldCollapse);
+
+                    if (shouldCollapse) {
+                        if (!isCollapsed) {
+                            selection
+                                .style(xMarginProperty, '-400px')
+                                .style('width', '400px');
+
+                            context
+                                .ui()
+                                .onResize([
+                                    (sidebarWidth - d3_event.dx) * scaleX,
+                                    0
+                                ]);
+                        }
                     } else {
-                        context.ui().onResize([-d3_event.dx * scaleX, 0]);
+                        var widthPct = (sidebarWidth / containerWidth) * 100;
+                        selection
+                            .style(xMarginProperty, null)
+                            .style('width', widthPct + '%');
+
+                        if (isCollapsed) {
+                            context.ui().onResize([-sidebarWidth * scaleX, 0]);
+                        } else {
+                            context.ui().onResize([-d3_event.dx * scaleX, 0]);
+                        }
                     }
-                }
-            })
-            .on('end', function() {
-                resizer.classed('dragging', false);
-            })
+                })
+                .on('end', function() {
+                    resizer.classed('dragging', false);
+                })
         );
 
         var featureListWrap = selection
@@ -113,31 +118,29 @@ export function uiSidebar(context) {
             .append('div')
             .attr('class', 'inspector-hidden inspector-wrap fr');
 
-
         function hover(datum) {
-            if (datum && datum.__featurehash__) {   // hovering on data
+            if (datum && datum.__featurehash__) {
+                // hovering on data
                 _wasData = true;
-                sidebar
-                    .show(dataEditor.datum(datum));
+                sidebar.show(dataEditor.datum(datum));
 
-                selection.selectAll('.sidebar-component')
+                selection
+                    .selectAll('.sidebar-component')
                     .classed('inspector-hover', true);
-
             } else if (datum instanceof osmNote) {
                 if (context.mode().id === 'drag-note') return;
                 _wasNote = true;
 
                 var osm = services.osm;
                 if (osm) {
-                    datum = osm.getNote(datum.id);   // marker may contain stale data - get latest
+                    datum = osm.getNote(datum.id); // marker may contain stale data - get latest
                 }
 
-                sidebar
-                    .show(noteEditor.note(datum));
+                sidebar.show(noteEditor.note(datum));
 
-                selection.selectAll('.sidebar-component')
+                selection
+                    .selectAll('.sidebar-component')
                     .classed('inspector-hover', true);
-
             } else if (datum instanceof qaError) {
                 _wasQAError = true;
 
@@ -148,42 +151,42 @@ export function uiSidebar(context) {
                 }
 
                 // Temporary solution while only two services
-                var errEditor = (datum.service === 'keepRight') ? keepRightEditor : improveOsmEditor;
+                var errEditor =
+                    datum.service === 'keepRight'
+                        ? keepRightEditor
+                        : improveOsmEditor;
 
-                d3_selectAll('.qa_error.' + datum.service)
-                    .classed('hover', function(d) { return d.id === datum.id; });
+                d3_selectAll('.qa_error.' + datum.service).classed(
+                    'hover',
+                    function(d) {
+                        return d.id === datum.id;
+                    }
+                );
 
-                sidebar
-                    .show(errEditor.error(datum));
+                sidebar.show(errEditor.error(datum));
 
-                selection.selectAll('.sidebar-component')
+                selection
+                    .selectAll('.sidebar-component')
                     .classed('inspector-hover', true);
-
-            } else if (!_current && (datum instanceof osmEntity)) {
-                featureListWrap
-                    .classed('inspector-hidden', true);
+            } else if (!_current && datum instanceof osmEntity) {
+                featureListWrap.classed('inspector-hidden', true);
 
                 inspectorWrap
                     .classed('inspector-hidden', false)
                     .classed('inspector-hover', true);
 
-                if (inspector.entityID() !== datum.id || inspector.state() !== 'hover') {
-                    inspector
-                        .state('hover')
-                        .entityID(datum.id);
+                if (
+                    inspector.entityID() !== datum.id ||
+                    inspector.state() !== 'hover'
+                ) {
+                    inspector.state('hover').entityID(datum.id);
 
-                    inspectorWrap
-                        .call(inspector);
+                    inspectorWrap.call(inspector);
                 }
-
             } else if (!_current) {
-                featureListWrap
-                    .classed('inspector-hidden', false);
-                inspectorWrap
-                    .classed('inspector-hidden', true);
-                inspector
-                    .state('hide');
-
+                featureListWrap.classed('inspector-hidden', false);
+                inspectorWrap.classed('inspector-hidden', true);
+                inspector.state('hide');
             } else if (_wasData || _wasNote || _wasQAError) {
                 _wasNote = false;
                 _wasData = false;
@@ -196,7 +199,6 @@ export function uiSidebar(context) {
 
         sidebar.hover = _throttle(hover, 200);
 
-
         sidebar.intersects = function(extent) {
             var rect = selection.node().getBoundingClientRect();
             return extent.intersects([
@@ -204,7 +206,6 @@ export function uiSidebar(context) {
                 context.projection.invert([rect.width, 0])
             ]);
         };
-
 
         sidebar.select = function(id, newFeature) {
             sidebar.hide();
@@ -219,39 +220,37 @@ export function uiSidebar(context) {
                     }
                 }
 
-                featureListWrap
-                    .classed('inspector-hidden', true);
+                featureListWrap.classed('inspector-hidden', true);
 
                 inspectorWrap
                     .classed('inspector-hidden', false)
                     .classed('inspector-hover', false);
 
-                if (inspector.entityID() !== id || inspector.state() !== 'select') {
+                if (
+                    inspector.entityID() !== id ||
+                    inspector.state() !== 'select'
+                ) {
                     inspector
                         .state('select')
                         .entityID(id)
                         .newFeature(newFeature);
 
-                    inspectorWrap
-                        .call(inspector, newFeature);
+                    inspectorWrap.call(inspector, newFeature);
                 }
 
                 sidebar.showPresetList = function() {
-                    inspector.showList(context.presets().match(entity, context.graph()));
+                    inspector.showList(
+                        context.presets().match(entity, context.graph())
+                    );
                 };
-
             } else {
-                inspector
-                    .state('hide');
+                inspector.state('hide');
             }
         };
 
-
         sidebar.show = function(component, element) {
-            featureListWrap
-                .classed('inspector-hidden', true);
-            inspectorWrap
-                .classed('inspector-hidden', true);
+            featureListWrap.classed('inspector-hidden', true);
+            inspectorWrap.classed('inspector-hidden', true);
 
             if (_current) _current.remove();
             _current = selection
@@ -260,17 +259,13 @@ export function uiSidebar(context) {
                 .call(component, element);
         };
 
-
         sidebar.hide = function() {
-            featureListWrap
-                .classed('inspector-hidden', false);
-            inspectorWrap
-                .classed('inspector-hidden', true);
+            featureListWrap.classed('inspector-hidden', false);
+            inspectorWrap.classed('inspector-hidden', true);
 
             if (_current) _current.remove();
             _current = null;
         };
-
 
         sidebar.expand = function(moveMap) {
             if (selection.classed('collapsed')) {
@@ -278,13 +273,11 @@ export function uiSidebar(context) {
             }
         };
 
-
         sidebar.collapse = function(moveMap) {
             if (!selection.classed('collapsed')) {
                 sidebar.toggle(moveMap);
             }
         };
-
 
         sidebar.toggle = function(moveMap) {
             var e = d3_event;
@@ -299,7 +292,7 @@ export function uiSidebar(context) {
 
             var isCollapsed = selection.classed('collapsed');
             var isCollapsing = !isCollapsed;
-            var isRTL = (textDirection === 'rtl');
+            var isRTL = textDirection === 'rtl';
             var scaleX = isRTL ? 0 : 1;
             var xMarginProperty = isRTL ? 'margin-right' : 'margin-left';
 
@@ -317,14 +310,17 @@ export function uiSidebar(context) {
                 endMargin = 0;
             }
 
-            selection.transition()
+            selection
+                .transition()
                 .style(xMarginProperty, endMargin + 'px')
                 .tween('panner', function() {
                     var i = d3_interpolateNumber(startMargin, endMargin);
                     return function(t) {
                         var dx = lastMargin - Math.round(i(t));
                         lastMargin = lastMargin - dx;
-                        context.ui().onResize(moveMap ? undefined : [dx * scaleX, 0]);
+                        context
+                            .ui()
+                            .onResize(moveMap ? undefined : [dx * scaleX, 0]);
                     };
                 })
                 .on('end', function() {
@@ -332,7 +328,9 @@ export function uiSidebar(context) {
 
                     // switch back from px to %
                     if (!isCollapsing) {
-                        var containerWidth = container.node().getBoundingClientRect().width;
+                        var containerWidth = container
+                            .node()
+                            .getBoundingClientRect().width;
                         var widthPct = (sidebarWidth / containerWidth) * 100;
                         selection
                             .style(xMarginProperty, null)

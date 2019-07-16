@@ -1,0 +1,6 @@
+{
+    "key": "situation",
+    "type": "text",
+    "label": "Situatie",
+    "placeholder": "zelfstanding/in opdracht,..."
+}

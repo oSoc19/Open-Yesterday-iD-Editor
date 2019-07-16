@@ -360,6 +360,11 @@ en:
       communication_multi:
         # 'communication:=*'
         label: Communication Types
+      condition:
+        # condition=*
+        label: Condition
+        # condition field placeholder
+        placeholder: What is the actual statue's condition
       construction:
         # construction=*
         label: Type
@@ -660,6 +665,9 @@ en:
       emergency_combo:
         # emergency=*
         label: Type
+      end_date:
+        # end_date=*
+        label: Datum van sluiting
       enforcement:
         # enforcement=*
         label: Type
@@ -669,6 +677,11 @@ en:
       except:
         # except=*
         label: Exceptions
+      fabrication_date:
+        # fabrication_date=*
+        label: Fabrication Year
+        # fabrication_date field placeholder
+        placeholder: When was it made ?
       faces:
         # faces=*
         label: Faces
@@ -742,6 +755,9 @@ en:
       fuel_multi:
         # 'fuel:=*'
         label: Fuel Types
+      function:
+        # function=*
+        label: Functie
       gauge:
         # gauge=*
         label: Gauge
@@ -1081,7 +1097,9 @@ en:
         label: Type
       material:
         # material=*
-        label: Material
+        label: Materiaal
+        # material field placeholder
+        placeholder: 'baksteen, metaal, beton,...'
       maxheight:
         # maxheight=*
         label: Max Height
@@ -1178,7 +1196,7 @@ en:
         # name=*
         label: Name
         # name field placeholder
-        placeholder: Common name (if any)
+        placeholder: Naam
       natural:
         # natural=*
         label: Natural
@@ -1230,6 +1248,9 @@ en:
       network_road:
         # network=*
         label: Network
+      newfunction:
+        # newfunction=*
+        label: Herbestemming
       note:
         # note=*
         label: Note
@@ -1515,6 +1536,14 @@ en:
       product:
         # product=*
         label: Products
+      productieproces:
+        # productieproces=*
+        label: 'Productieproces van: (wat werd er gemaakt)'
+      products:
+        # products=*
+        label: Product
+        # products field placeholder
+        placeholder: textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…
       railway:
         # railway=*
         label: Type
@@ -1594,6 +1623,9 @@ en:
       relation:
         # type=*
         label: Type
+      relics:
+        # relics=*
+        label: Aanwezige relieken
       religion:
         # religion=*
         label: Religion
@@ -1854,6 +1886,11 @@ en:
       site_type:
         # site_type=*
         label: Site Type
+      situation:
+        # situation=*
+        label: Situatie
+        # situation field placeholder
+        placeholder: 'zelfstanding/in opdracht,...'
       smoking:
         # smoking=*
         label: Smoking
@@ -1920,7 +1957,12 @@ en:
         label: Stars
       start_date:
         # start_date=*
-        label: Start Date
+        label: Datum van oprichting
+      status:
+        # status=*
+        label: Status
+        # status field placeholder
+        placeholder: 'bestaand/verdwenen/deels verdwenen/onduidelijk '
       step_count:
         # step_count=*
         label: Number of Steps
@@ -2192,6 +2234,9 @@ en:
       vending:
         # vending=*
         label: Types of Goods
+      verbondenbedrijf:
+        # verbonden-bedrijf=*
+        label: Verbonden bedrijf
       visibility:
         # visibility=*
         label: Visibility
@@ -3605,6 +3650,16 @@ en:
         # building=apartments
         name: Apartment Building
         terms: '<translate with synonyms or related terms for ''Apartment Building'', separated by commas>'
+      building/arbeiderscafe:
+        # building=arbeiderscafe
+        name: Arbeiderscafé
+        # 'terms: cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar'
+        terms: '<translate with synonyms or related terms for ''Arbeiderscafé'', separated by commas>'
+      building/arbeiderswoning:
+        # building=arbeiderswoning
+        name: Arbeiderswoning
+        # 'terms: house,woning,arbeiderswoning,arbeidershuis'
+        terms: '<translate with synonyms or related terms for ''Arbeiderswoning'', separated by commas>'
       building/barn:
         # building=barn
         name: Barn
@@ -3671,6 +3726,11 @@ en:
       building/entrance:
         # building=entrance
         name: Entrance/Exit
+      building/factory:
+        # 'building=factory, man_made=works'
+        name: Fabriek
+        # 'terms: assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery,factory,usine,fabriek'
+        terms: '<translate with synonyms or related terms for ''Fabriek'', separated by commas>'
       building/farm:
         # building=farm
         name: Farm House
@@ -3726,11 +3786,31 @@ en:
         # building=industrial
         name: Industrial Building
         terms: '<translate with synonyms or related terms for ''Industrial Building'', separated by commas>'
+      building/industriele:
+        # building=factory
+        name: Industriële
+        # 'terms: industriele,industriële,industrie'
+        terms: '<translate with synonyms or related terms for ''Industriële'', separated by commas>'
+      building/kapel:
+        # building=kapel
+        name: Kapel
+        # 'terms: kapel'
+        terms: '<translate with synonyms or related terms for ''Kapel'', separated by commas>'
       building/kindergarten:
         # building=kindergarten
         name: Preschool/Kindergarten Building
         # 'terms: kindergarden,pre-school'
         terms: '<translate with synonyms or related terms for ''Preschool/Kindergarten Building'', separated by commas>'
+      building/landschapelement:
+        # building=landschapelement
+        name: Industrieel landschapelement
+        # 'terms: industrieel element,industrieel landschapelement,landschapelement,factory element'
+        terms: '<translate with synonyms or related terms for ''Industrieel landschapelement'', separated by commas>'
+      building/molen:
+        # building=windmill
+        name: Molen
+        # 'terms: windmill,moulin,molen'
+        terms: '<translate with synonyms or related terms for ''Molen'', separated by commas>'
       building/mosque:
         # building=mosque
         name: Mosque Building
@@ -3799,6 +3879,11 @@ en:
         name: Row Houses
         # 'terms: home,terrace,brownstone,family,residence,dwelling'
         terms: '<translate with synonyms or related terms for ''Row Houses'', separated by commas>'
+      building/thuisweverij:
+        # building=thuisweverij
+        name: Thuisweverij
+        # 'terms: weverij,thuisweverij'
+        terms: '<translate with synonyms or related terms for ''Thuisweverij'', separated by commas>'
       building/train_station:
         # building=train_station
         name: Train Station Building
@@ -5361,6 +5446,11 @@ en:
         name: Antenna
         # 'terms: broadcast,cell phone,cell,communication,mobile phone,radio,television,transmission,tv'
         terms: '<translate with synonyms or related terms for ''Antenna'', separated by commas>'
+      man_made/art/statues:
+        # man_made=statue
+        name: Statue
+        # 'terms: statue,standbeeld'
+        terms: '<translate with synonyms or related terms for ''Statue'', separated by commas>'
       man_made/beacon:
         # man_made=beacon
         name: Beacon
@@ -5605,16 +5695,6 @@ en:
         name: Watermill
         # 'terms: water,wheel,mill'
         terms: '<translate with synonyms or related terms for ''Watermill'', separated by commas>'
-      man_made/windmill:
-        # man_made=windmill
-        name: Windmill
-        # 'terms: wind,wheel,mill'
-        terms: '<translate with synonyms or related terms for ''Windmill'', separated by commas>'
-      man_made/works:
-        # man_made=works
-        name: Factory
-        # 'terms: assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery'
-        terms: '<translate with synonyms or related terms for ''Factory'', separated by commas>'
       manhole:
         # manhole=*
         name: Manhole
@@ -7420,11 +7500,6 @@ en:
         name: Sculpture
         # 'terms: statue,figure,carving'
         terms: '<translate with synonyms or related terms for ''Sculpture'', separated by commas>'
-      tourism/artwork/statue:
-        # 'tourism=artwork, artwork_type=statue'
-        name: Statue
-        # 'terms: sculpture,figure,carving'
-        terms: '<translate with synonyms or related terms for ''Statue'', separated by commas>'
       tourism/attraction:
         # tourism=attraction
         name: Tourist Attraction

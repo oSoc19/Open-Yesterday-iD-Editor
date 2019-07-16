@@ -1,0 +1,23 @@
+{
+    "icon": "fas-female",
+    "fields": [
+        "name",
+        "artist",
+        "height",
+        "material",
+        "fabrication_date",
+        "condition",
+        "description"
+    ],
+    "geometry": [
+        "point"
+    ],
+    "tags": {
+        "man_made": "statue"
+    },
+    "terms": [
+        "statue",
+        "standbeeld"
+    ],
+    "name": "Statue"
+}
