@@ -4,6 +4,8 @@
         <meta charset="utf-8" />
         <title>Open Heritage Map</title>
         <link rel="stylesheet" href="dist/iD.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css">
         <link rel="shortcut icon" type="image/icon" href="/favicon.ico" />
         <meta
             name="viewport"
@@ -17,6 +19,24 @@
         <script src="dist/iD.js"></script>
     </head>
     <body>
+        <div class="header-map">
+            <a
+                href="http://www.erfgoedzuidwest.be/"
+                target="_blank"
+                class="header_logo_erfgoed"
+            ></a>
+            <a
+                href="http://www.erfgoedzuidwest.be/content/ik-xploreer-mee"
+                target="_blank"
+                class="header_title"
+                ><h1 class="header_xploreer">Ik-xploreer mee!</h1></a
+            >
+            <a
+                href="https://www.vlaanderen.be/"
+                target="_blank"
+                class="header_logo_vlaanderen"
+            ></a>
+        </div>
         <div id="id-container"></div>
         <script>
             id = iD.coreContext().assetPath("dist/");
