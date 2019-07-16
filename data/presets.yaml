@@ -500,8 +500,6 @@ en:
       description:
         # description=*
         label: Description
-        # description field placeholder
-        placeholder: Give a short description
       design:
         # design=*
         label: Design
@@ -669,11 +667,7 @@ en:
         label: Type
       end_date:
         # end_date=*
-<<<<<<< HEAD
-        label: End date
-=======
         label: Datum van sluiting
->>>>>>> 8abefe0f75fb923ed381d42499d19fe459171484
       enforcement:
         # enforcement=*
         label: Type
@@ -5701,14 +5695,6 @@ en:
         name: Watermill
         # 'terms: water,wheel,mill'
         terms: '<translate with synonyms or related terms for ''Watermill'', separated by commas>'
-<<<<<<< HEAD
-      man_made/windmill:
-        # man_made=windmill
-        name: Windmill
-        # 'terms: wind,wheel,mill'
-        terms: '<translate with synonyms or related terms for ''Windmill'', separated by commas>'
-=======
->>>>>>> 8abefe0f75fb923ed381d42499d19fe459171484
       manhole:
         # manhole=*
         name: Manhole

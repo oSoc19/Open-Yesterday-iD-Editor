@@ -6,9 +6,8 @@ import { dataPhoneFormats } from '../../../data';
 import { services } from '../../services';
 import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
-import Siema from 'siema';
 //Siema is the image carousel library used for the marker image carousel feature
-
+import Siema from 'siema';
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -73,7 +72,7 @@ export function uiFieldText(field, context) {
                 .attr('class', 'image-buttons')
                 .merge(wrap);
 
-            let imageButtons = selection.selectAll('.image-buttons');
+            var imageButtons = selection.selectAll('.image-buttons');
             //add image carousel buttons
             imageButtons
                 .append('button')
@@ -87,7 +86,7 @@ export function uiFieldText(field, context) {
 
             for (var i = 0; i < imagesURL.length; i++) {
                 //select the image container
-                let imageViewBox = selection.selectAll('.image-view-box');
+                var imageViewBox = selection.selectAll('.image-view-box');
 
                 imageViewBox
                     //add image tag inside container for each URL
@@ -97,7 +96,7 @@ export function uiFieldText(field, context) {
                     .merge(imageViewBox);
             }
             //Initiate image carousel
-            let initSiema = new Siema({
+            var initSiema = new Siema({
                 selector: '.siema',
                 duration: 200,
                 easing: 'ease-out',
@@ -108,10 +107,14 @@ export function uiFieldText(field, context) {
             //Carousel buttons functionality
             document
                 .querySelector('.btn-prev')
-                .addEventListener('click', () => initSiema.prev());
+                .addEventListener('click', function() {
+                    initSiema.prev();
+                });
             document
                 .querySelector('.btn-next')
-                .addEventListener('click', () => initSiema.next());
+                .addEventListener('click', function() {
+                    initSiema.next();
+                });
         }
 
         input
