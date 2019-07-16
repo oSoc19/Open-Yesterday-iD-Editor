@@ -5812,17 +5812,59 @@ button.btn-carousel:hover {
      background-color: #96BF31;
  }
 
- div.add-image-modal.show {
+ #add-image-modal {
      width: 60%;
      height: 80%;
      background-color: #ffffff;
      position: absolute;
+     z-index: 1000;
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
-     z-index: 1000;
+     visibility: hidden;
+ }
+
+ .show {
+     visibility: visible !important;
  }
 
  .blur {
      filter: blur(5px);
+ }
+
+ #add-image-modal h2 {
+     text-align: center;
+     margin-top: 50px;
+ }
+
+ button.modal-close {
+     width: 40px;
+     position: absolute;
+     top: 5%;
+     right: 4%;
+ }
+
+ div.dropzone {
+     width: 50%;
+     display: flex;
+     justify-content: center;
+     margin: 0 auto;
+ }
+
+ i.dropzone-icon {
+     font-size: 12em;
+     color:  #DDD;
+     border: 5px solid #DDD;
+     border-style: dashed;
+     border-radius: 100%;
+     padding: 10%;
+ }
+
+ div.wikimedia-alert {
+     width: 100%;
+     color: #ffffff;
+     background-color: #95c11f;
+     position: absolute;
+     bottom: 0;
+     padding: 2%;
  }

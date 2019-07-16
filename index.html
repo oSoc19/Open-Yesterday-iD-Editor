@@ -38,6 +38,19 @@
             ></a>
         </div>
         <div id="id-container"></div>
+        <div id="add-image-modal">
+            <h2>Voeg een foto toe</h2>
+            <button class="modal-close">
+                <svg class="icon"><use href="#iD-icon-close"></use></svg>
+            </button>
+            <div class="dropzone">
+                <i class="fas fa-image dropzone-icon"></i>
+            </div>
+            <div class="wikimedia-alert">
+                <h3>Opgelet</h3>
+                <p>Jouw afbeelding wordt online opgeslagen op Wikimedia Commons met CC licentie. Dit betekent dat de rechten van jouw foto wordt overgedragen naar Erfgoed Zuidwest.</p>
+            </div>
+        </div>
         <script>
             id = iD.coreContext().assetPath("dist/");
             // disable boundaries (unless we have an explicit disable_features list)

@@ -128,6 +128,17 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
+            // Open Heritage Map: Add image feature
+            document.querySelector('.btn-add-image').addEventListener('click', addImage);
+
+            function addImage() {
+                var container = document.getElementById('id-container');
+                var modal = document.getElementById('add-image-modal');
+                var header = document.getElementById('header-map');
+                console.log("hello world");
+            }
+        }
+            
         }
 
         input
