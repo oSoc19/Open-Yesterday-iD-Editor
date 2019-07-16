@@ -17,9 +17,7 @@ import { uiPresetFavoriteButton } from '../preset_favorite_button';
 import { uiPresetIcon } from '../preset_icon';
 import { utilKeybinding, utilNoAuto, utilRebind } from '../../util';
 
-
 export function uiToolSearchAdd(context) {
-
     var tool = {
         id: 'search_add',
         label: t('inspector.search')
@@ -58,23 +56,27 @@ export function uiToolSearchAdd(context) {
     }
 
     function updateFilterButtonsStates() {
-        footer.selectAll('button.filter')
-            .classed('active', function(d) {
-                return shownGeometry.indexOf(d) !== -1;
-            });
+        footer.selectAll('button.filter').classed('active', function(d) {
+            return shownGeometry.indexOf(d) !== -1;
+        });
     }
 
-
     tool.render = function(selection) {
-        updateShownGeometry(allowedGeometry.slice());   // shallow copy
+        updateShownGeometry(allowedGeometry.slice()); // shallow copy
 
         searchWrap = selection
             .append('div')
             .attr('class', 'search-wrap')
-            .call(tooltip()
-                .placement('bottom')
-                .html(true)
-                .title(function() { return uiTooltipHtml(t('modes.add_feature.description'), key); })
+            .call(
+                tooltip()
+                    .placement('bottom')
+                    .html(true)
+                    .title(function() {
+                        return uiTooltipHtml(
+                            t('modes.add_feature.description'),
+                            key
+                        );
+                    })
             );
 
         search = searchWrap
@@ -95,7 +97,9 @@ export function uiToolSearchAdd(context) {
                     search.attr('focusing', true);
                     search.attr('clicking', null);
                 } else {
-                    search.node().setSelectionRange(0, search.property('value').length);
+                    search
+                        .node()
+                        .setSelectionRange(0, search.property('value').length);
                 }
                 popover.classed('hide', false);
             })
@@ -105,7 +109,9 @@ export function uiToolSearchAdd(context) {
             })
             .on('click', function() {
                 if (search.attr('focusing')) {
-                    search.node().setSelectionRange(0, search.property('value').length);
+                    search
+                        .node()
+                        .setSelectionRange(0, search.property('value').length);
                     search.attr('focusing', null);
                 }
             })
@@ -113,8 +119,7 @@ export function uiToolSearchAdd(context) {
             .on('keydown', keydown)
             .on('input', updateResultsList);
 
-        searchWrap
-            .call(svgIcon('#iD-icon-search', 'search-icon pre-text'));
+        searchWrap.call(svgIcon('#iD-icon-search', 'search-icon pre-text'));
 
         popover = searchWrap
             .append('div')
@@ -125,21 +130,16 @@ export function uiToolSearchAdd(context) {
                 d3_event.stopPropagation();
             });
 
-        popoverContent = popover
+        popoverContent = popover.append('div').attr('class', 'popover-content');
+
+        list = popoverContent.append('div').attr('class', 'list');
+
+        footer = popover.append('div').attr('class', 'popover-footer');
+
+        message = footer.append('div').attr('class', 'message');
+
+        footer
             .append('div')
-            .attr('class', 'popover-content');
-
-        list = popoverContent.append('div')
-            .attr('class', 'list');
-
-        footer = popover
-            .append('div')
-            .attr('class', 'popover-footer');
-
-        message = footer.append('div')
-            .attr('class', 'message');
-
-        footer.append('div')
             .attr('class', 'filter-wrap')
             .selectAll('button.filter')
             .data(['point', 'line', 'area'])
@@ -155,15 +155,14 @@ export function uiToolSearchAdd(context) {
             .on('click', function(d) {
                 toggleShownGeometry(d);
                 if (shownGeometry.length === 0) {
-                    updateShownGeometry(allowedGeometry.slice());   // shallow copy
+                    updateShownGeometry(allowedGeometry.slice()); // shallow copy
                     toggleShownGeometry(d);
                 }
                 updateFilterButtonsStates();
                 updateResultsList();
             });
 
-        context.features()
-            .on('change.search-add', updateForFeatureHiddenState);
+        context.features().on('change.search-add', updateForFeatureHiddenState);
 
         context.keybinding().on(key, function() {
             search.node().focus();
@@ -171,9 +170,13 @@ export function uiToolSearchAdd(context) {
             d3_event.stopPropagation();
         });
 
-        var debouncedUpdate = _debounce(updateEnabledState, 500, { leading: true, trailing: true });
+        var debouncedUpdate = _debounce(updateEnabledState, 500, {
+            leading: true,
+            trailing: true
+        });
 
-        context.map()
+        context
+            .map()
             .on('move.search-add', debouncedUpdate)
             .on('drawn.search-add', debouncedUpdate);
 
@@ -185,10 +188,10 @@ export function uiToolSearchAdd(context) {
     tool.uninstall = function() {
         context.keybinding().off(key);
 
-        context.features()
-            .on('change.search-add', null);
+        context.features().on('change.search-add', null);
 
-        context.map()
+        context
+            .map()
             .on('move.search-add', null)
             .on('drawn.search-add', null);
     };
@@ -209,20 +212,23 @@ export function uiToolSearchAdd(context) {
 
     function keypress() {
         if (d3_event.keyCode === utilKeybinding.keyCodes.enter) {
-            popover.selectAll('.list .list-item.focused button.choose')
-                .each(function(d) { d.choose.call(this); });
+            popover
+                .selectAll('.list .list-item.focused button.choose')
+                .each(function(d) {
+                    d.choose.call(this);
+                });
             d3_event.preventDefault();
             d3_event.stopPropagation();
         }
     }
 
     function keydown() {
-
-        var nextFocus,
-            priorFocus,
-            parentSubsection;
-        if (d3_event.keyCode === utilKeybinding.keyCodes['↓'] ||
-            d3_event.keyCode === utilKeybinding.keyCodes.tab && !d3_event.shiftKey) {
+        var nextFocus, priorFocus, parentSubsection;
+        if (
+            d3_event.keyCode === utilKeybinding.keyCodes['↓'] ||
+            (d3_event.keyCode === utilKeybinding.keyCodes.tab &&
+                !d3_event.shiftKey)
+        ) {
             d3_event.preventDefault();
             d3_event.stopPropagation();
 
@@ -235,9 +241,16 @@ export function uiToolSearchAdd(context) {
                     nextFocus = nextFocus.selectAll('.list-item:first-child');
                 }
                 if (nextFocus.empty()) {
-                    parentSubsection = priorFocus.nodes()[0].closest('.list .subsection');
-                    if (parentSubsection && parentSubsection.nextElementSibling) {
-                        nextFocus = d3_select(parentSubsection.nextElementSibling);
+                    parentSubsection = priorFocus
+                        .nodes()[0]
+                        .closest('.list .subsection');
+                    if (
+                        parentSubsection &&
+                        parentSubsection.nextElementSibling
+                    ) {
+                        nextFocus = d3_select(
+                            parentSubsection.nextElementSibling
+                        );
                     }
                 }
             }
@@ -245,23 +258,33 @@ export function uiToolSearchAdd(context) {
                 focusListItem(nextFocus, true);
                 priorFocus.classed('focused', false);
             }
-
-        } else if (d3_event.keyCode === utilKeybinding.keyCodes['↑'] ||
-            d3_event.keyCode === utilKeybinding.keyCodes.tab && d3_event.shiftKey) {
+        } else if (
+            d3_event.keyCode === utilKeybinding.keyCodes['↑'] ||
+            (d3_event.keyCode === utilKeybinding.keyCodes.tab &&
+                d3_event.shiftKey)
+        ) {
             d3_event.preventDefault();
             d3_event.stopPropagation();
 
             priorFocus = popover.selectAll('.list .list-item.focused');
             if (!priorFocus.empty()) {
-
-                nextFocus = d3_select(priorFocus.nodes()[0].previousElementSibling);
+                nextFocus = d3_select(
+                    priorFocus.nodes()[0].previousElementSibling
+                );
                 if (!nextFocus.empty() && !nextFocus.classed('list-item')) {
                     nextFocus = nextFocus.selectAll('.list-item:last-child');
                 }
                 if (nextFocus.empty()) {
-                    parentSubsection = priorFocus.nodes()[0].closest('.list .subsection');
-                    if (parentSubsection && parentSubsection.previousElementSibling) {
-                        nextFocus = d3_select(parentSubsection.previousElementSibling);
+                    parentSubsection = priorFocus
+                        .nodes()[0]
+                        .closest('.list .subsection');
+                    if (
+                        parentSubsection &&
+                        parentSubsection.previousElementSibling
+                    ) {
+                        nextFocus = d3_select(
+                            parentSubsection.previousElementSibling
+                        );
                     }
                 }
                 if (!nextFocus.empty()) {
@@ -277,7 +300,6 @@ export function uiToolSearchAdd(context) {
     }
 
     function updateResultsList() {
-
         var value = search.property('value');
         var results;
         if (value.length) {
@@ -292,14 +314,22 @@ export function uiToolSearchAdd(context) {
 
         list.call(drawList, results);
 
-        popover.selectAll('.list .list-item.focused')
-            .classed('focused', false);
-        focusListItem(popover.selectAll('.list > .list-item:first-child'), false);
+        popover.selectAll('.list .list-item.focused').classed('focused', false);
+        focusListItem(
+            popover.selectAll('.list > .list-item:first-child'),
+            false
+        );
 
         popoverContent.node().scrollTop = 0;
 
         var resultCount = results.length;
-        message.text(t('modes.add_feature.' + (resultCount === 1 ? 'result' : 'results'), { count: resultCount }));
+        message.text(
+            t(
+                'modes.add_feature.' +
+                    (resultCount === 1 ? 'result' : 'results'),
+                { count: resultCount }
+            )
+        );
     }
 
     function focusListItem(selection, scrollingToShow) {
@@ -320,10 +350,15 @@ export function uiToolSearchAdd(context) {
 
         if (node.offsetTop < scrollableNode.scrollTop) {
             scrollableNode.scrollTop = node.offsetTop;
-
-        } else if (node.offsetTop + node.offsetHeight > scrollableNode.scrollTop + scrollableNode.offsetHeight &&
-            node.offsetHeight < scrollableNode.offsetHeight) {
-            scrollableNode.scrollTop = node.offsetTop + node.offsetHeight - scrollableNode.offsetHeight;
+        } else if (
+            node.offsetTop + node.offsetHeight >
+                scrollableNode.scrollTop + scrollableNode.offsetHeight &&
+            node.offsetHeight < scrollableNode.offsetHeight
+        ) {
+            scrollableNode.scrollTop =
+                node.offsetTop +
+                node.offsetHeight -
+                scrollableNode.offsetHeight;
         }
     }
 
@@ -334,9 +369,11 @@ export function uiToolSearchAdd(context) {
         if (preset.preset && preset.geometry) {
             return AddablePresetItem(preset.preset, preset.geometry);
         }
-        var supportedGeometry = preset.geometry.filter(function(geometry) {
-            return shownGeometry.indexOf(geometry) !== -1;
-        }).sort();
+        var supportedGeometry = preset.geometry
+            .filter(function(geometry) {
+                return shownGeometry.indexOf(geometry) !== -1;
+            })
+            .sort();
         var vertexIndex = supportedGeometry.indexOf('vertex');
         if (vertexIndex !== -1 && supportedGeometry.indexOf('point') !== -1) {
             // both point and vertex allowed, just show point
@@ -349,18 +386,24 @@ export function uiToolSearchAdd(context) {
     }
 
     function drawList(list, data) {
-
         list.selectAll('.subsection.subitems').remove();
 
         var dataItems = [];
         for (var i = 0; i < data.length; i++) {
             var preset = data[i];
             if (i < data.length - 1) {
-                var nextPreset = data[i+1];
+                var nextPreset = data[i + 1];
                 // group neighboring presets with the same name
-                if (preset.name && nextPreset.name && preset.name() === nextPreset.name()) {
-                    var groupedPresets = [preset, nextPreset].sort(function(p1, p2) {
-                        return (p1.geometry[0] < p2.geometry[0]) ? -1 : 1;
+                if (
+                    preset.name &&
+                    nextPreset.name &&
+                    preset.name() === nextPreset.name()
+                ) {
+                    var groupedPresets = [preset, nextPreset].sort(function(
+                        p1,
+                        p2
+                    ) {
+                        return p1.geometry[0] < p2.geometry[0] ? -1 : 1;
                     });
                     dataItems.push(MultiPresetItem(groupedPresets));
                     i++; // skip the next preset since we accounted for it
@@ -370,45 +413,48 @@ export function uiToolSearchAdd(context) {
             dataItems.push(itemForPreset(preset));
         }
 
-        var items = list.selectAll('.list-item')
-            .data(dataItems, function(d) { return d.id(); });
+        var items = list.selectAll('.list-item').data(dataItems, function(d) {
+            return d.id();
+        });
 
         items.order();
 
-        items.exit()
-            .remove();
+        items.exit().remove();
 
         drawItems(items.enter());
 
         list.selectAll('.list-item.expanded')
             .classed('expanded', false)
             .selectAll('.label svg.icon use')
-            .attr('href', textDirection === 'rtl' ? '#iD-icon-backward' : '#iD-icon-forward');
+            .attr(
+                'href',
+                textDirection === 'rtl'
+                    ? '#iD-icon-backward'
+                    : '#iD-icon-forward'
+            );
 
         updateForFeatureHiddenState();
     }
 
     function drawItems(selection) {
-
         var item = selection
             .append('div')
             .attr('class', 'list-item')
             .attr('id', function(d) {
-                return 'search-add-list-item-preset-' + d.id().replace(/[^a-zA-Z\d:]/g, '-');
+                return (
+                    'search-add-list-item-preset-' +
+                    d.id().replace(/[^a-zA-Z\d:]/g, '-')
+                );
             })
             .on('mouseover', function() {
-                list.selectAll('.list-item.focused')
-                    .classed('focused', false);
-                d3_select(this)
-                    .classed('focused', true);
+                list.selectAll('.list-item.focused').classed('focused', false);
+                d3_select(this).classed('focused', true);
             })
             .on('mouseout', function() {
-                d3_select(this)
-                    .classed('focused', false);
+                d3_select(this).classed('focused', false);
             });
 
-        var row = item.append('div')
-            .attr('class', 'row');
+        var row = item.append('div').attr('class', 'row');
 
         row.append('button')
             .attr('class', 'choose')
@@ -424,13 +470,18 @@ export function uiToolSearchAdd(context) {
                     .sizeClass('small')
             );
         });
-        var label = row.append('div')
-            .attr('class', 'label');
+        var label = row.append('div').attr('class', 'label');
 
         label.each(function(d) {
             if (d.subitems) {
-                d3_select(this)
-                    .call(svgIcon((textDirection === 'rtl' ? '#iD-icon-backward' : '#iD-icon-forward'), 'inline'));
+                d3_select(this).call(
+                    svgIcon(
+                        textDirection === 'rtl'
+                            ? '#iD-icon-backward'
+                            : '#iD-icon-forward',
+                        'inline'
+                    )
+                );
             }
         });
 
@@ -444,22 +495,36 @@ export function uiToolSearchAdd(context) {
                 .enter()
                 .append('div')
                 .attr('class', 'namepart')
-                .text(function(d) { return d; });
+                .text(function(d) {
+                    return d;
+                });
         });
 
         row.each(function(d) {
             if (d.geometry) {
-                var presetFavorite = uiPresetFavoriteButton(d.preset, d.geometry, context, 'accessory');
+                var presetFavorite = uiPresetFavoriteButton(
+                    d.preset,
+                    d.geometry,
+                    context,
+                    'accessory'
+                );
                 d3_select(this).call(presetFavorite.button);
             }
         });
         item.each(function(d) {
-            if ((d.geometry && (!d.isSubitem || d.isInNameGroup)) || d.geometries) {
-
-                var reference = uiTagReference(d.preset.reference(d.geometry || d.geometries[0]), context);
+            if (
+                (d.geometry && (!d.isSubitem || d.isInNameGroup)) ||
+                d.geometries
+            ) {
+                var reference = uiTagReference(
+                    d.preset.reference(d.geometry || d.geometries[0]),
+                    context
+                );
 
                 var thisItem = d3_select(this);
-                thisItem.selectAll('.row').call(reference.button, 'accessory', 'info');
+                thisItem
+                    .selectAll('.row')
+                    .call(reference.button, 'accessory', 'info');
 
                 var subsection = thisItem
                     .append('div')
@@ -470,7 +535,6 @@ export function uiToolSearchAdd(context) {
     }
 
     function updateForFeatureHiddenState() {
-
         var listItem = d3_selectAll('.search-add .popover .list-item');
 
         // remove existing tooltips
@@ -479,7 +543,9 @@ export function uiToolSearchAdd(context) {
         listItem.each(function(item, index) {
             if (!item.geometry) return;
 
-            var hiddenPresetFeaturesId = context.features().isHiddenPreset(item.preset, item.geometry);
+            var hiddenPresetFeaturesId = context
+                .features()
+                .isHiddenPreset(item.preset, item.geometry);
             var isHiddenPreset = !!hiddenPresetFeaturesId;
 
             var button = d3_select(this).selectAll('button.choose');
@@ -488,35 +554,50 @@ export function uiToolSearchAdd(context) {
             button.classed('disabled', isHiddenPreset);
 
             if (isHiddenPreset) {
-                var isAutoHidden = context.features().autoHidden(hiddenPresetFeaturesId);
+                var isAutoHidden = context
+                    .features()
+                    .autoHidden(hiddenPresetFeaturesId);
                 var tooltipIdSuffix = isAutoHidden ? 'zoom' : 'manual';
-                var tooltipObj = { features: t('feature.' + hiddenPresetFeaturesId + '.description') };
-                button.call(tooltip('dark')
-                    .html(true)
-                    .title(t('inspector.hidden_preset.' + tooltipIdSuffix, tooltipObj))
-                    .placement(index < 2 ? 'bottom' : 'top')
+                var tooltipObj = {
+                    features: t(
+                        'feature.' + hiddenPresetFeaturesId + '.description'
+                    )
+                };
+                button.call(
+                    tooltip('dark')
+                        .html(true)
+                        .title(
+                            t(
+                                'inspector.hidden_preset.' + tooltipIdSuffix,
+                                tooltipObj
+                            )
+                        )
+                        .placement(index < 2 ? 'bottom' : 'top')
                 );
             }
         });
     }
 
     function chooseExpandable(item, itemSelection) {
-
         var shouldExpand = !itemSelection.classed('expanded');
 
         itemSelection.classed('expanded', shouldExpand);
 
-        var iconName = shouldExpand ?
-            '#iD-icon-down' : (textDirection === 'rtl' ? '#iD-icon-backward' : '#iD-icon-forward');
-        itemSelection.selectAll('.label svg.icon use')
-            .attr('href', iconName);
+        var iconName = shouldExpand
+            ? '#iD-icon-down'
+            : textDirection === 'rtl'
+            ? '#iD-icon-backward'
+            : '#iD-icon-forward';
+        itemSelection.selectAll('.label svg.icon use').attr('href', iconName);
 
         if (shouldExpand) {
             var subitems = item.subitems();
             var selector = '#' + itemSelection.node().id + ' + *';
-            item.subsection = d3_select(itemSelection.node().parentNode).insert('div', selector)
+            item.subsection = d3_select(itemSelection.node().parentNode)
+                .insert('div', selector)
                 .attr('class', 'subsection subitems');
-            var subitemsEnter = item.subsection.selectAll('.list-item')
+            var subitemsEnter = item.subsection
+                .selectAll('.list-item')
                 .data(subitems)
                 .enter();
             drawItems(subitemsEnter);
@@ -540,12 +621,17 @@ export function uiToolSearchAdd(context) {
         item.choose = function() {
             var selection = d3_select(this);
             if (selection.classed('disabled')) return;
-            chooseExpandable(item, d3_select(selection.node().closest('.list-item')));
+            chooseExpandable(
+                item,
+                d3_select(selection.node().closest('.list-item'))
+            );
         };
         item.subitems = function() {
-            return preset.members.matchAnyGeometry(shownGeometry).collection.map(function(preset) {
-                return itemForPreset(preset);
-            });
+            return preset.members
+                .matchAnyGeometry(shownGeometry)
+                .collection.map(function(preset) {
+                    return itemForPreset(preset);
+                });
         };
         return item;
     }
@@ -553,7 +639,11 @@ export function uiToolSearchAdd(context) {
     function MultiPresetItem(presets) {
         var item = {};
         item.id = function() {
-            return presets.map(function(preset) { return preset.id; }).join();
+            return presets
+                .map(function(preset) {
+                    return preset.id;
+                })
+                .join();
         };
         item.name = function() {
             return presets[0].name();
@@ -563,16 +653,23 @@ export function uiToolSearchAdd(context) {
         item.choose = function() {
             var selection = d3_select(this);
             if (selection.classed('disabled')) return;
-            chooseExpandable(item, d3_select(selection.node().closest('.list-item')));
+            chooseExpandable(
+                item,
+                d3_select(selection.node().closest('.list-item'))
+            );
         };
         item.subitems = function() {
             var items = [];
             presets.forEach(function(preset) {
-                preset.geometry.filter(function(geometry) {
-                    return shownGeometry.indexOf(geometry) !== -1;
-                }).forEach(function(geometry) {
-                    items.push(AddablePresetItem(preset, geometry, true, true));
-                });
+                preset.geometry
+                    .filter(function(geometry) {
+                        return shownGeometry.indexOf(geometry) !== -1;
+                    })
+                    .forEach(function(geometry) {
+                        items.push(
+                            AddablePresetItem(preset, geometry, true, true)
+                        );
+                    });
             });
             return items;
         };
@@ -580,7 +677,6 @@ export function uiToolSearchAdd(context) {
     }
 
     function MultiGeometryPresetItem(preset, geometries) {
-
         var item = {};
         item.id = function() {
             return preset.id + geometries;
@@ -594,7 +690,10 @@ export function uiToolSearchAdd(context) {
         item.choose = function() {
             var selection = d3_select(this);
             if (selection.classed('disabled')) return;
-            chooseExpandable(item, d3_select(selection.node().closest('.list-item')));
+            chooseExpandable(
+                item,
+                d3_select(selection.node().closest('.list-item'))
+            );
         };
         item.subitems = function() {
             return geometries.map(function(geometry) {
@@ -614,7 +713,11 @@ export function uiToolSearchAdd(context) {
                 if (preset.setTags({}, geometry).building) {
                     return t('presets.presets.building.name');
                 }
-                return t('modes.add_' + context.presets().fallback(geometry).id + '.title');
+                return t(
+                    'modes.add_' +
+                        context.presets().fallback(geometry).id +
+                        '.title'
+                );
             }
             return preset.name();
         };
@@ -625,8 +728,13 @@ export function uiToolSearchAdd(context) {
         item.choose = function() {
             if (d3_select(this).classed('disabled')) return;
 
-            var markerClass = 'add-preset add-' + geometry +
-                ' add-preset-' + preset.name().replace(/\s+/g, '_') + '-' + geometry;
+            var markerClass =
+                'add-preset add-' +
+                geometry +
+                ' add-preset-' +
+                preset.name().replace(/\s+/g, '_') +
+                '-' +
+                geometry;
             var modeInfo = {
                 button: markerClass,
                 preset: preset,

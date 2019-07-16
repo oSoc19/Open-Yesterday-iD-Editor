@@ -43,6 +43,24 @@
                 "tail": "Click on the map to add a point.",
                 "filter_tooltip": "points"
             },
+            "add_chimney": {
+                "title": "Chimney",
+                "description": "Add disappeared or existing chimneys to the map.",
+                "tail": "Click on the map to add a chimney.",
+                "filter_tooltip": "chimneys"
+            },
+            "add_chapel": {
+                "title": "Chapel",
+                "description": "Add disappeared or existing chapels to the map.",
+                "tail": "Click on the map to add a chapel.",
+                "filter_tooltip": "chapels"
+            },
+            "add_factory": {
+                "title": "Factory",
+                "description": "Add disappeared or existing factories to the map.",
+                "tail": "Click on the map to add a factory.",
+                "filter_tooltip": "factories"
+            },
             "add_note": {
                 "title": "Note",
                 "label": "Add Note",

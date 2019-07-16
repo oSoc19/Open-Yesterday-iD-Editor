@@ -1,7 +1,4 @@
-import {
-    select as d3_select,
-    selectAll as d3_selectAll
-} from 'd3-selection';
+import { select as d3_select, selectAll as d3_selectAll } from 'd3-selection';
 
 import { t, textDirection } from '../../util/locale';
 import { localize } from './helper';
@@ -23,7 +20,6 @@ import { uiIntroLine } from './line';
 import { uiIntroBuilding } from './building';
 import { uiIntroStartEditing } from './start_editing';
 
-
 var chapterUi = {
     welcome: uiIntroWelcome,
     navigation: uiIntroNavigation,
@@ -44,7 +40,6 @@ var chapterFlow = [
     'startEditing'
 ];
 
-
 export function uiIntro(context) {
     var INTRO_IMAGERY = 'EsriWorldImageryClarity';
     var introGraph = {};
@@ -54,7 +49,6 @@ export function uiIntro(context) {
     for (var id in dataIntroGraph) {
         introGraph[id] = osmEntity(localize(dataIntroGraph[id]));
     }
-
 
     function intro(selection) {
         context.enter(modeBrowse(context));
@@ -69,7 +63,10 @@ export function uiIntro(context) {
         var overlays = context.background().overlayLayerSources();
         var opacity = d3_selectAll('#map .layer-background').style('opacity');
         var caches = osm && osm.caches();
-        var baseEntities = context.history().graph().base().entities;
+        var baseEntities = context
+            .history()
+            .graph()
+            .base().entities;
         var countryCode = services.geocoder.countryCode;
 
         // Show sidebar and disable the sidebar resizing button
@@ -81,9 +78,13 @@ export function uiIntro(context) {
         context.inIntro(true);
 
         // Load semi-real data used in intro
-        if (osm) { osm.toggle(false).reset(); }
+        if (osm) {
+            osm.toggle(false).reset();
+        }
         context.history().reset();
-        context.history().merge(Object.values(coreGraph().load(introGraph).entities));
+        context
+            .history()
+            .merge(Object.values(coreGraph().load(introGraph).entities));
         context.history().checkpoint('initial');
 
         // Setup imagery
@@ -111,7 +112,6 @@ export function uiIntro(context) {
             callback(null, t('intro.graph.countrycode'));
         };
 
-
         d3_selectAll('#map .layer-background').style('opacity', 1);
 
         var curtain = uiCurtain();
@@ -125,31 +125,43 @@ export function uiIntro(context) {
         var progress = storedProgress.split(';').filter(Boolean);
 
         var chapters = chapterFlow.map(function(chapter, i) {
-            var s = chapterUi[chapter](context, curtain.reveal)
-                .on('done', function() {
-                    context.presets().init();  // clear away "recent" presets
+            var s = chapterUi[chapter](context, curtain.reveal).on(
+                'done',
+                function() {
+                    context.presets().init(); // clear away "recent" presets
 
-                    buttons.filter(function(d) {
-                        return d.title === s.title;
-                    }).classed('finished', true);
+                    buttons
+                        .filter(function(d) {
+                            return d.title === s.title;
+                        })
+                        .classed('finished', true);
 
                     if (i < chapterFlow.length - 1) {
                         var next = chapterFlow[i + 1];
-                        d3_select('button.chapter-' + next)
-                            .classed('next', true);
+                        d3_select('button.chapter-' + next).classed(
+                            'next',
+                            true
+                        );
                     }
 
                     // Store walkthrough progress..
                     progress.push(chapter);
-                    context.storage('walkthrough_progress', utilArrayUniq(progress).join(';'));
-                });
+                    context.storage(
+                        'walkthrough_progress',
+                        utilArrayUniq(progress).join(';')
+                    );
+                }
+            );
             return s;
         });
 
         chapters[chapters.length - 1].on('startEditing', function() {
             // Store walkthrough progress..
             progress.push('startEditing');
-            context.storage('walkthrough_progress', utilArrayUniq(progress).join(';'));
+            context.storage(
+                'walkthrough_progress',
+                utilArrayUniq(progress).join(';')
+            );
 
             // Store if walkthrough is completed..
             var incomplete = utilArrayDifference(chapterFlow, progress);
@@ -161,11 +173,22 @@ export function uiIntro(context) {
             navwrap.remove();
             d3_selectAll('#map .layer-background').style('opacity', opacity);
             d3_selectAll('button.sidebar-toggle').classed('disabled', false);
-            if (osm) { osm.toggle(true).reset().caches(caches); }
-            context.history().reset().merge(Object.values(baseEntities));
+            if (osm) {
+                osm.toggle(true)
+                    .reset()
+                    .caches(caches);
+            }
+            context
+                .history()
+                .reset()
+                .merge(Object.values(baseEntities));
             context.background().baseLayerSource(background);
-            overlays.forEach(function(d) { context.background().toggleOverlayLayer(d); });
-            if (history) { context.history().fromJSON(history, false); }
+            overlays.forEach(function(d) {
+                context.background().toggleOverlayLayer(d);
+            });
+            if (history) {
+                context.history().fromJSON(history, false);
+            }
             context.map().centerZoom(center, zoom);
             window.location.replace(hash);
             services.geocoder.countryCode = countryCode;
@@ -191,36 +214,43 @@ export function uiIntro(context) {
             .data(chapters)
             .enter()
             .append('button')
-            .attr('class', function(d, i) { return 'chapter chapter-' + chapterFlow[i]; })
+            .attr('class', function(d, i) {
+                return 'chapter chapter-' + chapterFlow[i];
+            })
             .on('click', enterChapter);
 
-        buttons
-            .append('span')
-            .text(function(d) { return t(d.title); });
+        buttons.append('span').text(function(d) {
+            return t(d.title);
+        });
 
         buttons
             .append('span')
             .attr('class', 'status')
-            .call(svgIcon((textDirection === 'rtl' ? '#iD-icon-backward' : '#iD-icon-forward'), 'inline'));
+            .call(
+                svgIcon(
+                    textDirection === 'rtl'
+                        ? '#iD-icon-backward'
+                        : '#iD-icon-forward',
+                    'inline'
+                )
+            );
 
         enterChapter(chapters[0]);
 
-
         function enterChapter(newChapter) {
-            if (_currChapter) { _currChapter.exit(); }
+            if (_currChapter) {
+                _currChapter.exit();
+            }
             context.enter(modeBrowse(context));
 
             _currChapter = newChapter;
             _currChapter.enter();
 
-            buttons
-                .classed('next', false)
-                .classed('active', function(d) {
-                    return d.title === _currChapter.title;
-                });
+            buttons.classed('next', false).classed('active', function(d) {
+                return d.title === _currChapter.title;
+            });
         }
     }
-
 
     return intro;
 }

@@ -30,7 +30,7 @@ body {
 }
 
 .id-container {
-    height: 100%;
+    height: 90%;
     width: 100%;
 }
 
@@ -142,6 +142,46 @@ a:hover {
     color: #597be7;
 }
 
+/* Header
+------------------------------------------------------- */
+.header-map {
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    padding: 0.5rem 2rem;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo_erfgoed {
+    background-image: url("../assets/logo/erfgoed.png");
+    background-repeat: no-repeat;
+    width: 12.7rem;
+    height: 2.6rem;
+}
+
+.header_logo_vlaanderen {
+    background-image: url("../assets/logo/vlaanderen.png");
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 2rem;
+}
+
+.header_title {
+    margin-left: -10%;
+}
+
+.header_xploreer {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #96BF31;
+    font-weight: bold;
+}
+
+
 /* Forms
 ------------------------------------------------------- */
 textarea  {
@@ -245,12 +285,17 @@ table.tags, table.tags td, table.tags th {
     color: #333;
 }
 .fillD {
-    background: rgba(0,0,0,.5);
-    color: #fff;
+    background: white;
+    color: #F15A29;
 }
+
 .fillD2 {
     background: rgba(0,0,0,.75);
     color: #fff;
+}
+
+.fillE {
+    color: #95c11f;
 }
 
 .fl { float: left;}
@@ -287,9 +332,9 @@ button {
     text-align: center;
     line-height: 20px;
     border: 0;
-    background: #fff;
+    background: #95c11f;
     font-weight: bold;
-    color: #333;
+    color: white;
     font-size: 12px;
     display: inline-block;
     height: 40px;
@@ -304,8 +349,8 @@ button.active {
     background: #7092ff;
 }
 button.disabled {
-    background-color: rgba(255,255,255,.25);
-    color: rgba(0,0,0,.4);
+    background-color:#5f771e;
+    color: rgba(255, 255, 255, 0.4);
     cursor: not-allowed;
 }
 
@@ -333,6 +378,10 @@ button.disabled {
 }
 [dir='rtl'] .joined > *.bar-button:last-child {
     border-radius: 4px 0 0 4px;
+}
+
+.add-button{
+    margin: 0 3px;
 }
 
 
@@ -439,10 +488,11 @@ button[disabled].action:hover {
     position: absolute;
     padding: 10px 5px 0px 5px;
     left: 0;
-    bottom: 0;
+    bottom: 70px;
     right: 0;
     z-index: 101;
 }
+
 #bar .toolbar-item {
     display: flex;
     flex: 0 1 auto;
@@ -453,10 +503,10 @@ button[disabled].action:hover {
 #bar .toolbar-item .item-content {
     display: flex;
     flex: 0 1 auto;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     position: relative;
-    height: 40px;
+    height: 100px;
     width: auto;
     margin: 0 5px;
 }
@@ -773,10 +823,10 @@ button.bar-button.add-preset {
     border-radius: 4px;
 }
 [dir='ltr'] button.bar-button.add-preset {
-    margin-left: 1px;
+    margin-left: 3px;
 }
 [dir='rtl'] button.bar-button.add-preset {
-    margin-right: 1px;
+    margin-right: 3px;
 }
 [dir='ltr'] button.bar-button.add-preset.first-recent {
     margin-left: 10px;
@@ -785,7 +835,7 @@ button.bar-button.add-preset {
     margin-right: 10px;
 }
 button.bar-button.add-preset {
-    padding: 0;
+    padding: 10px 6px;
 }
 button.add-preset.disabled .preset-icon-container {
     opacity: 0.5;
@@ -4165,6 +4215,7 @@ img.tile-debug {
 .orange  { color: rgba(255, 153, 0, 0.75); }
 .pink    { color: rgba(255, 0, 153, 0.75); }
 .purple  { color: rgba(153, 0, 255, 0.75); }
+.erfgoed { color: rgba(241, 90, 41); }
 
 .debug-legend {
     position: absolute;
