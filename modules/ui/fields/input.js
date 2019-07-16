@@ -7,13 +7,8 @@ import { services } from '../../services';
 import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
 //Siema is the image carousel library used for the marker image carousel feature
-<<<<<<< HEAD
-
-//import addImage from 'addImage.js';
-
-=======
 import Siema from 'siema';
->>>>>>> 43712ef39e83e2eeff3c2bd959583e9abc7fc308
+
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
