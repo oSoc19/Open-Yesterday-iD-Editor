@@ -123,17 +123,8 @@ export function uiFieldText(field, context) {
             document.querySelector('.btn-add-image').addEventListener('click', addImage);
 
             function addImage() {
-                let container = document.getElementById('id-container');
-                let addImageBox = document.createElement('div');
-                addImageBox.setAttribute('class', 'add-image-box');
-                container.appendChild(addImageBox);
-
-                let sidebar = document.getElementById('sidebar');
-                sidebar.style.filter = 'blur(5px)';
-
-                let containerContent = document.getElementById('content');
-                containerContent.style.filter = 'blur(5px)';
-
+                let modal = document.getElementById('add-image-modal');
+                let header = document.getElementById('header-map');
             }
         }
         
