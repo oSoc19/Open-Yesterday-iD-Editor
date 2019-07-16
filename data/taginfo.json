@@ -328,7 +328,7 @@
     {"key": "building", "value": "houseboat", "description": "🄿 Houseboat", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/home-15.svg"},
     {"key": "building", "value": "hut", "description": "🄿 Hut", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/home-15.svg"},
     {"key": "building", "value": "industrial", "description": "🄿 Industrial Building", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/industry-15.svg"},
-    {"key": "building", "value": "factory", "description": "🄿 Industriële", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/house-15.svg"},
+    {"key": "building", "value": "industriele", "description": "🄿 Industriële", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/house-15.svg"},
     {"key": "building", "value": "kapel", "description": "🄿 Kapel", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/place-of-worship-15.svg"},
     {"key": "building", "value": "kindergarten", "description": "🄿 Preschool/Kindergarten Building", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/building-15.svg"},
     {"key": "building", "value": "landschapelement", "description": "🄿 Industrieel landschapelement", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/fence-15.svg"},

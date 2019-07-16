@@ -3787,7 +3787,7 @@ en:
         name: Industrial Building
         terms: '<translate with synonyms or related terms for ''Industrial Building'', separated by commas>'
       building/industriele:
-        # building=factory
+        # building=industriele
         name: Industriële
         # 'terms: industriele,industriële,industrie'
         terms: '<translate with synonyms or related terms for ''Industriële'', separated by commas>'
