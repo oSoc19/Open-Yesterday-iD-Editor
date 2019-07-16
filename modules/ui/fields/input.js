@@ -6,11 +6,14 @@ import { dataPhoneFormats } from '../../../data';
 import { services } from '../../services';
 import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
-import Siema from 'siema';
 //Siema is the image carousel library used for the marker image carousel feature
+<<<<<<< HEAD
 
 //import addImage from 'addImage.js';
 
+=======
+import Siema from 'siema';
+>>>>>>> 43712ef39e83e2eeff3c2bd959583e9abc7fc308
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -25,24 +28,28 @@ export function uiFieldText(field, context) {
     var _entity;
 
     function i(selection) {
-        var preset = _entity && context.presets().match(_entity, context.graph());
+        var preset =
+            _entity && context.presets().match(_entity, context.graph());
         var isLocked = preset && preset.suggestion && field.id === 'brand';
         field.locked(isLocked);
 
-        var wrap = selection.selectAll('.form-field-input-wrap')
-            .data([0]);
+        var wrap = selection.selectAll('.form-field-input-wrap').data([0]);
 
-        wrap = wrap.enter()
-        .append('div')
-        .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
-        .merge(wrap);
-            
+        wrap = wrap
+            .enter()
+            .append('div')
+            .attr(
+                'class',
+                'form-field-input-wrap form-field-input-' + field.type
+            )
+            .merge(wrap);
+
         var fieldID = 'preset-input-' + field.safeid;
 
-        input = wrap.selectAll('input')
-            .data([0]);
+        input = wrap.selectAll('input').data([0]);
 
-            input = input.enter()    
+        input = input
+            .enter()
             .append('input')
             .attr('type', field.type)
             .attr('id', fieldID)
@@ -50,12 +57,12 @@ export function uiFieldText(field, context) {
             .classed(field.type, true)
             .call(utilNoAuto)
             .merge(input);
-        
+
         // Open Heritage Map: Display marker image(s)
         var imagesURL = document.getElementById('preset-input-image').value;
         //value of imagesURL is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
-        if(imagesURL !== "" && renderedImage.length < 1){
+        if (imagesURL !== '' && renderedImage.length < 1) {
             imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
 
@@ -78,36 +85,36 @@ export function uiFieldText(field, context) {
             .merge(imageFeatures);
             
             wrap
-            //add image carousel buttons containers
-            .append('div')
-            .attr('class', 'image-buttons')
-            .merge(wrap);
-        
-            let imageButtons = selection.selectAll('.image-buttons');
+                //add image carousel buttons containers
+                .append('div')
+                .attr('class', 'image-buttons')
+                .merge(wrap);
+
+            var imageButtons = selection.selectAll('.image-buttons');
             //add image carousel buttons
             imageButtons
-            .append('button')
-            .attr('class', 'btn-carousel btn-prev fas fa-chevron-left')
-            .merge(imageButtons);
+                .append('button')
+                .attr('class', 'btn-carousel btn-prev fas fa-chevron-left')
+                .merge(imageButtons);
 
             imageButtons
-            .append('button')
-            .attr('class', 'btn-carousel btn-next fas fa-chevron-right')
-            .merge(imageButtons);
+                .append('button')
+                .attr('class', 'btn-carousel btn-next fas fa-chevron-right')
+                .merge(imageButtons);
 
-            for(var i = 0; i < imagesURL.length; i++){
-                //select the image container 
-                let imageViewBox = selection.selectAll('.image-view-box');
-                
+            for (var i = 0; i < imagesURL.length; i++) {
+                //select the image container
+                var imageViewBox = selection.selectAll('.image-view-box');
+
                 imageViewBox
-                //add image tag inside container for each URL
-                .append('img')
-                .attr('src', imagesURL[i])
-                .attr('class', 'rendered-image imageslide')
-                .merge(imageViewBox);
+                    //add image tag inside container for each URL
+                    .append('img')
+                    .attr('src', imagesURL[i])
+                    .attr('class', 'rendered-image imageslide')
+                    .merge(imageViewBox);
             }
             //Initiate image carousel
-            let initSiema = new Siema({
+            var initSiema = new Siema({
                 selector: '.siema',
                 duration: 200,
                 easing: 'ease-out',
@@ -116,18 +123,18 @@ export function uiFieldText(field, context) {
                 loop: true
             });
             //Carousel buttons functionality
-            document.querySelector('.btn-prev').addEventListener('click', () => initSiema.prev());
-            document.querySelector('.btn-next').addEventListener('click', () => initSiema.next());
-
-            //Add image functionality
-            document.querySelector('.btn-add-image').addEventListener('click', addImage);
-
-            function addImage() {
-                let modal = document.getElementById('add-image-modal');
-                let header = document.getElementById('header-map');
-            }
+            document
+                .querySelector('.btn-prev')
+                .addEventListener('click', function() {
+                    initSiema.prev();
+                });
+            document
+                .querySelector('.btn-next')
+                .addEventListener('click', function() {
+                    initSiema.next();
+                });
         }
-        
+
         input
             .classed('disabled', !!isLocked)
             .attr('readonly', isLocked || null)
@@ -135,28 +142,30 @@ export function uiFieldText(field, context) {
             .on('blur', change())
             .on('change', change());
 
-
         if (field.type === 'tel' && nominatim && _entity) {
             var center = _entity.extent(context.graph()).center();
-            nominatim.countryCode(center, function (err, countryCode) {
+            nominatim.countryCode(center, function(err, countryCode) {
                 if (err || !dataPhoneFormats[countryCode]) return;
-                wrap.selectAll('#' + fieldID)
-                    .attr('placeholder', dataPhoneFormats[countryCode]);
+                wrap.selectAll('#' + fieldID).attr(
+                    'placeholder',
+                    dataPhoneFormats[countryCode]
+                );
             });
-
         } else if (field.type === 'number') {
-            var rtl = (textDirection === 'rtl');
+            var rtl = textDirection === 'rtl';
 
             input.attr('type', 'text');
 
-            var buttons = wrap.selectAll('.increment, .decrement')
+            var buttons = wrap
+                .selectAll('.increment, .decrement')
                 .data(rtl ? [1, -1] : [-1, 1]);
 
-            buttons.enter()
+            buttons
+                .enter()
                 .append('button')
                 .attr('tabindex', -1)
                 .attr('class', function(d) {
-                    var which = (d === 1 ? 'increment' : 'decrement');
+                    var which = d === 1 ? 'increment' : 'decrement';
                     return 'form-field-button ' + which;
                 })
                 .merge(buttons)
@@ -174,7 +183,6 @@ export function uiFieldText(field, context) {
         }
     }
 
-
     // clamp number to min/max
     function clamped(num) {
         if (field.minValue !== undefined) {
@@ -185,7 +193,6 @@ export function uiFieldText(field, context) {
         }
         return num;
     }
-
 
     function change(onInput) {
         return function() {
@@ -208,18 +215,15 @@ export function uiFieldText(field, context) {
         };
     }
 
-
     i.entity = function(val) {
         if (!arguments.length) return _entity;
         _entity = val;
         return i;
     };
 
-
     i.tags = function(tags) {
         utilGetSetValue(input, tags[field.key] || '');
     };
-
 
     i.focus = function() {
         var node = input.node();

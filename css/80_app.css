@@ -136,10 +136,10 @@ strong {
     font-weight: bold;
 }
 a:visited, a {
-    color: #7092ff;
+    color: #F15A2A;
 }
 a:hover {
-    color: #597be7;
+    color: #F15A2A;
 }
 
 /* Header
@@ -346,7 +346,7 @@ button:hover {
     background-color: #ececec;
 }
 button.active {
-    background: #7092ff;
+    background:#F15A2A;
 }
 button.disabled {
     background-color:#5f771e;
@@ -561,6 +561,10 @@ button.save .count {
     display: inline-block;
     min-width: 32px;
     text-align: center;
+}
+
+button.save {
+    background-color: #292929;
 }
 
 .help-wrap svg.icon.pre-text.add-note,
@@ -1383,6 +1387,10 @@ a.hide-toggle {
     overflow: hidden;
 }
 
+.namepart {
+    color: #292929;
+}
+
 .preset-list-button:hover .label,
 .preset-list-button:focus .label,
 .preset-list-button.disabled,
@@ -1504,6 +1512,12 @@ button.preset-favorite-button.active .icon {
 .preset-editor a.hide-toggle {
     margin: 0 20px 5px 20px;
 }
+
+.hide-toggle {
+    color: #F15A2A;
+}
+
+
 .entity-issues .disclosure-wrap-entity_issues,
 .preset-editor .form-fields-container {
     padding: 10px;
@@ -2483,11 +2497,11 @@ button.raw-tag-option:focus,
 button.raw-tag-option:hover,
 button.raw-tag-option.active {
     color: #fff;
-    background: #597be7;
+    background: #F15A2A;
 }
 button.raw-tag-option.selected {
     color: #fff;
-    background: #7092ff;
+    background: #F15A2A;
 }
 button.raw-tag-option svg.icon {
     width: 14px;

@@ -7,9 +7,7 @@ import { actionAddEntity } from '../actions/add_entity';
 import { actionChangeTags } from '../actions/change_tags';
 import { actionAddMidpoint } from '../actions/add_midpoint';
 
-
 export function modeAddPoint(context, mode) {
-
     mode.id = 'add-point';
 
     var behavior = behaviorDraw(context)
@@ -23,7 +21,6 @@ export function modeAddPoint(context, mode) {
     var defaultTags = {};
     if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'point');
 
-
     function add(loc) {
         var node = osmNode({ loc: loc, tags: defaultTags });
 
@@ -35,12 +32,11 @@ export function modeAddPoint(context, mode) {
         enterSelectMode(node);
     }
 
-
     function addWay(loc, edge) {
         var node = osmNode({ tags: defaultTags });
 
         context.perform(
-            actionAddMidpoint({loc: loc, edge: edge}, node),
+            actionAddMidpoint({ loc: loc, edge: edge }, node),
             t('operations.add.annotation.vertex')
         );
 
@@ -48,11 +44,8 @@ export function modeAddPoint(context, mode) {
     }
 
     function enterSelectMode(node) {
-        context.enter(
-            modeSelect(context, [node.id]).newFeature(true)
-        );
+        context.enter(modeSelect(context, [node.id]).newFeature(true));
     }
-
 
     function addNode(node) {
         if (Object.keys(defaultTags).length === 0) {
@@ -60,7 +53,7 @@ export function modeAddPoint(context, mode) {
             return;
         }
 
-        var tags = Object.assign({}, node.tags);  // shallow copy
+        var tags = Object.assign({}, node.tags); // shallow copy
         for (var key in defaultTags) {
             tags[key] = defaultTags[key];
         }
@@ -73,21 +66,17 @@ export function modeAddPoint(context, mode) {
         enterSelectMode(node);
     }
 
-
     function cancel() {
         context.enter(modeBrowse(context));
     }
-
 
     mode.enter = function() {
         context.install(behavior);
     };
 
-
     mode.exit = function() {
         context.uninstall(behavior);
     };
-
 
     return mode;
 }

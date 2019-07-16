@@ -19,7 +19,7 @@ export function modeAddChimney(context, mode) {
         .on('finish', cancel);
 
     var defaultTags = {};
-    if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'chimney');
+    if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'area');
 
     function add(loc) {
         var node = osmNode({ loc: loc, tags: defaultTags });

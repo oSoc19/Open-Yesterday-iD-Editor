@@ -8,9 +8,7 @@ import { uiCmd } from '../cmd';
 import { uiTooltipHtml } from '../tooltipHtml';
 import { tooltip } from '../../util/tooltip';
 
-
 export function uiToolSave(context) {
-
     var tool = {
         id: 'save',
         label: t('save.title')
@@ -44,13 +42,12 @@ export function uiToolSave(context) {
             return null;
         } else if (_numChanges <= 50) {
             step = _numChanges / 50;
-            return d3_interpolateRgb('#fff', '#ff8')(step);  // white -> yellow
+            return d3_interpolateRgb('#F15A2A', '#ff8')(step); // white -> yellow
         } else {
             step = Math.min((_numChanges - 50) / 50, 1.0);
-            return d3_interpolateRgb('#ff8', '#f88')(step);  // yellow -> red
+            return d3_interpolateRgb('#ff8', '#f88')(step); // yellow -> red
         }
     }
-
 
     function updateCount() {
         var val = history.difference().summary().length;
@@ -58,10 +55,12 @@ export function uiToolSave(context) {
         _numChanges = val;
 
         if (tooltipBehavior) {
-            tooltipBehavior
-                .title(uiTooltipHtml(
-                    t(_numChanges > 0 ? 'save.help' : 'save.no_changes'), key)
-                );
+            tooltipBehavior.title(
+                uiTooltipHtml(
+                    t(_numChanges > 0 ? 'save.help' : 'save.no_changes'),
+                    key
+                )
+            );
         }
 
         if (button) {
@@ -69,11 +68,9 @@ export function uiToolSave(context) {
                 .classed('disabled', isDisabled())
                 .style('background', bgColor(_numChanges));
 
-            button.select('span.count')
-                .text(_numChanges);
+            button.select('span.count').text(_numChanges);
         }
     }
-
 
     tool.render = function(selection) {
         tooltipBehavior = tooltip()
@@ -88,8 +85,7 @@ export function uiToolSave(context) {
             .on('click', save)
             .call(tooltipBehavior);
 
-        button
-            .call(svgIcon('#iD-icon-save'));
+        button.call(svgIcon('#iD-icon-save'));
 
         button
             .append('span')
@@ -98,37 +94,27 @@ export function uiToolSave(context) {
 
         updateCount();
 
+        context.keybinding().on(key, save, true);
 
-        context.keybinding()
-            .on(key, save, true);
+        context.history().on('change.save', updateCount);
 
+        context.on('enter.save', function() {
+            if (button) {
+                button.classed('disabled', isDisabled());
 
-        context.history()
-            .on('change.save', updateCount);
-
-        context
-            .on('enter.save', function() {
-                if (button) {
-                    button
-                        .classed('disabled', isDisabled());
-
-                    if (isSaving()) {
-                        button.call(tooltipBehavior.hide);
-                    }
+                if (isSaving()) {
+                    button.call(tooltipBehavior.hide);
                 }
-            });
+            }
+        });
     };
 
-
     tool.uninstall = function() {
-        context.keybinding()
-            .off(key, true);
+        context.keybinding().off(key, true);
 
-        context.history()
-            .on('change.save', null);
+        context.history().on('change.save', null);
 
-        context
-            .on('enter.save', null);
+        context.on('enter.save', null);
 
         button = null;
         tooltipBehavior = null;
