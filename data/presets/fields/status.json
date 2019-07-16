@@ -1,0 +1,6 @@
+{
+    "key": "status",
+    "type": "text",
+    "label": "Status",
+    "placeholder": "bestaand/verdwenen/deels verdwenen/onduidelijk "
+}

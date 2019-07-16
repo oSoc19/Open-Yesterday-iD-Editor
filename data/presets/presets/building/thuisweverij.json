@@ -1,0 +1,23 @@
+{
+    "icon": "maki-industry",
+    "fields": [
+        "name",
+        "address",
+        "start_date",
+        "end_date",
+        "situation",
+        "products"
+    ],
+    "geometry": [
+        "point",
+        "area"
+    ],
+    "tags": {
+        "building": "thuisweverij"
+    },
+    "terms": [
+        "weverij",
+        "thuisweverij"
+    ],
+    "name": "Thuisweverij"
+}
