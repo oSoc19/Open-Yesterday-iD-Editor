@@ -9,6 +9,8 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
 
+import * as FilePond from 'filepond';
+
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -86,6 +88,9 @@ export function uiFieldText(field, context) {
                 .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
+            var imageButton = document.getElementsByClassName('btn-add-image')[0];
+            imageButton.innerHTML = 'Voeg foto toe';
+
             //add image carousel buttons
             imageButtons
                 .append('button')
@@ -128,17 +133,33 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
-            // Open Heritage Map: Add image feature
+            //Add image feature
             document.querySelector('.btn-add-image').addEventListener('click', addImage);
-
+            var container = document.getElementById('id-container');
+            var header = document.getElementById('header-map');
+            var modal = document.getElementById('add-image-modal');
+            var dropzone = document.getElementById('dropzone');
             function addImage() {
-                var container = document.getElementById('id-container');
-                var modal = document.getElementById('add-image-modal');
-                var header = document.getElementById('header-map');
                 console.log("hello world");
+
+                container.classList.add('blur');
+                header.classList.add('blur');
+                modal.classList.add('show');
+                
+                /*FilePond.registerPlugin(
+                    FilePondPluginImagePreview,
+                    FilePondPluginImageExifOrientation,
+                    FilePondPluginFileValidateSize
+                );*/
+                var filepond = document.querySelector('.filepond');
+                const pond = FilePond.create(filepond);
             }
-        }
-            
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
+            function closeModal() {
+                container.classList.remove('blur');
+                header.classList.remove('blur');
+                modal.classList.remove('show');
+            }
         }
 
         input
