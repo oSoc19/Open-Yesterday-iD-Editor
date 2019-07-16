@@ -360,6 +360,11 @@ en:
       communication_multi:
         # 'communication:=*'
         label: Communication Types
+      condition:
+        # condition=*
+        label: Condition
+        # condition field placeholder
+        placeholder: What is the actual statue's condition
       construction:
         # construction=*
         label: Type
@@ -495,6 +500,8 @@ en:
       description:
         # description=*
         label: Description
+        # description field placeholder
+        placeholder: Give a short description
       design:
         # design=*
         label: Design
@@ -660,6 +667,9 @@ en:
       emergency_combo:
         # emergency=*
         label: Type
+      end_date:
+        # end_date=*
+        label: End date
       enforcement:
         # enforcement=*
         label: Type
@@ -669,6 +679,11 @@ en:
       except:
         # except=*
         label: Exceptions
+      fabrication_date:
+        # fabrication_date=*
+        label: Fabrication Year
+        # fabrication_date field placeholder
+        placeholder: When was it made ?
       faces:
         # faces=*
         label: Faces
@@ -3666,6 +3681,11 @@ en:
       building/entrance:
         # building=entrance
         name: Entrance/Exit
+      building/factory:
+        # 'building=factory, man_made=works'
+        name: Factory
+        # 'terms: assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery,factory,usine,fabriek'
+        terms: '<translate with synonyms or related terms for ''Factory'', separated by commas>'
       building/farm:
         # building=farm
         name: Farm House
@@ -5356,6 +5376,11 @@ en:
         name: Antenna
         # 'terms: broadcast,cell phone,cell,communication,mobile phone,radio,television,transmission,tv'
         terms: '<translate with synonyms or related terms for ''Antenna'', separated by commas>'
+      man_made/art/statues:
+        # man_made=statue
+        name: Statue
+        # 'terms: statue,standbeeld'
+        terms: '<translate with synonyms or related terms for ''Statue'', separated by commas>'
       man_made/beacon:
         # man_made=beacon
         name: Beacon
@@ -5605,11 +5630,6 @@ en:
         name: Windmill
         # 'terms: wind,wheel,mill'
         terms: '<translate with synonyms or related terms for ''Windmill'', separated by commas>'
-      man_made/works:
-        # man_made=works
-        name: Factory
-        # 'terms: assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery'
-        terms: '<translate with synonyms or related terms for ''Factory'', separated by commas>'
       manhole:
         # manhole=*
         name: Manhole
@@ -7415,11 +7435,6 @@ en:
         name: Sculpture
         # 'terms: statue,figure,carving'
         terms: '<translate with synonyms or related terms for ''Sculpture'', separated by commas>'
-      tourism/artwork/statue:
-        # 'tourism=artwork, artwork_type=statue'
-        name: Statue
-        # 'terms: sculpture,figure,carving'
-        terms: '<translate with synonyms or related terms for ''Statue'', separated by commas>'
       tourism/attraction:
         # tourism=attraction
         name: Tourist Attraction
