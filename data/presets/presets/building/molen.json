@@ -1,0 +1,24 @@
+{
+    "icon": "temaki-windmill",
+    "fields": [
+        "name",
+        "address",
+        "status",
+        "start_date",
+        "function",
+        "products"
+    ],
+    "geometry": [
+        "point",
+        "area"
+    ],
+    "tags": {
+        "building": "windmill"
+    },
+    "terms": [
+        "windmill",
+        "moulin",
+        "molen"
+    ],
+    "name": "Molen"
+}

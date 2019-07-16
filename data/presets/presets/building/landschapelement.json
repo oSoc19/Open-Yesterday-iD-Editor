@@ -1,0 +1,22 @@
+{
+    "icon": "maki-fence",
+    "fields": [
+        "name",
+        "status",
+        "description"
+    ],
+    "geometry": [
+        "point",
+        "area"
+    ],
+    "tags": {
+        "building": "landschapelement"
+    },
+    "terms": [
+        "industrieel element",
+        "industrieel landschapelement",
+        "landschapelement",
+        "factory element"
+    ],
+    "name": "Industrieel landschapelement"
+}

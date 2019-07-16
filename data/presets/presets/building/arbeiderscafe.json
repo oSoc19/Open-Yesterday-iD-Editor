@@ -1,0 +1,28 @@
+{
+    "icon": "maki-bar",
+    "fields": [
+        "name",
+        "address",
+        "start_date",
+        "end_date",
+        "status",
+        "newfunction",
+        "description"
+    ],
+    "geometry": [
+        "point",
+        "area"
+    ],
+    "tags": {
+        "building": "arbeiderscafe"
+    },
+    "terms": [
+        "cafe",
+        "bar",
+        "workneemersbar",
+        "arbeiderscafé",
+        "arbeiderscafe",
+        "arbeidersbar"
+    ],
+    "name": "Arbeiderscafé"
+}
