@@ -4789,7 +4789,7 @@ img.tile-debug {
 }
 .modal-actions button {
     font-weight: normal;
-    color: #7092ff;
+    color: white;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
     height: 160px;
@@ -4928,7 +4928,7 @@ img.tile-debug {
 ------------------------------------------------------- */
 .modal-actions .logo-walkthrough,
 .modal-actions .logo-features {
-    color: #7092ff;
+    color: white;
 }
 
 
