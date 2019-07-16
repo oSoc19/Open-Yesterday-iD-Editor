@@ -1,0 +1,7 @@
+{
+    "key": "image",
+    "type": "url",
+    "label": "Image",
+    "universal": true,
+    "placeholder": "Display marker image here"
+}

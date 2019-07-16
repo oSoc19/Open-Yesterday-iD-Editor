@@ -14,7 +14,6 @@ export {
     uiFieldText as uiFieldEmail
 };
 
-
 export function uiFieldText(field, context) {
     var dispatch = d3_dispatch('change');
     var nominatim = services.geocoder;
@@ -30,16 +29,16 @@ export function uiFieldText(field, context) {
             .data([0]);
 
         wrap = wrap.enter()
-            .append('div')
-            .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
-            .merge(wrap);
-
+        .append('div')
+        .attr('class', 'form-field-input-wrap form-field-input-' + field.type)
+        .merge(wrap);
+            
         var fieldID = 'preset-input-' + field.safeid;
 
         input = wrap.selectAll('input')
             .data([0]);
 
-        input = input.enter()
+            input = input.enter()    
             .append('input')
             .attr('type', field.type)
             .attr('id', fieldID)
@@ -47,7 +46,24 @@ export function uiFieldText(field, context) {
             .classed(field.type, true)
             .call(utilNoAuto)
             .merge(input);
-
+        
+        // Open Heritage Map: Display marker image(s)
+        var imagesURL = document.getElementById('preset-input-image').value;
+        //value of imagesURL is one string with multiple URLS seperated by a comma
+        var renderedImage = document.getElementsByClassName('rendered-image');
+        if(imagesURL !== "" && renderedImage.length < 1){
+            imagesURL = imagesURL.split(',');
+            //split imagesURL-value into seperate URLS
+            for(var i = 0; i < imagesURL.length; i++){
+                //add image tag for each URL
+                wrap
+                .append('img')
+                .attr('src', imagesURL[i])
+                .attr('class', 'rendered-image')
+                .merge(wrap);
+            }
+        }
+        
         input
             .classed('disabled', !!isLocked)
             .attr('readonly', isLocked || null)
