@@ -37,7 +37,12 @@
                 class="header_title"
                 ><h1 class="header_xploreer">Ik-xploreer mee!</h1></a
             >
-            <div>
+            <div class="header_map_logo_europa_vlaanderen">
+                <a
+                    href="https://www.onroerenderfgoed.be/nieuws/2018-europees-jaar-van-het-cultureel-erfgoed"
+                    target="_blank"
+                    class="header_logo_europa"
+                ></a>
                 <a
                     href="https://www.vlaanderen.be/"
                     target="_blank"
@@ -55,6 +60,7 @@
             }
 
             id.ui()(document.getElementById("id-container"), function() {
+                id.map().centerZoom([3.2680, 50.8270], 14.80);
                 id.container()
                     .select("#about-list")
                     .insert("li", ".user-list")

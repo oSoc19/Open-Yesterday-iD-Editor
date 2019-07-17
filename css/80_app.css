@@ -156,6 +156,12 @@ a:hover {
     align-items: center;
 }
 
+.header_map_logo_europa_vlaanderen {
+    width: 9rem;
+    height: 2.6rem;
+    display: flex;
+}
+
 .header_logo_erfgoed {
     background-image: url("../assets/logo/erfgoed.svg");
     background-repeat: no-repeat;
@@ -167,6 +173,13 @@ a:hover {
     background-image: url("../assets/logo/vlaanderen.svg");
     background-repeat: no-repeat;
     width: 5rem;
+    height: 2rem;
+}
+
+.header_logo_europa {
+    background-image: url("../assets/logo/europa.svg");
+    background-repeat: no-repeat;
+    width: 4rem;
     height: 2rem;
 }
 
@@ -4916,7 +4929,7 @@ img.tile-debug {
 ------------------------------------------------------- */
 .modal-actions .logo-walkthrough,
 .modal-actions .logo-features {
-    color: #7092ff;
+    color: white;
 }
 
 
