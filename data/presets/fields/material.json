@@ -1,6 +1,6 @@
 {
     "key": "material",
     "type": "text",
-    "label": "Materiaal",
-    "placeholder": "baksteen, metaal, beton,..."
+    "label": "Material",
+    "placeholder": "metal, concrete,..."
 }

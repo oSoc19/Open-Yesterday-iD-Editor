@@ -2,5 +2,5 @@
     "key": "start_date",
     "type": "text",
     "universal": true,
-    "label": "Datum van oprichting"
+    "label": "Start date"
 }
