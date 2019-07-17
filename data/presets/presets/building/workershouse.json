@@ -11,7 +11,7 @@
         "area"
     ],
     "tags": {
-        "building": "arbeiderswoning"
+        "building": "workershouse"
     },
     "terms": [
         "house",
@@ -19,5 +19,5 @@
         "arbeiderswoning",
         "arbeidershuis"
     ],
-    "name": "Arbeiderswoning"
+    "name": "House for workers"
 }

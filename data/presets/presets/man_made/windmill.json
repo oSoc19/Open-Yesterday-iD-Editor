@@ -1,24 +1,25 @@
 {
-    "icon": "temaki-windmill",
+    "icon": "maki-windmill",
     "fields": [
         "name",
         "address",
         "status",
         "start_date",
         "function",
-        "products"
+        "products",
+        "building_area"
     ],
     "geometry": [
         "point",
         "area"
     ],
-    "tags": {
-        "building": "windmill"
-    },
     "terms": [
-        "windmill",
-        "moulin",
-        "molen"
+        "wind",
+        "wheel",
+        "mill"
     ],
-    "name": "Molen"
+    "tags": {
+        "man_made": "windmill"
+    },
+    "name": "Windmill"
 }

@@ -32,14 +32,32 @@
           "add_line": {
               "title": "Lijn",
               "description": "Voeg snelwegen, straten, voetpaden, kanalen of andere lijnen toe aan de kaart.",
-              "tail": "Klik in de kaart om een straat, pad of route te beginnen tekenen.",
+              "tail": "Klik op de kaart om een straat, pad of route te beginnen tekenen.",
               "filter_tooltip": "lijnen"
           },
           "add_point": {
               "title": "Punt",
               "description": "Voeg restaurants, monumenten, brievenbussen of andere punten toe aan de kaart.",
-              "tail": "Klik in de kaart om een punt toe te voegen.",
+              "tail": "Klik op de kaart om een punt toe te voegen.",
               "filter_tooltip": "punten"
+          },
+          "add_chimney": {
+              "title": "Schoorsteen",
+              "description": "Voeg verdwenen of bestaande schoorstenen toe.",
+              "tail": "Klik op de kaart om een schoorsteen toe te voegen.",
+              "filter_tooltip": "schoorstenen"
+          },
+          "add_chapel": {
+              "title": "Kapel",
+              "description": "Voeg verdwenen of bestaande kapellen toe.",
+              "tail": "Klik op de kaart om een kapel toe te voegen.",
+              "filter_tooltip": "kapellen"
+          },
+          "add_factory": {
+              "title": "Fabriek",
+              "description": "Voeg verdwenen of bestaande fabrieken toe.",
+              "tail": "Klik op de kaart om een fabriek toe te voegen.",
+              "filter_tooltip": "fabrieken"
           },
           "add_note": {
               "title": "Opmerking bij kaart",
@@ -2310,6 +2328,14 @@
               "building/material": {
                   "label": "Materiaal"
               },
+              "building/workerscafe": {
+                  "name": "Arbeiderscafe",
+                  "terms": "cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar"
+              },
+              "building/workershouse": {
+                  "name": "Arbeiderswoning",
+                  "terms": "house,woning,arbeiderswoning,arbeidershuis"
+              },
               "building_area": {
                   "label": "Gebouw"
               },
@@ -2694,6 +2720,9 @@
               "fuel_multi": {
                   "label": "Brandstoftypes"
               },
+              "function": {
+                  "label": "Functie"
+              },
               "gauge": {
                   "label": "Spoorwijdte"
               },
@@ -2972,7 +3001,8 @@
                   "label": "Type"
               },
               "material": {
-                  "label": "Materiaal"
+                  "label": "Material",
+                  "placeholder": "metal, concrete,..."
               },
               "maxheight": {
                   "label": "Maximale hoogte",
@@ -3086,6 +3116,9 @@
               },
               "network_road": {
                   "label": "Netwerk"
+              },
+              "newfunction": {
+                  "label": "Herbestemming"
               },
               "note": {
                   "label": "Aantekening"
@@ -3300,6 +3333,10 @@
               "product": {
                   "label": "Producten"
               },
+              "products": {
+                  "label": "Product",
+                  "placeholder": "textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…"
+              },
               "railway": {
                   "label": "Type"
               },
@@ -3369,6 +3406,9 @@
               },
               "relation": {
                   "label": "Type"
+              },
+              "relics": {
+                  "label": "Aanwezige relieken"
               },
               "religion": {
                   "label": "Religie"
@@ -3619,6 +3659,9 @@
               },
               "start_date": {
                   "label": "Startdatum"
+              },
+              "end_date": {
+                  "label": "Datum van sluiting"
               },
               "step_count": {
                   "label": "Aantal treden"
@@ -4913,7 +4956,7 @@
                   "terms": "kerkgebouw"
               },
               "building/chapel": {
-                  "name": "Kapelgebouw"
+                  "name": "Kapel"
               },
               "building/church": {
                   "name": "Kerkgebouw"
@@ -4943,6 +4986,10 @@
               },
               "building/entrance": {
                   "name": "Ingang/Uitgang"
+              },
+              "building/factory": {
+                  "name": "Fabriek",
+                  "terms": "fabriek"
               },
               "building/farm": {
                   "name": "Boerderijhuis",
