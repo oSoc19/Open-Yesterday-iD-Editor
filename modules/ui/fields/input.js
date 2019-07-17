@@ -9,6 +9,7 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
 
+//Filepond is a, upload library for the add-image feature
 import * as FilePond from 'filepond';
 
 export {
@@ -140,22 +141,15 @@ export function uiFieldText(field, context) {
             var modal = document.getElementById('add-image-modal');
             var dropzone = document.getElementById('dropzone');
             function addImage() {
-                console.log("hello world");
-
+                //Make modal window visible and let background blur when "add image" button is clicked
                 container.classList.add('blur');
                 header.classList.add('blur');
                 modal.classList.add('show');
-                
-                /*FilePond.registerPlugin(
-                    FilePondPluginImagePreview,
-                    FilePondPluginImageExifOrientation,
-                    FilePondPluginFileValidateSize
-                );*/
-                var filepond = document.querySelector('.filepond');
-                const pond = FilePond.create(filepond);
+                const pond = FilePond.create(document.querySelector('.filepond'));
             }
             document.querySelector('.modal-close').addEventListener('click', closeModal);
             function closeModal() {
+                //Hide modal window when close button is clicked
                 container.classList.remove('blur');
                 header.classList.remove('blur');
                 modal.classList.remove('show');
