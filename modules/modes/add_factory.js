@@ -18,7 +18,7 @@ export function modeAddFactory(context, mode) {
         .on('cancel', cancel)
         .on('finish', cancel);
 
-    var defaultTags = {};
+    var defaultTags = { building: "factory", man_made: "works"};
     if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'chimney');
 
     function add(loc) {

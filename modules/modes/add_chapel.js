@@ -18,7 +18,7 @@ export function modeAddChapel(context, mode) {
         .on('cancel', cancel)
         .on('finish', cancel);
 
-    var defaultTags = {};
+    var defaultTags = { building: "kapel" };
     if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'chimney');
 
     function add(loc) {

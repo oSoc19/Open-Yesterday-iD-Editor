@@ -18,7 +18,7 @@ export function modeAddChimney(context, mode) {
         .on('cancel', cancel)
         .on('finish', cancel);
 
-    var defaultTags = {};
+    var defaultTags = { building: "industriele" };
     if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'area');
 
     function add(loc) {
