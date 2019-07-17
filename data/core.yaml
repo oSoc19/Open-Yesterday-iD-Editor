@@ -83,6 +83,9 @@ en:
         vertex: Added a node to a way.
         relation: Added a relation.
         note: Added a note.
+        factory: Added a factory.
+        chapel: Added a chapel.
+        chimney: Added a chimney.
     start:
       annotation:
         line: Started a line.

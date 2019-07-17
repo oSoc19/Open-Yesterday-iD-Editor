@@ -103,7 +103,10 @@
                     "point": "Added a point.",
                     "vertex": "Added a node to a way.",
                     "relation": "Added a relation.",
-                    "note": "Added a note."
+                    "note": "Added a note.",
+                    "factory": "Added a factory.",
+                    "chapel": "Added a chapel.",
+                    "chimney": "Added a chimney."
                 }
             },
             "start": {

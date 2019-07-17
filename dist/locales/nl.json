@@ -101,7 +101,10 @@
                   "point": "Punt toegevoegd.",
                   "vertex": "Knoop aan een weg toegevoegd.",
                   "relation": "Relatie toegevoegd.",
-                  "note": "Opmerking bij kaart gemaakt."
+                  "note": "Opmerking bij kaart gemaakt.",
+                  "factory": "Fabriek toegevoegd.",
+                  "chapel": "Kapel toegevoegd.",
+                  "chimney": "Schoorsteen toegevoegd."
               }
           },
           "start": {
