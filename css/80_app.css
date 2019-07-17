@@ -1403,7 +1403,7 @@ a.hide-toggle {
     height: 100%;
     width: 32px;
     flex: 0 0 auto;
-    background: #f6f6f6;
+    background: #95c11f;
 }
 [dir='ltr'] .preset-list-item button.preset-favorite-button,
 [dir='ltr'] .preset-list-item button.tag-reference-button {
@@ -5783,7 +5783,7 @@ button.btn-carousel {
     height: 40px;
     font-size: 2em;
     color: rgba(255, 255, 255);
-    background-color:rgba(0,0,0,0.5); 
+    background-color:rgba(0,0,0,0.5);
     border-radius: 0;
     top: 35%;
     margin-top: -22px;
