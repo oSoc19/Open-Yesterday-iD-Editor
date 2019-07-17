@@ -8,9 +8,10 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
+import { login } from '../tools/uploadToWikimedia';
 
-//Filepond is a, upload library for the add-image feature
-import * as FilePond from 'filepond';
+
+import * as WikiMediaService from '../tools/uploadToWikimedia';
 
 export {
     uiFieldText as uiFieldUrl,
@@ -70,7 +71,7 @@ export function uiFieldText(field, context) {
             .attr('class', 'image-features')
             .merge(wrap);
 
-            let imageFeatures = selection.selectAll('.image-features');
+            var imageFeatures = selection.selectAll('.image-features');
 
             imageFeatures
             .append('button')
@@ -142,11 +143,20 @@ export function uiFieldText(field, context) {
             var modal = document.getElementById('add-image-modal');
             var dropzone = document.getElementById('dropzone');
             function addImage() {
+                var pictures;
+                WikiMediaService.getLoginToken();
+                document.getElementById('sendThePictureToWikimedia').onclick = function() {
+                    if(document.getElementById('submitPicture').files[0]) {
+                        pictures = document.getElementById('submitPicture');
+                        WikiMediaService.login(pictures);
+                    } else{
+                        alert("Kies een foto a.u.b");
+                    }
+                };
                 //Make modal window visible and let background blur when "add image" button is clicked
                 container.classList.add('blur');
                 header.classList.add('blur');
                 modal.classList.add('show');
-                const pond = FilePond.create(document.querySelector('.filepond'));
             }
             document.querySelector('.modal-close').addEventListener('click', closeModal);
             function closeModal() {
