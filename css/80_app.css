@@ -136,10 +136,10 @@ strong {
     font-weight: bold;
 }
 a:visited, a {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 a:hover {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 
 /* Header
@@ -184,7 +184,7 @@ a:hover {
 }
 
 .header_title {
-    margin-left: -5%;
+    margin-left: -15%;
 }
 
 .header_xploreer {
@@ -359,7 +359,7 @@ button:hover {
     background-color: #ececec;
 }
 button.active {
-    background:#F15A2A;
+    background:#7092ff;
 }
 button.disabled {
     background-color:#5f771e;
@@ -1416,7 +1416,7 @@ a.hide-toggle {
     height: 100%;
     width: 32px;
     flex: 0 0 auto;
-    background: #f6f6f6;
+    background: #95c11f;
 }
 [dir='ltr'] .preset-list-item button.preset-favorite-button,
 [dir='ltr'] .preset-list-item button.tag-reference-button {
@@ -3037,7 +3037,7 @@ input.key-trap {
 ------------------------------------------------------- */
 .map-controls {
     right: 0;
-    top: 141px;
+    top: 35%;
     width: 40px;
     position: fixed;
     z-index: 100;
@@ -3769,6 +3769,7 @@ li.issue-fix-item:not(.actionable) .fix-icon {
     flex: 0 1 auto;
     position: relative;
     height: 100%;
+    z-index: 201;
 }
 .map-pane {
     position: relative;

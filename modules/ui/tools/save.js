@@ -42,7 +42,7 @@ export function uiToolSave(context) {
             return null;
         } else if (_numChanges <= 50) {
             step = _numChanges / 50;
-            return d3_interpolateRgb('#F15A2A', '#ff8')(step); // white -> yellow
+            return d3_interpolateRgb('#7092ff', '#ff8')(step); // white -> yellow
         } else {
             step = Math.min((_numChanges - 50) / 50, 1.0);
             return d3_interpolateRgb('#ff8', '#f88')(step); // yellow -> red
@@ -68,7 +68,9 @@ export function uiToolSave(context) {
                 .classed('disabled', isDisabled())
                 .style('background', bgColor(_numChanges));
 
-            button.select('span.count').text(_numChanges);
+            button
+                .select('span.count')
+                .text('  ' + _numChanges + ' ' + t('save.title'));
         }
     }
 
@@ -90,7 +92,7 @@ export function uiToolSave(context) {
         button
             .append('span')
             .attr('class', 'count')
-            .text('0');
+            .text(' ' + t('save.title'));
 
         updateCount();
 
