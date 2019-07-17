@@ -136,10 +136,10 @@ strong {
     font-weight: bold;
 }
 a:visited, a {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 a:hover {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 
 /* Header
@@ -157,21 +157,21 @@ a:hover {
 }
 
 .header_logo_erfgoed {
-    background-image: url("../assets/logo/erfgoed.png");
+    background-image: url("../assets/logo/erfgoed.svg");
     background-repeat: no-repeat;
     width: 12.7rem;
     height: 2.6rem;
 }
 
 .header_logo_vlaanderen {
-    background-image: url("../assets/logo/vlaanderen.png");
+    background-image: url("../assets/logo/vlaanderen.svg");
     background-repeat: no-repeat;
     width: 5rem;
     height: 2rem;
 }
 
 .header_title {
-    margin-left: -10%;
+    margin-left: -15%;
 }
 
 .header_xploreer {
@@ -346,7 +346,7 @@ button:hover {
     background-color: #ececec;
 }
 button.active {
-    background:#F15A2A;
+    background:#7092ff;
 }
 button.disabled {
     background-color:#5f771e;
@@ -3024,7 +3024,7 @@ input.key-trap {
 ------------------------------------------------------- */
 .map-controls {
     right: 0;
-    top: 141px;
+    top: 35%;
     width: 40px;
     position: fixed;
     z-index: 100;
@@ -3756,6 +3756,7 @@ li.issue-fix-item:not(.actionable) .fix-icon {
     flex: 0 1 auto;
     position: relative;
     height: 100%;
+    z-index: 201;
 }
 .map-pane {
     position: relative;
@@ -4776,7 +4777,7 @@ img.tile-debug {
 }
 .modal-actions button {
     font-weight: normal;
-    color: #7092ff;
+    color: white;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
     height: 160px;
