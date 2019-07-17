@@ -102,6 +102,7 @@ function shortenURL(longURL){
     fetch(shortenApiURL + params)
     .then(response => response.json())
     .then(data => document.getElementById('preset-input-image').value += (',' + data.data.url))
+    .then( () => alert('upload successful'));
 }
 
 // function logout(csrfToken){
