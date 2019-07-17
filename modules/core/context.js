@@ -163,10 +163,19 @@ export function coreContext() {
         }
     };
 
-    context.zoomToEntity = function(entityID, zoomTo) {
+    /**
+     * OpenHeritageMap change: adding an extra optional "onError" callback, which
+     * is called with the error object when an error occurs.
+     */
+    context.zoomToEntity = function(entityID, zoomTo, onError) {
         if (zoomTo !== false) {
+            let is404 = false;
             this.loadEntity(entityID, function(err, result) {
-                if (err) return;
+                if (err) {
+                    if (onError)
+                        onError(err);
+                    return;
+                }
                 var entity = result.data.find(function(e) { return e.id === entityID; });
                 if (entity) {
                     map.zoomTo(entity);
