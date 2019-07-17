@@ -1416,7 +1416,7 @@ a.hide-toggle {
     height: 100%;
     width: 32px;
     flex: 0 0 auto;
-    background: #f6f6f6;
+    background: #95c11f;
 }
 [dir='ltr'] .preset-list-item button.preset-favorite-button,
 [dir='ltr'] .preset-list-item button.tag-reference-button {
@@ -5820,7 +5820,7 @@ button.btn-carousel:hover {
      flex-direction: column-reverse;
  }
 
- #preset-input-image {
+ input#preset-input-image {
      width: 65%;
      height: 40px;
  }
@@ -5836,7 +5836,7 @@ button.btn-carousel:hover {
      background-color: #96BF31;
  }
 
- #add-image-modal {
+ div#add-image-modal {
      width: 60%;
      height: 80%;
      background-color: #ffffff;
@@ -5869,13 +5869,13 @@ button.btn-carousel:hover {
      right: 4%;
  }
 
-p.dropzone-text {
-     text-align: center;
- }
-
- #dropzone {
+ div#dropzone {
      width: 50%;
+     background-color: #ececec;
      margin: 0 auto;
+     padding: 5%;
+     display: flex;
+     flex-direction: column;
  }
 
  i.dropzone-icon {

@@ -6,12 +6,12 @@
         <link rel="stylesheet" href="dist/iD.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css"/>
-        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
         <link rel="shortcut icon" type="image/icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
         <script src="dist/iD.js"></script>
+        <script src="modules/ui/tools/uploadToWikimedia.js"></script>
     </head>
     <body>
         <div id="header-map">
@@ -46,8 +46,8 @@
                 <svg class="icon"><use href="#iD-icon-close"></use></svg>
             </button>
             <div id="dropzone">
-                <input type="file" class="filepond" name="filepond" accept="image/png, image/jpeg, image/gif"/>
-                <button type="submit">Verzend foto</button>
+                <input type="file" id="submitPicture">
+                <button type="submit" id="sendThePictureToWikimedia">Verzend foto</button>
             </div>
             <div class="wikimedia-alert">
                 <h3>Opgelet</h3>

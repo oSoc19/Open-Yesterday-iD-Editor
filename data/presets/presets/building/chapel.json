@@ -1,6 +1,13 @@
 {
     "icon": "maki-place-of-worship",
+    "fields":[
+        "address",
+        "status",
+        "start_date",
+        "relics"
+    ],
     "geometry": [
+        "point",
         "area"
     ],
     "tags": {
