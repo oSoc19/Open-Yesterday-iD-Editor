@@ -2,16 +2,12 @@
 // this should be automatically called when you call the popup (the faster you get the login token the quicker you can login)
 
 
-export{
-    getLoginToken,
-    login,
-    doApiCall
-};
-
 let apiURL = "https://commons.wikimedia.org/w/api.php"
+let shortenApiURL = "http://api.bitly.com/v3/shorten?callback=?"
 let CSRFToken;
 let jsonLogInfo;
 let loginToken;
+let returnedURL;
 
 // send a fetch request to get the login token
 function getLoginToken(){
@@ -85,7 +81,7 @@ function doApiCall(pictures){
         credentials: 'include',
         body: formData
     }).then(response => response.json())
-    .then(response => console.log(response.upload.imageinfo.descriptionurl));
+    .then(response => shortenURL(response.upload.imageinfo.url));
 }
 
 // loads json login credentials file
@@ -101,6 +97,13 @@ function loadJson(callback){
     xhObj.send(null);
 }
 
+function shortenURL(longURL){
+    let params = "format=json&apiKey=" + jsonLogInfo.wikimedia.api_key + "&login=" + jsonLogInfo.wikimedia.login + "&longUrl=" + longURL 
+    fetch(shortenApiURL + params)
+    .then(response => response.json())
+    .then(data => document.getElementById('preset-input-image').value += (',' + data.data.url))
+}
+
 // function logout(csrfToken){
 //     if(!csrfToken) alert('WAIT');
 //     let formData = new FormData();
@@ -114,3 +117,11 @@ function loadJson(callback){
 //         body: data
 //     })
 // }
+
+
+export{
+    getLoginToken,
+    login,
+    doApiCall,
+    returnedURL
+};
