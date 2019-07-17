@@ -52,7 +52,8 @@ export function uiFieldText(field, context) {
             .call(utilNoAuto)
             .merge(input);
 
-        // Open Heritage Map: Display marker image(s)
+        if(document.getElementById('preset-input-image')){
+            // Open Heritage Map: Display marker image(s)
         var imagesURL = document.getElementById('preset-input-image').value;
         //value of imagesURL is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
@@ -115,6 +116,8 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
+        }
+        
         }
 
         input

@@ -3381,8 +3381,8 @@
                     "label": "Type"
                 },
                 "material": {
-                    "label": "Materiaal",
-                    "placeholder": "baksteen, metaal, beton,..."
+                    "label": "Material",
+                    "placeholder": "metal, concrete,..."
                 },
                 "maxheight": {
                     "label": "Max Height",
@@ -3456,7 +3456,7 @@
                 },
                 "name": {
                     "label": "Name",
-                    "placeholder": "Naam"
+                    "placeholder": "Name"
                 },
                 "natural": {
                     "label": "Natural"
@@ -3530,7 +3530,7 @@
                     "label": "One Way (Bicycles)"
                 },
                 "opening_date": {
-                    "label": "Expected Opening Date"
+                    "label": "Opening Date"
                 },
                 "opening_hours": {
                     "label": "Hours",
@@ -4068,7 +4068,7 @@
                     "label": "Stars"
                 },
                 "start_date": {
-                    "label": "Datum van oprichting"
+                    "label": "Start date"
                 },
                 "status": {
                     "label": "Status",
@@ -5606,14 +5606,6 @@
                     "name": "Apartment Building",
                     "terms": ""
                 },
-                "building/arbeiderscafe": {
-                    "name": "Arbeiderscafé",
-                    "terms": "cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar"
-                },
-                "building/arbeiderswoning": {
-                    "name": "Arbeiderswoning",
-                    "terms": "house,woning,arbeiderswoning,arbeidershuis"
-                },
                 "building/barn": {
                     "name": "Barn",
                     "terms": ""
@@ -5671,7 +5663,7 @@
                     "terms": ""
                 },
                 "building/factory": {
-                    "name": "Fabriek",
+                    "name": "Factory",
                     "terms": "assembly,build,brewery,car,plant,plastic,processing,manufacture,refinery,factory,usine,fabriek"
                 },
                 "building/farm_auxiliary": {
@@ -5726,14 +5718,6 @@
                     "name": "Industrial Building",
                     "terms": ""
                 },
-                "building/industriele": {
-                    "name": "Industriële",
-                    "terms": "industriele,industriële,industrie"
-                },
-                "building/kapel": {
-                    "name": "Kapel",
-                    "terms": "kapel"
-                },
                 "building/kindergarten": {
                     "name": "Preschool/Kindergarten Building",
                     "terms": "kindergarden,pre-school"
@@ -5741,10 +5725,6 @@
                 "building/landschapelement": {
                     "name": "Industrieel landschapelement",
                     "terms": "industrieel element,industrieel landschapelement,landschapelement,factory element"
-                },
-                "building/molen": {
-                    "name": "Molen",
-                    "terms": "windmill,moulin,molen"
                 },
                 "building/mosque": {
                     "name": "Mosque Building",
@@ -5825,6 +5805,14 @@
                 "building/warehouse": {
                     "name": "Warehouse",
                     "terms": ""
+                },
+                "building/workerscafe": {
+                    "name": "Arbeiderscafé",
+                    "terms": "cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar"
+                },
+                "building/workershouse": {
+                    "name": "House for workers",
+                    "terms": "house,woning,arbeiderswoning,arbeidershuis"
                 },
                 "club": {
                     "name": "Club",
@@ -7369,6 +7357,10 @@
                 "man_made/watermill": {
                     "name": "Watermill",
                     "terms": "water,wheel,mill"
+                },
+                "man_made/windmill": {
+                    "name": "Windmill",
+                    "terms": "wind,wheel,mill"
                 },
                 "manhole": {
                     "name": "Manhole",
