@@ -5820,8 +5820,19 @@ button.btn-carousel:hover {
      flex-direction: column-reverse;
  }
 
+ #preset-input-image {
+     width: 65%;
+     height: 40px;
+ }
+
+ div.image-inputs {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 10px;
+ }
+
  button.btn-add-image {
-     width: 110px;
+     width: 115px;
      background-color: #96BF31;
  }
 

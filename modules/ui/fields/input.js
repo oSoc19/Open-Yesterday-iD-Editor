@@ -57,14 +57,16 @@ export function uiFieldText(field, context) {
             .merge(input);
 
         // Open Heritage Map: Display marker image(s)
-        var imagesURL = document.getElementById('preset-input-image').value;
-        //value of imagesURL is one string with multiple URLS seperated by a comma
+        var inputImageField = document.getElementById('preset-input-image');
+        var imagesURL = inputImageField.value;
+        //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if (imagesURL !== '' && renderedImage.length < 1) {
-            imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
+            imagesURL = imagesURL.split(',');
 
             wrap
+            //create div named 'image-features' and append to parent
             .append('div')
             .attr('class', 'image-features')
             .merge(wrap);
@@ -72,9 +74,22 @@ export function uiFieldText(field, context) {
             let imageFeatures = selection.selectAll('.image-features');
 
             imageFeatures
+            .append('div')
+            .attr('class', 'image-inputs')
+            .merge(imageFeatures)
+
+            let imageInputsDiv = selection.selectAll('.image-inputs');
+
+            imageInputsDiv
+            //create add button named 'btn-add-image' and add to div 'image-inputs'
             .append('button')
             .attr('class', 'btn-add-image')
-            .merge(imageFeatures);
+            .merge(imageInputsDiv);
+
+            //make inputImagesField a child-element of div 'image-features
+            var inputImageField = document.getElementById('preset-input-image');
+            var imageInput = document.getElementsByClassName('image-inputs')[0];
+            imageInput.appendChild(inputImageField)
 
             imageFeatures
             //add image container
@@ -145,6 +160,7 @@ export function uiFieldText(field, context) {
                 container.classList.add('blur');
                 header.classList.add('blur');
                 modal.classList.add('show');
+                //Initiate Filepond
                 const pond = FilePond.create(document.querySelector('.filepond'));
             }
             document.querySelector('.modal-close').addEventListener('click', closeModal);
