@@ -8,6 +8,10 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
+
+//Filepond is a, upload library for the add-image feature
+import * as FilePond from 'filepond';
+
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -62,11 +66,23 @@ export function uiFieldText(field, context) {
             //split imagesURL-value into seperate URLS
 
             wrap
-                //add image container
-                .append('div')
-                .attr('class', 'image-view-box siema')
-                .merge(wrap);
+            .append('div')
+            .attr('class', 'image-features')
+            .merge(wrap);
 
+            let imageFeatures = selection.selectAll('.image-features');
+
+            imageFeatures
+            .append('button')
+            .attr('class', 'btn-add-image')
+            .merge(imageFeatures);
+
+            imageFeatures
+            //add image container
+            .append('div')
+            .attr('class', 'image-view-box siema')
+            .merge(imageFeatures);
+            
             wrap
                 //add image carousel buttons containers
                 .append('div')
@@ -74,6 +90,9 @@ export function uiFieldText(field, context) {
                 .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
+            var imageButton = document.getElementsByClassName('btn-add-image')[0];
+            imageButton.innerHTML = 'Voeg foto toe';
+
             //add image carousel buttons
             imageButtons
                 .append('button')
@@ -116,6 +135,26 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
+            //Add image feature
+            document.querySelector('.btn-add-image').addEventListener('click', addImage);
+            var container = document.getElementById('id-container');
+            var header = document.getElementById('header-map');
+            var modal = document.getElementById('add-image-modal');
+            var dropzone = document.getElementById('dropzone');
+            function addImage() {
+                //Make modal window visible and let background blur when "add image" button is clicked
+                container.classList.add('blur');
+                header.classList.add('blur');
+                modal.classList.add('show');
+                const pond = FilePond.create(document.querySelector('.filepond'));
+            }
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
+            function closeModal() {
+                //Hide modal window when close button is clicked
+                container.classList.remove('blur');
+                header.classList.remove('blur');
+                modal.classList.remove('show');
+            }
         }
         
         }
