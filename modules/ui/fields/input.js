@@ -8,6 +8,12 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
+
+import * as createImageModal from './addImageModal'; 
+
+import { login } from '../tools/uploadToWikimedia';
+import * as WikiMediaService from '../tools/uploadToWikimedia';
+
 export {
     uiFieldText as uiFieldUrl,
     uiFieldText as uiFieldNumber,
@@ -52,28 +58,49 @@ export function uiFieldText(field, context) {
             .call(utilNoAuto)
             .merge(input);
 
-        if(document.getElementById('preset-input-image')){
-            // Open Heritage Map: Display marker image(s)
-        var imagesURL = document.getElementById('preset-input-image').value;
-        //value of imagesURL is one string with multiple URLS seperated by a comma
+        // Open Heritage Map: Display marker image(s)
+        var inputImageField = document.getElementById('preset-input-image');
+        var imagesURL = inputImageField.value;
+        //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if (imagesURL !== '' && renderedImage.length < 1) {
-            imagesURL = imagesURL.split(',');
             //split imagesURL-value into seperate URLS
+            imagesURL = imagesURL.split(',');
 
             wrap
-                //add image container
-                .append('div')
-                .attr('class', 'image-view-box siema')
-                .merge(wrap);
+            //create div named 'image-features' and append to parent
+            .append('div')
+            .attr('class', 'image-features')
+            .merge(wrap);
 
+            var imageFeatures = selection.selectAll('.image-features');
+
+            imageFeatures
+            .append('div')
+            .attr('class', 'image-inputs')
+            .merge(imageFeatures)
+
+            let imageInputsDiv = selection.selectAll('.image-inputs');
+
+            //make inputImagesField a child-element of div 'image-features
+            var inputImageField = document.getElementById('preset-input-image');
+            var imageInput = document.getElementsByClassName('image-inputs')[0];
+            imageInput.appendChild(inputImageField)
+
+            imageFeatures
+            //add image container
+            .append('div')
+            .attr('class', 'image-view-box siema')
+            .merge(imageFeatures);
+            
             wrap
-                //add image carousel buttons containers
-                .append('div')
-                .attr('class', 'image-buttons')
-                .merge(wrap);
+            //add image carousel buttons containers
+            .append('div')
+            .attr('class', 'image-buttons')
+            .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
+
             //add image carousel buttons
             imageButtons
                 .append('button')
@@ -99,11 +126,7 @@ export function uiFieldText(field, context) {
             //Initiate image carousel
             var initSiema = new Siema({
                 selector: '.siema',
-                duration: 200,
-                easing: 'ease-out',
-                perPage: 1,
                 draggable: true,
-                loop: true
             });
             //Carousel buttons functionality
             document
@@ -116,8 +139,41 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
-        }
-        
+
+            //Create image modal window
+            //Check rendering in addImageModal.js
+            createImageModal.createAddImageButton();
+            createImageModal.createModal();
+
+            //Add image feature
+            document.querySelector('.btn-add-image').addEventListener('click', addImage);
+            var container = document.getElementById('id-container');
+            var header = document.getElementById('header-map');
+            var modal = document.getElementById('add-image-modal');
+            var dropzone = document.getElementById('dropzone');
+            function addImage() {
+                var pictures;
+                WikiMediaService.getLoginToken();
+                document.getElementById('sendThePictureToWikimedia').onclick = function() {
+                    if(document.getElementById('submitPicture').files[0]) {
+                        pictures = document.getElementById('submitPicture');
+                        WikiMediaService.login(pictures);
+                    } else{
+                        alert("Kies een foto a.u.b");
+                    }
+                };
+                //Make modal window visible and let background blur when "add image" button is clicked
+                container.classList.add('blur');
+                header.classList.add('blur');
+                modal.classList.add('show');
+            }
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
+            function closeModal() {
+                //Hide modal window when close button is clicked
+                container.classList.remove('blur');
+                header.classList.remove('blur');
+                modal.classList.remove('show');
+            }
         }
 
         input
