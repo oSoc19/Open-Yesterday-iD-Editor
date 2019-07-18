@@ -1,6 +1,6 @@
 {
     "key": "status",
-    "type": "text",
+    "type": "combo",
     "label": "Status",
-    "placeholder": "bestaand/verdwenen/deels verdwenen/onduidelijk "
+    "options": ["Existing","Vanished","Mostly vanished","Unclear"]
 }

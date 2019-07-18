@@ -4,10 +4,13 @@
         "name",
         "address",
         "start_date",
+        "end_date",
+        "status",
         "height",
         "material",
-        "verbondenbedrijf",
-        "productieproces"
+        "associatedcompany",
+        "productionprocess",
+        "image"
     ],
     "geometry": [
         "point",

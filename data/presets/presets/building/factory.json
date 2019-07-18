@@ -5,10 +5,12 @@
         "address",
         "start_date",
         "end_date",
+        "status",
         "function",
         "products",
         "newfunction",
-        "description"
+        "description",
+        "image"
     ],
     "geometry": [
         "point",

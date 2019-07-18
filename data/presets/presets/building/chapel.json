@@ -4,7 +4,8 @@
         "address",
         "status",
         "start_date",
-        "relics"
+        "relics",
+        "image"
     ],
     "geometry": [
         "point",
