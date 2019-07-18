@@ -19,14 +19,14 @@ export function modeAddFactory(context, mode) {
         .on('finish', cancel);
 
     var defaultTags = { building: "factory", man_made: "works"};
-    if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'chimney');
+    if (mode.preset) defaultTags = mode.preset.setTags(defaultTags, 'factory');
 
     function add(loc) {
         var node = osmNode({ loc: loc, tags: defaultTags });
 
         context.perform(
             actionAddEntity(node),
-            t('operations.add.annotation.chimney')
+            t('operations.add.annotation.factory')
         );
 
         enterSelectMode(node);
@@ -60,7 +60,7 @@ export function modeAddFactory(context, mode) {
 
         context.perform(
             actionChangeTags(node.id, tags),
-            t('operations.add.annotation.chimney')
+            t('operations.add.annotation.factory')
         );
 
         enterSelectMode(node);

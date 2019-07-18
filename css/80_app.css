@@ -136,10 +136,10 @@ strong {
     font-weight: bold;
 }
 a:visited, a {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 a:hover {
-    color: #F15A2A;
+    color: rgb(117, 117, 117);
 }
 
 /* Header
@@ -184,7 +184,7 @@ a:hover {
 }
 
 .header_title {
-    margin-left: -5%;
+    margin-left: -4%;
 }
 
 .header_xploreer {
@@ -359,7 +359,7 @@ button:hover {
     background-color: #ececec;
 }
 button.active {
-    background:#F15A2A;
+    background:#7092ff;
 }
 button.disabled {
     background-color:#5f771e;
@@ -501,7 +501,7 @@ button[disabled].action:hover {
     position: absolute;
     padding: 10px 5px 0px 5px;
     left: 0;
-    bottom: 70px;
+    top: 30px;
     right: 0;
     z-index: 101;
 }
@@ -519,7 +519,7 @@ button[disabled].action:hover {
     flex-flow: row wrap;
     justify-content: center;
     position: relative;
-    height: 100px;
+    height: 60px;
     width: auto;
     margin: 0 5px;
 }
@@ -3037,7 +3037,7 @@ input.key-trap {
 ------------------------------------------------------- */
 .map-controls {
     right: 0;
-    top: 141px;
+    top: 35%;
     width: 40px;
     position: fixed;
     z-index: 100;
@@ -3769,6 +3769,7 @@ li.issue-fix-item:not(.actionable) .fix-icon {
     flex: 0 1 auto;
     position: relative;
     height: 100%;
+    z-index: 201;
 }
 .map-pane {
     position: relative;
@@ -5200,17 +5201,20 @@ svg.mouseclick use.right {
 ------------------------------------------------------- */
 .notice {
     position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-    text-align: center;
+    top: -25px;
+    left: 19.5%;
+    /* right: 0; */
+    /* text-align: center; */
+    z-index: 200;
+    background: #7092ff;
+    color: white;
 }
 
 .notice .zoom-to {
     margin: auto;
-    width: 300px;
-    height: 70px;
-    font-size: 150%;
+    width: 400px;
+    height: 80px;
+    font-size: 200%;
     border-radius: 8px;
 }
 
@@ -5869,6 +5873,12 @@ button.btn-carousel:hover {
      position: absolute;
      top: 5%;
      right: 4%;
+     display: flex;
+     justify-content: center;
+ }
+
+ .modal-close i {
+     font-size: 1.5em;
  }
 
  div#dropzone {

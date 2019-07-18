@@ -21,7 +21,6 @@ import {
     utilNoAuto
 } from '../util';
 
-
 export function uiFeatureList(context) {
     var _geocodeResults;
 
@@ -328,7 +327,34 @@ export function uiFeatureList(context) {
                 }
                 context.enter(modeSelect(context, [d.entity.id]));
             } else {
-                context.zoomToEntity(d.id);
+                // OpenHeritageMap change: Recover from 404s.
+                context.zoomToEntity(d.id, undefined, function(err) {
+                    // Try to recover from errors.
+
+                    // We only care about error 404s.
+                    if(err.status != 404) return;
+
+                    // If we got an error 404, try to center the map at the center of the extent
+                    // to at least show something to the user.
+                    let extent = d.extent;
+                    if(!extent) {
+                        console.error("Object with id %o does not exist, and the object "
+                        + "does not have an extent. Centering on it is impossible. Object: %o", d.id, d);
+                    }
+
+                    // Simply calculate the average between the 2 extents to find the middle, and center there.
+                    let first = extent[0];
+                    let second = extent[1];
+                    let center = [
+                        (first[0] + second[0]) / 2, 
+                        (first[1] + second[1]) / 2
+                    ];
+                    
+                    // Center the map.
+                    console.log("Entity %o couldn't be found, but its location"
+                    + " is estimated to be %o. Attempting to center the map there.", d.id, center);
+                    context.map().centerZoomEase(center, 19)
+                });
             }
         }
 

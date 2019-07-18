@@ -23,14 +23,11 @@ function createModal() {
     modalWindow.appendChild(modalTitel);
 
     var closeButton = document.createElement('button');
-    var closeSVG = document.createElement('svg');
-    var closeUse = document.createElement('use');
+    var closeIcon = document.createElement('i');
     closeButton.className = 'modal-close';
-    closeSVG.className = 'icon';
-    closeUse.setAttribute('href', '#iD-icon-close');
+    closeIcon.className = 'fas fa-times';
 
-    closeSVG.appendChild(closeUse);
-    closeButton.appendChild(closeSVG);
+    closeButton.appendChild(closeIcon);
     modalWindow.appendChild(closeButton);
     var dropzoneDiv = document.createElement('div');
     var dropzoneInput = document.createElement('input');

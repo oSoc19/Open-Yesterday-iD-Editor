@@ -1,16 +1,17 @@
-
-import {
-    select as d3_select
-} from 'd3-selection';
+import { select as d3_select } from 'd3-selection';
 
 import _debounce from 'lodash-es/debounce';
-import { /*uiToolAddFavorite, uiToolAddRecent, uiToolSearchAdd, */ uiToolOldDrawModes, uiToolNotes, uiToolSave, uiToolSidebarToggle, uiToolUndoRedo } from './tools';
-
+import {
+    /*uiToolAddFavorite, uiToolAddRecent, uiToolSearchAdd, */ uiToolOldDrawModes,
+    uiToolNotes,
+    uiToolSave,
+    uiToolSidebarToggle,
+    uiToolUndoRedo
+} from './tools';
 
 export function uiTopToolbar(context) {
-
-    var sidebarToggle = uiToolSidebarToggle(context),
-        modes = uiToolOldDrawModes(context),
+    // var sidebarToggle = uiToolSidebarToggle(context),
+    var modes = uiToolOldDrawModes(context),
         //searchAdd = uiToolSearchAdd(context),
         //addFavorite = uiToolAddFavorite(context),
         //addRecent = uiToolAddRecent(context),
@@ -24,24 +25,25 @@ export function uiTopToolbar(context) {
     }
 
     function topToolbar(bar) {
+        var debouncedUpdate = _debounce(update, 500, {
+            leading: true,
+            trailing: true
+        });
+        context.layers().on('change.topToolbar', debouncedUpdate);
 
-        var debouncedUpdate = _debounce(update, 500, { leading: true, trailing: true });
-        context.layers()
-            .on('change.topToolbar', debouncedUpdate);
-
-        context.presets()
+        context
+            .presets()
             .on('favoritePreset.topToolbar', update)
             .on('recentsChange.topToolbar', update);
 
         update();
 
         function update() {
-
             var tools = [
-                sidebarToggle,
+                // sidebarToggle,
                 'spacer',
                 modes
-            //    searchAdd
+                //    searchAdd
             ];
             /*
             if (context.presets().getFavorites().length > 0) {
@@ -60,12 +62,14 @@ export function uiTopToolbar(context) {
 
             tools = tools.concat([undoRedo, save]);
 
-            var toolbarItems = bar.selectAll('.toolbar-item')
+            var toolbarItems = bar
+                .selectAll('.toolbar-item')
                 .data(tools, function(d) {
                     return d.id || d;
                 });
 
-            toolbarItems.exit()
+            toolbarItems
+                .exit()
                 .each(function(d) {
                     if (d.uninstall) {
                         d.uninstall();
@@ -77,12 +81,15 @@ export function uiTopToolbar(context) {
                 .enter()
                 .append('div')
                 .attr('class', function(d) {
-                    var classes = 'toolbar-item ' + (d.id || d).replace('_', '-');
+                    var classes =
+                        'toolbar-item ' + (d.id || d).replace('_', '-');
                     if (d.klass) classes += ' ' + d.klass;
                     return classes;
                 });
 
-            var actionableItems = itemsEnter.filter(function(d) { return d !== 'spacer'; });
+            var actionableItems = itemsEnter.filter(function(d) {
+                return d !== 'spacer';
+            });
 
             actionableItems
                 .append('div')
@@ -98,7 +105,6 @@ export function uiTopToolbar(context) {
                     return d.label;
                 });
         }
-
     }
 
     return topToolbar;

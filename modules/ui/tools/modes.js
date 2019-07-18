@@ -28,7 +28,7 @@ export function uiToolOldDrawModes(context) {
             title: t('modes.add_chimney.title'),
             button: 'chimney',
             description: t('modes.add_chimney.description'),
-            preset: context.presets().item('chimney'),
+            preset: context.presets().item('industrial'),
             key: '4'
         }),
         modeAddChapel(context, {
@@ -45,27 +45,27 @@ export function uiToolOldDrawModes(context) {
             preset: context.presets().item('factory'),
             key: '6'
         }),
-        modeAddPoint(context, {
-            title: t('modes.add_point.title'),
-            button: 'point',
-            description: t('modes.add_point.description'),
-            preset: context.presets().item('point'),
-            key: '1'
-        }),
-        modeAddLine(context, {
-            title: t('modes.add_line.title'),
-            button: 'line',
-            description: t('modes.add_line.description'),
-            preset: context.presets().item('line'),
-            key: '2'
-        }),
-        modeAddArea(context, {
-            title: t('modes.add_area.title'),
-            button: 'area',
-            description: t('modes.add_area.description'),
-            preset: context.presets().item('area'),
-            key: '3'
-        })
+        // modeAddPoint(context, {
+        //     title: t('modes.add_point.title'),
+        //     button: 'point',
+        //     description: t('modes.add_point.description'),
+        //     preset: context.presets().item('point'),
+        //     key: '1'
+        // }),
+        // modeAddLine(context, {
+        //     title: t('modes.add_line.title'),
+        //     button: 'line',
+        //     description: t('modes.add_line.description'),
+        //     preset: context.presets().item('line'),
+        //     key: '2'
+        // }),
+        // modeAddArea(context, {
+        //     title: t('modes.add_area.title'),
+        //     button: 'area',
+        //     description: t('modes.add_area.description'),
+        //     preset: context.presets().item('area'),
+        //     key: '3'
+        // })
     ];
 
     function enabled() {

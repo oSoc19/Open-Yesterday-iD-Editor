@@ -202,6 +202,9 @@ en:
       artwork_type:
         # artwork_type=*
         label: Type
+      associatedcompany:
+        # associatedcompany=*
+        label: Associated company
       atm:
         # atm=*
         label: ATM
@@ -667,7 +670,7 @@ en:
         label: Type
       end_date:
         # end_date=*
-        label: Datum van sluiting
+        label: End date
       enforcement:
         # enforcement=*
         label: Type
@@ -757,7 +760,7 @@ en:
         label: Fuel Types
       function:
         # function=*
-        label: Functie
+        label: Function
       gauge:
         # gauge=*
         label: Gauge
@@ -1250,7 +1253,7 @@ en:
         label: Network
       newfunction:
         # newfunction=*
-        label: Herbestemming
+        label: New function
       note:
         # note=*
         label: Note
@@ -1536,14 +1539,14 @@ en:
       product:
         # product=*
         label: Products
-      productieproces:
-        # productieproces=*
-        label: 'Productieproces van: (wat werd er gemaakt)'
+      productionprocess:
+        # productionprocess=*
+        label: 'Production process: (What did they do)'
       products:
         # products=*
         label: Product
         # products field placeholder
-        placeholder: textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…
+        placeholder: Clothes/Food/Leather/Wood/Paper/Chemistry/Glass/Metal/Furnitures/...
       railway:
         # railway=*
         label: Type
@@ -1625,7 +1628,7 @@ en:
         label: Type
       relics:
         # relics=*
-        label: Aanwezige relieken
+        label: Available relics
       religion:
         # religion=*
         label: Religion
@@ -1961,8 +1964,6 @@ en:
       status:
         # status=*
         label: Status
-        # status field placeholder
-        placeholder: 'bestaand/verdwenen/deels verdwenen/onduidelijk '
       step_count:
         # step_count=*
         label: Number of Steps
@@ -2234,9 +2235,6 @@ en:
       vending:
         # vending=*
         label: Types of Goods
-      verbondenbedrijf:
-        # verbonden-bedrijf=*
-        label: Verbonden bedrijf
       visibility:
         # visibility=*
         label: Visibility
@@ -3877,9 +3875,9 @@ en:
         terms: '<translate with synonyms or related terms for ''Warehouse'', separated by commas>'
       building/workerscafe:
         # building=workerscafe
-        name: Arbeiderscafé
+        name: Bar for workers
         # 'terms: cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar'
-        terms: '<translate with synonyms or related terms for ''Arbeiderscafé'', separated by commas>'
+        terms: '<translate with synonyms or related terms for ''Bar for workers'', separated by commas>'
       building/workershouse:
         # building=workershouse
         name: House for workers
