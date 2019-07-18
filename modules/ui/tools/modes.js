@@ -28,7 +28,7 @@ export function uiToolOldDrawModes(context) {
             title: t('modes.add_chimney.title'),
             button: 'chimney',
             description: t('modes.add_chimney.description'),
-            preset: context.presets().item('chimney'),
+            preset: context.presets().item('industrial'),
             key: '4'
         }),
         modeAddChapel(context, {

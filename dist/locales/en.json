@@ -2590,6 +2590,9 @@
                 "artwork_type": {
                     "label": "Type"
                 },
+                "associatedcompany": {
+                    "label": "Associated company"
+                },
                 "atm": {
                     "label": "ATM"
                 },
@@ -3001,7 +3004,7 @@
                     "label": "Emergency"
                 },
                 "end_date": {
-                    "label": "Datum van sluiting"
+                    "label": "End date"
                 },
                 "enforcement": {
                     "label": "Type"
@@ -3085,7 +3088,7 @@
                     "label": "Fuel"
                 },
                 "function": {
-                    "label": "Functie"
+                    "label": "Function"
                 },
                 "gauge": {
                     "label": "Gauge"
@@ -3501,7 +3504,7 @@
                     "label": "Network"
                 },
                 "newfunction": {
-                    "label": "Herbestemming"
+                    "label": "New function"
                 },
                 "note": {
                     "label": "Note"
@@ -3722,12 +3725,12 @@
                 "product": {
                     "label": "Products"
                 },
-                "productieproces": {
-                    "label": "Productieproces van: (wat werd er gemaakt)"
+                "productionprocess": {
+                    "label": "Production process: (What did they do)"
                 },
                 "products": {
                     "label": "Product",
-                    "placeholder": "textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…"
+                    "placeholder": "Clothes/Food/Leather/Wood/Paper/Chemistry/Glass/Metal/Furnitures/..."
                 },
                 "railway": {
                     "label": "Type"
@@ -3801,7 +3804,7 @@
                     "label": "Type"
                 },
                 "relics": {
-                    "label": "Aanwezige relieken"
+                    "label": "Available relics"
                 },
                 "religion": {
                     "label": "Religion"
@@ -4074,8 +4077,7 @@
                     "label": "Start date"
                 },
                 "status": {
-                    "label": "Status",
-                    "placeholder": "bestaand/verdwenen/deels verdwenen/onduidelijk "
+                    "label": "Status"
                 },
                 "step_count": {
                     "label": "Number of Steps"
@@ -4300,9 +4302,6 @@
                 },
                 "vending": {
                     "label": "Types of Goods"
-                },
-                "verbondenbedrijf": {
-                    "label": "Verbonden bedrijf"
                 },
                 "visibility": {
                     "label": "Visibility",

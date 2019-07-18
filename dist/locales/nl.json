@@ -3336,9 +3336,12 @@
               "product": {
                   "label": "Producten"
               },
+              "productionprocess": {
+                  "label": "Productieproces van: (wat werd er gemaakt)"
+              },
               "products": {
                   "label": "Product",
-                  "placeholder": "textiel/voeding/leer/hout/papier/chemie/glas/metaal/meubels…"
+                  "placeholder": "Textiel/Voeding/Leer/Hout/Papier/Chemie/Glas/Metaal/Meubels…"
               },
               "railway": {
                   "label": "Type"
@@ -3663,6 +3666,10 @@
               "start_date": {
                   "label": "Startdatum"
               },
+              "status": {
+                  "label": "Status",
+                  "options": ["Bestaand","Verdwene","Deels verdwenen","Onduidelijk"]
+              },
               "end_date": {
                   "label": "Datum van sluiting"
               },
@@ -3871,6 +3878,9 @@
               },
               "vending": {
                   "label": "Soorten waren"
+              },
+              "associatedcompany": {
+                  "label": "Verbonden bedrijf"
               },
               "visibility": {
                   "label": "Zichtbaarheid",
