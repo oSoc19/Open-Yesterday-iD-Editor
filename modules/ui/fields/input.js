@@ -98,10 +98,10 @@ export function uiFieldText(field, context) {
             .merge(imageFeatures);
             
             wrap
-                //add image carousel buttons containers
-                .append('div')
-                .attr('class', 'image-buttons')
-                .merge(wrap);
+            //add image carousel buttons containers
+            .append('div')
+            .attr('class', 'image-buttons')
+            .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
             var imageButton = document.getElementsByClassName('btn-add-image')[0];
@@ -149,6 +149,52 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function() {
                     initSiema.next();
                 });
+
+            //Create add-image modal window
+            var modalWindow = document.createElement('div');
+            modalWindow.id = 'add-image-modal';
+            document.body.appendChild(modalWindow);
+
+            var modalTitel = document.createElement('h2');
+            modalTitel.innerHTML = "Voeg een foto toe";
+            modalWindow.appendChild(modalTitel);
+            
+            var closeButton = document.createElement('button');
+            var closeSVG = document.createElement('svg');
+            var closeUse = document.createElement('use');
+            closeButton.className = 'modal-close';
+            closeSVG.className = 'icon';
+            closeUse.setAttribute('href', '#ID-icon-close');
+            
+            closeSVG.appendChild(closeUse);
+            closeButton.appendChild(closeSVG);
+            modalWindow.appendChild(closeButton);
+
+            var dropzoneDiv = document.createElement('div');
+            var dropzoneInput = document.createElement('input');
+            var dropzoneButton = document.createElement('button');
+
+            dropzoneInput.setAttribute('type', 'file');
+            dropzoneButton.setAttribute('type', 'submit');
+
+            dropzoneDiv.id = 'dropzone';
+            dropzoneInput.id = 'submitPicture';
+            dropzoneButton.id = 'sendThePictureToWikimedia';
+            dropzoneDiv.appendChild(dropzoneInput);
+            dropzoneDiv.appendChild(dropzoneButton);
+            modalWindow.appendChild(dropzoneDiv);
+
+            var wikimedia = document.createElement('div');
+            var wikimediaTitle = document.createElement('h3');
+            var wikimediaParagraph = document.createElement('p');
+            wikimedia.className = 'wikimedia-alert';
+            wikimediaTitle.innerHTML = 'Opgelet';
+            var wikimediaText = document.createTextNode('Jouw afbeelding wordt online opgeslagen op Wikimedia Commons met CC 1.0 licentie. Dit betekent dat jouw foto wordt toegewezen aan het publiek domein.');
+            wikimediaParagraph.appendChild(wikimediaText);
+            wikimedia.appendChild(wikimediaTitle);
+            wikimedia.appendChild(wikimediaParagraph);
+            modalWindow.appendChild(wikimedia);
+
             //Add image feature
             document.querySelector('.btn-add-image').addEventListener('click', addImage);
             var container = document.getElementById('id-container');
