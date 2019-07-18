@@ -60,10 +60,10 @@ export function uiFieldText(field, context) {
 
         // Open Heritage Map: Display marker image(s)
         var inputImageField = document.getElementById('preset-input-image');
-        var imagesURL = inputImageField.value;
+        var imagesURL = inputImageField ? inputImageField.value : null;
         //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
-        if (imagesURL !== '' && renderedImage.length < 1) {
+        if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
             //split imagesURL-value into seperate URLS
             imagesURL = imagesURL.split(',');
 
@@ -79,8 +79,6 @@ export function uiFieldText(field, context) {
             .append('div')
             .attr('class', 'image-inputs')
             .merge(imageFeatures)
-
-            let imageInputsDiv = selection.selectAll('.image-inputs');
 
             //make inputImagesField a child-element of div 'image-features
             var inputImageField = document.getElementById('preset-input-image');
