@@ -3875,9 +3875,9 @@ en:
         terms: '<translate with synonyms or related terms for ''Warehouse'', separated by commas>'
       building/workerscafe:
         # building=workerscafe
-        name: Arbeiderscafé
+        name: Bar for workers
         # 'terms: cafe,bar,workneemersbar,arbeiderscafé,arbeiderscafe,arbeidersbar'
-        terms: '<translate with synonyms or related terms for ''Arbeiderscafé'', separated by commas>'
+        terms: '<translate with synonyms or related terms for ''Bar for workers'', separated by commas>'
       building/workershouse:
         # building=workershouse
         name: House for workers

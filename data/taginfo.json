@@ -348,7 +348,7 @@
     {"key": "building", "value": "transportation", "description": "🄿 Transportation Building", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/building-15.svg"},
     {"key": "building", "value": "university", "description": "🄿 University Building", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/building-15.svg"},
     {"key": "building", "value": "warehouse", "description": "🄿 Warehouse", "object_types": ["area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/warehouse-15.svg"},
-    {"key": "building", "value": "workerscafe", "description": "🄿 Arbeiderscafé", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/bar-15.svg"},
+    {"key": "building", "value": "workerscafe", "description": "🄿 Bar for workers", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/bar-15.svg"},
     {"key": "building", "value": "workershouse", "description": "🄿 House for workers", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/town-15.svg"},
     {"key": "club", "description": "🄿 Club, 🄵 Type", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/openstreetmap/iD/svg/fontawesome/fas-handshake.svg"},
     {"key": "club", "value": "sport", "description": "🄿 Sports Club", "object_types": ["node", "area"], "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/pitch-15.svg"},
