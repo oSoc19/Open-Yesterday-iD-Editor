@@ -5855,6 +5855,7 @@ button.btn-carousel:hover {
 
  .blur {
      filter: blur(5px);
+     pointer-events: none;
  }
 
  #add-image-modal h2 {

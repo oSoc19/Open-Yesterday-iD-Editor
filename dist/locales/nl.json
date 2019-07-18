@@ -1,5 +1,12 @@
 {
   "nl": {
+      "add-image-modal": {
+          "addbutton": "Foto toevoegen",
+          "title": "Voeg een foto toe",
+          "submit": "Verzend foto",
+          "reminder": "Opgelet",
+          "license": "Jouw afbeelding wordt online opgeslagen op Wikimedia Commons met CC 1.0 licentie. Dit betekent dat jouw foto wordt toegewezen aan het publiek domein."
+      },
       "icons": {
           "download": "download",
           "information": "info",
