@@ -34,6 +34,9 @@ export function uiNotice(context) {
         function disableTooHigh() {
             var canEdit = context.map().zoom() >= context.minEditableZoom();
             div.style('display', canEdit ? 'none' : 'block');
+            let addButtons = document.getElementsByClassName('old-modes')[0];
+            if(addButtons)
+                addButtons.style.display = canEdit ? 'block' : 'none';
         }
 
         context.map()
