@@ -82,12 +82,6 @@ export function uiFieldText(field, context) {
 
             let imageInputsDiv = selection.selectAll('.image-inputs');
 
-            imageInputsDiv
-            //create add button named 'btn-add-image' and add to div 'image-inputs'
-            .append('button')
-            .attr('class', 'btn-add-image')
-            .merge(imageInputsDiv);
-
             //make inputImagesField a child-element of div 'image-features
             var inputImageField = document.getElementById('preset-input-image');
             var imageInput = document.getElementsByClassName('image-inputs')[0];
@@ -106,8 +100,6 @@ export function uiFieldText(field, context) {
             .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
-            var imageButton = document.getElementsByClassName('btn-add-image')[0];
-            imageButton.innerHTML = t('add-image-modal.addbutton');
 
             //add image carousel buttons
             imageButtons
@@ -134,11 +126,7 @@ export function uiFieldText(field, context) {
             //Initiate image carousel
             var initSiema = new Siema({
                 selector: '.siema',
-                duration: 200,
-                easing: 'ease-out',
-                perPage: 1,
                 draggable: true,
-                loop: true
             });
             //Carousel buttons functionality
             document
@@ -154,6 +142,7 @@ export function uiFieldText(field, context) {
 
             //Create image modal window
             //Check rendering in addImageModal.js
+            createImageModal.createAddImageButton();
             createImageModal.createModal();
 
             //Add image feature
