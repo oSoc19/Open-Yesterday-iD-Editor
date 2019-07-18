@@ -4,6 +4,7 @@
 
 let apiURL = "https://commons.wikimedia.org/w/api.php"
 let shortenApiURL = "http://api.bitly.com/v3/shorten?callback=?"
+let CORSBypassURL = "https://cors-anywhere.herokuapp.com/";
 let CSRFToken;
 let jsonLogInfo;
 let loginToken;
@@ -13,8 +14,8 @@ let returnedURL;
 function getLoginToken(){
     let params = "action=query&meta=tokens&format=json&type=login";
 
-    fetch(apiURL + "?" + params, {
-        credentials: 'include'
+    fetch( CORSBypassURL + apiURL + "?" + params, {
+        credentials: 'omit'
         })
     .then(response => response.json())
     .then(data => {
@@ -27,8 +28,8 @@ function getLoginToken(){
 // permits to get a CSRF token needed for the uploading (automatically called after the login)
 function getCSRFToken(pictures){
     let params = "action=query&meta=tokens&format=json";
-    fetch(apiURL + "?" + params,{
-        credentials: 'include'
+    fetch( CORSBypassURL + apiURL + "?" + params,{
+        credentials: 'omit'
     })
     .then(response => response.json())
     .then(data =>  CSRFToken = data.query.tokens.csrftoken)
@@ -52,7 +53,7 @@ function login(pictures){
         headers: {
             'Content-Type': 'multipart/form-data'
         },
-        credentials: 'include',
+        credentials: 'omit',
         body: query
     })
     .then(response => response.json())
@@ -78,7 +79,7 @@ function doApiCall(pictures){
 
     fetch(apiURL, {
         method: 'POST',
-        credentials: 'include',
+        credentials: 'omit',
         body: formData
     }).then(response => response.json())
     .then(response => shortenURL(response.upload.imageinfo.url));
