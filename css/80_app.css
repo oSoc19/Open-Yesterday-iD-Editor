@@ -144,7 +144,7 @@ a:hover {
 
 /* Header
 ------------------------------------------------------- */
-.header-map {
+#header-map {
     width: 100%;
     height: 10%;
     background-color: white;
@@ -5818,3 +5818,94 @@ button.btn-carousel:hover {
     right: 10px;
 }
 
+ /*Open Heritage Map: Add image feature*/
+ div.image-features {
+     display: flex;
+     flex-direction: column-reverse;
+ }
+
+ input#preset-input-image {
+     width: 68%;
+     height: 40px;
+ }
+
+ div.image-inputs {
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row-reverse;
+     margin-top: 10px;
+ }
+
+ button.btn-add-image {
+     width: 30%;
+     background-color: #96BF31;
+ }
+
+ div#add-image-modal {
+     width: 50%;
+     height: 65%;
+     background-color: #ffffff;
+     box-shadow: 0px 2px 10px #DDD;
+     position: absolute;
+     z-index: 1000;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     visibility: hidden;
+ }
+
+ .show {
+     visibility: visible !important;
+ }
+
+ .blur {
+     filter: blur(5px);
+     pointer-events: none;
+ }
+
+ #add-image-modal h2 {
+     text-align: center;
+     margin-top: 50px;
+ }
+
+ button.modal-close {
+     width: 40px;
+     position: absolute;
+     top: 5%;
+     right: 4%;
+     display: flex;
+     justify-content: center;
+ }
+
+ .modal-close i {
+     font-size: 1.5em;
+ }
+
+ div#dropzone {
+     width: 50%;
+     background-color:rgba(0,0,0,.2);
+     margin: 25px auto;
+     padding: 5%;
+     display: flex;
+     flex-direction: column;
+ }
+
+ input#submitPicture {
+     background-color:rgba(255,255,255,0.6);
+     margin-bottom: 25px;
+     padding: 5%;
+ }
+
+ button#sendThePictureToWikimedia {
+     width: 50%;
+     margin: 0 auto;
+ }
+
+ div.wikimedia-alert {
+     width: 100%;
+     color: #ffffff;
+     background-color: #95c11f;
+     position: absolute;
+     bottom: 0;
+     padding: 2%;
+ }
