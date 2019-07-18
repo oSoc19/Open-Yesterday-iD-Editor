@@ -275,10 +275,13 @@ export function uiBackground(context) {
             updateBackgroundList();
         }
 
+        /*
+        // OpenHeritageMap change: Disable the overlay list (not needed)
         if (!_pane.select('.disclosure-wrap-overlay_list').classed('hide')) {
             updateOverlayList();
         }
-
+        */
+       
         _displayOptionsContainer
             .call(backgroundDisplayOptions);
 
@@ -358,6 +361,9 @@ export function uiBackground(context) {
             );
 
         // overlay list
+        // OpenHeritageMap change: Disable the Overlays menu (not needed)
+        // See also 'update' above.
+        /*
         content
             .append('div')
             .attr('class', 'background-overlay-list-container')
@@ -365,6 +371,7 @@ export function uiBackground(context) {
                 .title(t('background.overlays'))
                 .content(renderOverlayList)
             );
+        */
 
         // display options
         _displayOptionsContainer = content
