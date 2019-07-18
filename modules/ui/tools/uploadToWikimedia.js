@@ -14,8 +14,8 @@ let returnedURL;
 function getLoginToken(){
     let params = "action=query&meta=tokens&format=json&type=login";
 
-    fetch( CORSBypassURL + apiURL + "?" + params, {
-        credentials: 'omit'
+    fetch(/* CORSBypassURL +*/ apiURL + "?" + params, {
+        credentials: 'include'
         })
     .then(response => response.json())
     .then(data => {
@@ -28,8 +28,8 @@ function getLoginToken(){
 // permits to get a CSRF token needed for the uploading (automatically called after the login)
 function getCSRFToken(pictures){
     let params = "action=query&meta=tokens&format=json";
-    fetch( CORSBypassURL + apiURL + "?" + params,{
-        credentials: 'omit'
+    fetch( /*CORSBypassURL +*/ apiURL + "?" + params,{
+        credentials: 'include'
     })
     .then(response => response.json())
     .then(data =>  CSRFToken = data.query.tokens.csrftoken)
@@ -53,7 +53,7 @@ function login(pictures){
         headers: {
             'Content-Type': 'multipart/form-data'
         },
-        credentials: 'omit',
+        credentials: 'include',
         body: query
     })
     .then(response => response.json())
@@ -77,7 +77,7 @@ function doApiCall(pictures){
     formData.append("token", CSRFToken);
     formData.append('ignorewarnings', 1);
 
-    fetch(apiURL, {
+    fetch( /*CORSBypassURL +*/ apiURL, {
         method: 'POST',
         credentials: 'omit',
         body: formData
