@@ -2609,9 +2609,6 @@
                 "backrest": {
                     "label": "Backrest"
                 },
-                "bar": {
-                    "label": "Bar"
-                },
                 "barrier": {
                     "label": "Type"
                 },
@@ -4663,18 +4660,6 @@
                     "name": "ATM",
                     "terms": "money,cash,machine"
                 },
-                "amenity/bank": {
-                    "name": "Bank",
-                    "terms": "credit union,check,deposit,fund,investment,repository,reserve,safe,savings,stock,treasury,trust,vault"
-                },
-                "amenity/bar": {
-                    "name": "Bar",
-                    "terms": "dive,beer,bier,booze"
-                },
-                "amenity/bar/lgbtq": {
-                    "name": "LGBTQ+ Bar",
-                    "terms": "gay bar,lesbian bar,lgbtq bar,lgbt bar,lgb bar"
-                },
                 "amenity/bbq": {
                     "name": "Barbecue/Grill",
                     "terms": "bbq,grill"
@@ -4707,10 +4692,6 @@
                     "name": "Bicycle Repair Tool Stand",
                     "terms": "bike,repair,chain,pump,tools,stand,multitool"
                 },
-                "amenity/biergarten": {
-                    "name": "Biergarten",
-                    "terms": "beer,bier,booze"
-                },
                 "amenity/boat_rental": {
                     "name": "Boat Rental",
                     "terms": ""
@@ -4718,10 +4699,6 @@
                 "amenity/bureau_de_change": {
                     "name": "Currency Exchange",
                     "terms": "bureau de change,money changer"
-                },
-                "amenity/cafe": {
-                    "name": "Cafe",
-                    "terms": "bistro,coffee,tea"
                 },
                 "amenity/car_pooling": {
                     "name": "Car Pooling",
@@ -4831,46 +4808,6 @@
                     "name": "Events Venue",
                     "terms": "banquet hall,baptism,Bar Mitzvah,Bat Mitzvah,birthdays,celebrations,conferences,confirmation,meetings,parties,party,quinceañera,reunions,weddings"
                 },
-                "amenity/fast_food": {
-                    "name": "Fast Food",
-                    "terms": "restaurant,takeaway"
-                },
-                "amenity/fast_food/ice_cream": {
-                    "name": "Ice Cream Fast Food",
-                    "terms": ""
-                },
-                "amenity/fast_food/burger": {
-                    "name": "Burger Fast Food",
-                    "terms": "breakfast,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/fast_food/chicken": {
-                    "name": "Chicken Fast Food",
-                    "terms": "breakfast,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/fast_food/donut": {
-                    "name": "Donut Fast Food",
-                    "terms": "breakfast,brunch,cafe,canteen,coffee,dine,diner,donut,doughnut,dining,eat,lunch,table"
-                },
-                "amenity/fast_food/fish_and_chips": {
-                    "name": "Fish & Chips Fast Food",
-                    "terms": "breakfast,cafe,café,dine,dining,dinner,drive-in,eat,grill,lunch,table,french fries"
-                },
-                "amenity/fast_food/kebab": {
-                    "name": "Kebab Fast Food",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/fast_food/mexican": {
-                    "name": "Mexican Fast Food",
-                    "terms": "breakfast,dine,dining,dinner,drive-in,eat,grill,lunch,table,tacos,burritos,enchiladas,fajitas,nachos,tortillas,salsa,tamales,quesadillas"
-                },
-                "amenity/fast_food/pizza": {
-                    "name": "Pizza Fast Food",
-                    "terms": "dine,dining,dinner,drive-in,eat,lunch,table,deep dish,thin crust,slice"
-                },
-                "amenity/fast_food/sandwich": {
-                    "name": "Sandwich Fast Food",
-                    "terms": "breakfast,cafe,café,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
                 "amenity/fire_station": {
                     "name": "Fire Station",
                     "terms": ""
@@ -4907,10 +4844,6 @@
                     "name": "Ice Cream Shop",
                     "terms": "gelato,sorbet,sherbet,frozen,yogurt"
                 },
-                "amenity/internet_cafe": {
-                    "name": "Internet Cafe",
-                    "terms": "cybercafe,taxiphone,teleboutique,coffee,cafe,net,lanhouse"
-                },
                 "amenity/karaoke": {
                     "name": "Karaoke Box",
                     "terms": "karaoke club,karaoke room,karaoke television,KTV"
@@ -4926,10 +4859,6 @@
                 "amenity/library": {
                     "name": "Library",
                     "terms": "book"
-                },
-                "amenity/love_hotel": {
-                    "name": "Love Hotel",
-                    "terms": ""
                 },
                 "amenity/marketplace": {
                     "name": "Marketplace",
@@ -5102,82 +5031,6 @@
                 "amenity/recycling_container": {
                     "name": "Recycling Container",
                     "terms": "bin,can,bottle,glass,garbage,rubbish,scrap,trash"
-                },
-                "amenity/restaurant": {
-                    "name": "Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,coffee,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/american": {
-                    "name": "American Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,coffee,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/asian": {
-                    "name": "Asian Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/chinese": {
-                    "name": "Chinese Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/french": {
-                    "name": "French Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/german": {
-                    "name": "German Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/greek": {
-                    "name": "Greek Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table,gyros,pitas,olives"
-                },
-                "amenity/restaurant/indian": {
-                    "name": "Indian Restaurant",
-                    "terms": "bar,breakfast,dine,dining,dinner,drive-in,eat,grill,lunch,table,curry"
-                },
-                "amenity/restaurant/italian": {
-                    "name": "Italian Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table,pasta,pizza"
-                },
-                "amenity/restaurant/japanese": {
-                    "name": "Japanese Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/mexican": {
-                    "name": "Mexican Restaurant",
-                    "terms": "bar,breakfast,dine,dining,dinner,drive-in,eat,grill,lunch,table,tacos,burritos,enchiladas,fajitas,nachos,tortillas,salsa,tamales,quesadillas"
-                },
-                "amenity/restaurant/noodle": {
-                    "name": "Noodle Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table,ramen noodles,soup,soba noodles,cellophane noodles,rice noodles"
-                },
-                "amenity/restaurant/pizza": {
-                    "name": "Pizza Restaurant",
-                    "terms": "bar,dine,dining,dinner,drive-in,eat,lunch,table,deep dish,thin crust,slice"
-                },
-                "amenity/restaurant/seafood": {
-                    "name": "Seafood Restaurant",
-                    "terms": "bar,breakfast,cafe,café,dine,dining,dinner,drive-in,eat,grill,lunch,table,fish,shellfish,molluscs,crustaceans,clams,oysters,lobsters,crab,shrimp,squid,octopus"
-                },
-                "amenity/restaurant/steakhouse": {
-                    "name": "Steakhouse",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table,steak house,chop house,beef"
-                },
-                "amenity/restaurant/sushi": {
-                    "name": "Sushi Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/thai": {
-                    "name": "Thai Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/turkish": {
-                    "name": "Turkish Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
-                },
-                "amenity/restaurant/vietnamese": {
-                    "name": "Vietnamese Restaurant",
-                    "terms": "bar,breakfast,cafe,café,canteen,dine,dining,dinner,drive-in,eat,grill,lunch,table"
                 },
                 "amenity/sanitary_dump_station": {
                     "name": "RV Toilet Disposal",
@@ -5705,10 +5558,6 @@
                 },
                 "building/hospital": {
                     "name": "Hospital Building",
-                    "terms": ""
-                },
-                "building/hotel": {
-                    "name": "Hotel Building",
                     "terms": ""
                 },
                 "building/house": {
@@ -8791,10 +8640,6 @@
                     "name": "Storage Rental",
                     "terms": "garages"
                 },
-                "shop/supermarket": {
-                    "name": "Supermarket",
-                    "terms": "grocery,store,shop"
-                },
                 "shop/tailor": {
                     "name": "Tailor",
                     "terms": "clothes,suit"
@@ -8953,10 +8798,6 @@
                 },
                 "tourism/hostel": {
                     "name": "Hostel",
-                    "terms": ""
-                },
-                "tourism/hotel": {
-                    "name": "Hotel",
                     "terms": ""
                 },
                 "tourism/information": {

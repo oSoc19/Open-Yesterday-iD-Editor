@@ -5,13 +5,9 @@ import { event as d3_event } from 'd3-selection';
 import { t } from '../util/locale';
 import { svgIcon } from '../svg/index';
 
-
 export function uiNotice(context) {
-
     return function(selection) {
-        var div = selection
-            .append('div')
-            .attr('class', 'notice');
+        var div = selection.append('div').attr('class', 'notice');
 
         var button = div
             .append('button')
@@ -19,9 +15,13 @@ export function uiNotice(context) {
             .on('click', function() {
                 context.map().zoomEase(context.minEditableZoom());
             })
-            .on('wheel', function() {   // let wheel events pass through #4482
+            .on('wheel', function() {
+                // let wheel events pass through #4482
                 var e2 = new WheelEvent(d3_event.type, d3_event);
-                context.surface().node().dispatchEvent(e2);
+                context
+                    .surface()
+                    .node()
+                    .dispatchEvent(e2);
             });
 
         button
@@ -30,17 +30,15 @@ export function uiNotice(context) {
             .attr('class', 'label')
             .text(t('zoom_in_edit'));
 
-
         function disableTooHigh() {
             var canEdit = context.map().zoom() >= context.minEditableZoom();
             div.style('display', canEdit ? 'none' : 'block');
-            let addButtons = document.getElementsByClassName('old-modes')[0];
-            if(addButtons)
+            var addButtons = document.getElementsByClassName('old-modes')[0];
+            if (addButtons)
                 addButtons.style.display = canEdit ? 'block' : 'none';
         }
 
-        context.map()
-            .on('move.notice', _debounce(disableTooHigh, 500));
+        context.map().on('move.notice', _debounce(disableTooHigh, 500));
 
         disableTooHigh();
     };

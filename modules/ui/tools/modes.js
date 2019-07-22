@@ -44,7 +44,7 @@ export function uiToolOldDrawModes(context) {
             description: t('modes.add_factory.description'),
             preset: context.presets().item('factory'),
             key: '6'
-        }),
+        })
         // modeAddPoint(context, {
         //     title: t('modes.add_point.title'),
         //     button: 'point',
@@ -96,7 +96,7 @@ export function uiToolOldDrawModes(context) {
             .style('display', 'flex')
             .style('width', '350px')
             .style('height', '100px')
-            .style('flex-wrap', 'wrap')
+            //.style('flex-wrap', 'wrap')
             .style('justify-content', 'center');
 
         context.on('enter.editor', function(entered) {

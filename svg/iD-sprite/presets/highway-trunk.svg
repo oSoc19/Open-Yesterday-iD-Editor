@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="50" height="50" viewBox="5 0 50 50">
-  <path d="M15,14 L10,36 L17.5,36 L20.5,14 L15,14 z M22,14 L19.5,36 L29,36 L29.5,14 L22,14 z M30.5,14 L31,36 L40,36 L37.5,14 L30.5,14 z M39,14 L42,36 L50,36 L44.5,14 L39,14 z" fill="#444444"/>
-  <path d="M41.75,20 L41,16 L43.875,16 L44.625,20 z M37,33 L36.5,29 L33.5,29 L34,33 z M13.5,33 L14,29 L17,29 L16.5,33 z M23.25,20 L23.562,16 L26.438,16 L26.125,20 z" fill="currentColor" id="highway-trunk-stroke2"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<path class="st0" d="M10,14L5,36h7.5l3-22H10z M11.5,33h-3L9,29h3L11.5,33z"/>
+	<path class="st0" d="M14.5,36H24l0.5-22H17L14.5,36z M18.6,16h2.9l-0.3,4h-2.9L18.6,16z"/>
+	<path class="st0" d="M39.5,14H34l3,22h8L39.5,14z M36.8,20L36,16h2.9l0.8,4H36.8z"/>
+	<path class="st0" d="M25.5,14L26,36h9l-2.5-22H25.5z M29,33l-0.5-4h3l0.5,4H29z"/>
+</g>
 </svg>
