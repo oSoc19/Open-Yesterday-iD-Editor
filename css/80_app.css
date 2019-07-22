@@ -5873,8 +5873,6 @@ button.btn-carousel:hover {
      position: absolute;
      top: 5%;
      right: 4%;
-     display: flex;
-     justify-content: center;
  }
 
  .modal-close i {
