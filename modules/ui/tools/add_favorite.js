@@ -15,7 +15,7 @@ export function uiToolAddFavorite(context) {
     var tool = {
         id: 'add_favorite',
         klass: 'modes',
-        label: t('toolbar.favorites')
+        label: t('toolbar.favorites@')
     };
 
     function enabled() {
