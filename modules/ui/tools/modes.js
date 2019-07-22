@@ -96,6 +96,7 @@ export function uiToolOldDrawModes(context) {
             .style('display', 'flex')
             .style('width', '350px')
             .style('height', '100px')
+            .style('margin-left', '60%')
             //.style('flex-wrap', 'wrap')
             .style('justify-content', 'center');
 

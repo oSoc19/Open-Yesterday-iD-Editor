@@ -516,7 +516,6 @@ button[disabled].action:hover {
 #bar .toolbar-item .item-content {
     display: flex;
     flex: 0 1 auto;
-    flex-flow: row wrap;
     justify-content: center;
     position: relative;
     height: 60px;
