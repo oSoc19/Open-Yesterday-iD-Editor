@@ -157,7 +157,7 @@ export function uiFieldText(field, context) {
                         pictures = document.getElementById('submitPicture');
                         WikiMediaService.login(pictures);
                     } else{
-                        alert("Kies een foto a.u.b");
+                        alert(t("add-image-modal.abort"));
                     }
                 };
                 //Make modal window visible and let background blur when "add image" button is clicked

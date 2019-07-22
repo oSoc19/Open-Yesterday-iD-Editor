@@ -5,6 +5,7 @@ en:
     submit: Upload picture
     reminder: Reminder
     license: Your picture will be uploaded online on Wikimedia Commons with the CC0 1.0 license. This means your photo will be dedicated to the public domain.
+    abort: Please choose a picture
   icons:
     download: download
     information: info
