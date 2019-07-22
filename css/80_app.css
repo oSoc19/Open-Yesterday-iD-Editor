@@ -5202,8 +5202,8 @@ svg.mouseclick use.right {
 .notice {
     position: absolute;
     top: -25px;
-    left: 19.5%;
-    /* right: 0; */
+    left: 0;
+    right: 0;
     /* text-align: center; */
     z-index: 200;
     background: #7092ff;

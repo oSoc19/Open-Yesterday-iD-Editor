@@ -3,20 +3,22 @@
 
 export { getLoginToken, login, doApiCall };
 
-let apiURL = 'https://commons.wikimedia.org/w/api.php';
-let CSRFToken;
-let jsonLogInfo;
-let loginToken;
+var apiURL = 'https://commons.wikimedia.org/w/api.php';
+var CSRFToken;
+var jsonLogInfo;
+var loginToken;
 
 // send a fetch request to get the login token
 function getLoginToken() {
-    let params = 'action=query&meta=tokens&format=json&type=login';
+    var params = 'action=query&meta=tokens&format=json&type=login';
 
     fetch(apiURL + '?' + params, {
         credentials: 'include'
     })
-        .then(response => response.json())
-        .then(data => {
+        .then(function(response) {
+            response.json();
+        })
+        .then(function(data) {
             loadJson(function(response) {
                 jsonLogInfo = JSON.parse(response);
                 loginToken = data.query.tokens.logintoken;
@@ -25,27 +27,33 @@ function getLoginToken() {
 }
 // permits to get a CSRF token needed for the uploading (automatically called after the login)
 function getCSRFToken(pictures) {
-    let params = 'action=query&meta=tokens&format=json';
+    var params = 'action=query&meta=tokens&format=json';
     fetch(apiURL + '?' + params, {
         credentials: 'include'
     })
-        .then(response => response.json())
-        .then(data => (CSRFToken = data.query.tokens.csrftoken))
-        .then(() => doApiCall(pictures));
+        .then(function(response) {
+            response.json();
+        })
+        .then(function(data) {
+            CSRFToken = data.query.tokens.csrftoken;
+        })
+        .then(function() {
+            doApiCall(pictures);
+        });
 }
 
 // permits to login to wikimedia commons, login credentials are in a local file
 function login(pictures) {
     if (!loginToken)
         alert('No login token, please wait or check the internet connection');
-    let formData = new FormData();
+    var formData = new FormData();
     formData.append('action', 'login');
     formData.append('lgname', jsonLogInfo.loginInfo.lgname);
     formData.append('lgpassword', jsonLogInfo.loginInfo.lgpassword);
     formData.append('lgtoken', loginToken);
     formData.append('format', 'json');
 
-    let query = new URLSearchParams(formData);
+    var query = new URLSearchParams(formData);
 
     fetch(apiURL, {
         method: 'POST',
@@ -55,8 +63,12 @@ function login(pictures) {
         credentials: 'include',
         body: query
     })
-        .then(response => response.json())
-        .then(() => getCSRFToken(pictures));
+        .then(function(response) {
+            response.json();
+        })
+        .then(function() {
+            getCSRFToken(pictures);
+        });
 }
 
 // send the picutre to wikimedia commons
@@ -84,10 +96,12 @@ function doApiCall(pictures) {
         credentials: 'include',
         body: formData
     })
-        .then(response => response.json())
-        .then(response =>
-            console.log(response.upload.imageinfo.descriptionurl)
-        );
+        .then(function(response) {
+            response.json();
+        })
+        .then(function(response) {
+            console.log(response.upload.imageinfo.descriptionurl);
+        });
 }
 
 // loads json login credentials file

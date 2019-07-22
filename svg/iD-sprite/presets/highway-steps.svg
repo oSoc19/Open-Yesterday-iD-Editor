@@ -1,6 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="50" height="50" viewBox="5 0 50 50">
-  <path d="M27,14 L27,16 L26,18 L26,20 L25,22 L25,24 L24,26 L24,28 L23,30 L23,32 L22,34 L22,36 L30,36 L38,36 L38,34 L37,32 L37,30 L36,28 L36,26 L35,24 L35,22 L34,20 L34,18 L33,16 L33,14 L30,14 L27,14 z" fill="currentColor" id="highway-steps-stroke3" opacity="0.496"/>
-  <path d="M23,32 L23,30 L37,30 L37,32 z M38,36 L38,34 L22,34 L22,36 z M36,28 L36,26 L24,26 L24,28 z M35,24 L35,22 L25,22 L25,24 z M34,20 L34,18 L26,18 L26,20 z M33,16 L33,14 L27,14 L27,16 z" fill="currentColor" id="highway-steps-stroke2"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.496;fill:#FFFFFF;enable-background:new    ;}
+</style>
+<path id="highway-steps-stroke3" class="st0" d="M22,14v2l-1,2v2l-1,2v2l-1,2v2l-1,2v2l-1,2v2h8h8v-2l-1-2v-2l-1-2v-2l-1-2v-2l-1-2
+	v-2l-1-2v-2h-3H22z"/>
+<path id="highway-steps-stroke2" d="M18,32v-2h14v2H18z M33,36v-2H17v2H33z M31,28v-2H19v2H31z M30,24v-2H20v2H30z M29,20v-2h-8v2
+	H29z M28,16v-2h-6v2H28z"/>
 </svg>
