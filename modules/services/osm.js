@@ -17,8 +17,8 @@ var dispatch = d3_dispatch('authLoading', 'authDone', 'change', 'loading', 'load
 var urlroot = 'http://www.openhistoricalmap.org';
 var oauth = osmAuth({
     url: urlroot,
-    oauth_consumer_key: 'D7BymdKDtUoY0hL0VJmNuNnEXG7uKuGFH6s1PIyH',
-    oauth_secret: 'FyVEPa9Fd5DNix709JGCqUQVYANKyiA1dESsLmAN',
+    oauth_consumer_key: 'gOvgybywYYUkMAN46OrsIIVXxwDqsQKQWJI5Nkh3',
+    oauth_secret: 'ypAmbxfwdCIOzoV5YQ9IPYnqA7UYtDUgCTqQZxFl',
     loading: authLoading,
     done: authDone
 });
