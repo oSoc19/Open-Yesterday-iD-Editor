@@ -151,11 +151,12 @@ export function uiFieldText(field, context) {
             var dropzone = document.getElementById('dropzone');
             function addImage() {
                 var pictures;
-                WikiMediaService.getLoginToken();
+                WikiMediaService.login();
                 document.getElementById('sendThePictureToWikimedia').onclick = function() {
                     if(document.getElementById('submitPicture').files[0]) {
-                        pictures = document.getElementById('submitPicture');
-                        WikiMediaService.login(pictures);
+                        pictures = document.getElementById('submitPicture').files[0];
+                        var name = document.getElementById('preset-input-name').value;
+                        WikiMediaService.upload(pictures, name);
                     } else{
                         alert(t("add-image-modal.abort"));
                     }
