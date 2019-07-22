@@ -55,7 +55,7 @@ export function uiAttribution(context) {
                 selection
                     .append('span')
                     .attr('class', 'attribution-text')
-                    .attr('class', 'erfgoed')
+                    .attr('class', 'other')
                     .text(terms_text);
             })
             .merge(background);

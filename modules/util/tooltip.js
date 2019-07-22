@@ -23,7 +23,6 @@ export function tooltip(klass) {
     var _html = utilFunctor(false);
     var _placement = utilFunctor('top');
 
-
     tooltip.title = function(val) {
         if (arguments.length) {
             _title = utilFunctor(val);
@@ -32,7 +31,6 @@ export function tooltip(klass) {
             return _title;
         }
     };
-
 
     tooltip.html = function(val) {
         if (arguments.length) {
@@ -43,7 +41,6 @@ export function tooltip(klass) {
         }
     };
 
-
     tooltip.placement = function(val) {
         if (arguments.length) {
             _placement = utilFunctor(val);
@@ -53,21 +50,17 @@ export function tooltip(klass) {
         }
     };
 
-
     tooltip.show = function(selection) {
         selection.each(show);
     };
-
 
     tooltip.hide = function(selection) {
         selection.each(hide);
     };
 
-
     tooltip.toggle = function(selection) {
         selection.each(toggle);
     };
-
 
     tooltip.destroy = function(selection, selector) {
         // by default, just destroy the current tooltip
@@ -77,13 +70,15 @@ export function tooltip(klass) {
             .on('mouseenter.tooltip', null)
             .on('mouseleave.tooltip', null)
             .attr('title', function() {
-                return this.getAttribute('data-original-title') || this.getAttribute('title');
+                return (
+                    this.getAttribute('data-original-title') ||
+                    this.getAttribute('title')
+                );
             })
             .attr('data-original-title', null)
             .selectAll(selector)
             .remove();
     };
-
 
     tooltip.destroyAny = function(selection) {
         selection.call(tooltip.destroy, '.tooltip');
@@ -94,23 +89,21 @@ export function tooltip(klass) {
     function setup() {
         var root = d3_select(this);
         var animate = _animation.apply(this, arguments);
-        var tip = root.selectAll('.tooltip-' + _id)
-            .data([0]);
+        var tip = root.selectAll('.tooltip-' + _id).data([0]);
 
-        var enter = tip.enter()
+        var enter = tip
+            .enter()
             .append('div')
-            .attr('class', 'tooltip tooltip-' + _id + ' ' + (klass ? klass : ''));
+            .attr(
+                'class',
+                'tooltip tooltip-' + _id + ' ' + (klass ? klass : '')
+            );
 
-        enter
-            .append('div')
-            .attr('class', 'tooltip-arrow');
+        enter.append('div').attr('class', 'tooltip-arrow');
 
-        enter
-            .append('div')
-            .attr('class', 'tooltip-inner');
+        enter.append('div').attr('class', 'tooltip-inner');
 
-        tip = enter
-            .merge(tip);
+        tip = enter.merge(tip);
 
         if (animate) {
             tip.classed('fade', true);
@@ -127,7 +120,6 @@ export function tooltip(klass) {
         root.on('mouseleave.tooltip', hide);
     }
 
-
     function show() {
         if (isTouchEvent) {
             isTouchEvent = false;
@@ -137,7 +129,8 @@ export function tooltip(klass) {
         var content = _title.apply(this, arguments);
         var tip = root.selectAll('.tooltip-' + _id);
 
-        if (tip.empty()) {   // tooltip was removed somehow, put it back
+        if (tip.empty()) {
+            // tooltip was removed somehow, put it back
             root.call(tooltip.destroy);
             root.each(setup);
             tip = root.selectAll('.tooltip-' + _id);
@@ -154,17 +147,29 @@ export function tooltip(klass) {
 
         switch (place) {
             case 'top':
-            pos = { x: outer.x + (outer.w - inner.w) / 2, y: outer.y - inner.h };
-            break;
+                pos = {
+                    x: outer.x + (outer.w - inner.w) / 2,
+                    y: outer.y - inner.h
+                };
+                break;
             case 'right':
-            pos = { x: outer.x + outer.w, y: outer.y + (outer.h - inner.h) / 2 };
-            break;
+                pos = {
+                    x: outer.x + outer.w,
+                    y: outer.y + (outer.h - inner.h) / 2
+                };
+                break;
             case 'left':
-            pos = { x: outer.x - inner.w, y: outer.y + (outer.h - inner.h) / 2 };
-            break;
+                pos = {
+                    x: outer.x - inner.w,
+                    y: outer.y + (outer.h - inner.h) / 2
+                };
+                break;
             case 'bottom':
-            pos = { x: outer.x + (outer.w - inner.w) / 2, y: outer.y + outer.h };
-            break;
+                pos = {
+                    x: outer.x + (outer.w - inner.w) / 2,
+                    y: outer.y + outer.h
+                };
+                break;
         }
 
         if (pos) {
@@ -174,7 +179,6 @@ export function tooltip(klass) {
         }
 
         this.tooltipVisible = true;
-
 
         function getPosition(node) {
             var mode = d3_select(node).style('position');
@@ -196,12 +200,12 @@ export function tooltip(klass) {
         }
     }
 
-
     function hide() {
-        d3_select(this).selectAll('.tooltip-' + _id).classed('in', false);
+        d3_select(this)
+            .selectAll('.tooltip-' + _id)
+            .classed('in', false);
         this.tooltipVisible = false;
     }
-
 
     function toggle() {
         if (this.tooltipVisible) {
@@ -210,7 +214,6 @@ export function tooltip(klass) {
             show.apply(this, arguments);
         }
     }
-
 
     return tooltip;
 }

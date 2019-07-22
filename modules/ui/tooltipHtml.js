@@ -1,6 +1,5 @@
 import { t } from '../util/locale';
 
-
 export function uiTooltipHtml(text, key, heading) {
     var s = '';
 
@@ -11,8 +10,13 @@ export function uiTooltipHtml(text, key, heading) {
         s += '<div class="tooltip-text"><span>' + text + '</span></div>';
     }
     if (key) {
-        s += '<div class="keyhint-wrap"><span>' + t('tooltip_keyhint') + '</span>' +
-            '<span class="keyhint">' + key + '</span></div>';
+        s +=
+            '<div class="keyhint-wrap"><span>' +
+            t('tooltip_keyhint') +
+            '</span>' +
+            '<span class="keyhint">' +
+            key +
+            '</span></div>';
     }
 
     return s;

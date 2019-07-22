@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="60" height="60" viewBox="0 0 60 60">
-  <path d="M30,14 C21.163,14 14,21.163 14,30 C14,38.837 21.163,46 30,46 C38.837,46 46,38.837 46,30 C46,21.163 38.837,14 30,14 z M28,18 L28,19.781 L28,24 L34,24 L36,25 L39,28 L40,30 L40,34.562 C38.817,37.152 36.664,39.177 34,40.219 L34,32 L32,30 L28,30 L28,36 L21.031,29.719 L18,27 L28,18 z" fill="#58A9ED"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M30,14c-8.8,0-16,7.2-16,16s7.2,16,16,16s16-7.2,16-16S38.8,14,30,14z M28,18v1.8V24h6l2,1l3,3l1,2v4.6
+	c-1.2,2.6-3.3,4.6-6,5.7V32l-2-2h-4v6l-7-6.3L18,27L28,18z"/>
 </svg>

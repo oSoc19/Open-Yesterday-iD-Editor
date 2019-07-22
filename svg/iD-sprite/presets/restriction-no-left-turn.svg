@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="60" height="60" viewBox="0 0 60 60">
-  <path d="M20,17 L10,26 L20,35 L20,29 L25.5,29 L20,23.5 L20,17 z M26.531,23 L38,34.469 L38,31 L36,27 L34,25 L30,23 L26.531,23 z M32,35.5 L32,40.812 C33.354,40.53 34.611,39.958 35.75,39.25 L32,35.5 z" fill="#989898"/>
-  <path d="M30,15 C26.612,15 23.51,16.14 21,18.031 L21,23.094 L37.375,39.469 L36.875,39.812 C34.928,41.178 32.561,42 30,42 C25.527,42 21.626,39.541 19.562,35.906 L15.125,31.938 C16.076,39.309 22.368,45 30,45 C38.29,45 45,38.29 45,30 C45,21.71 38.29,15 30,15 z M30,18 C36.621,18 42,23.379 42,30 C42,32.561 41.178,34.928 39.812,36.875 L39.469,37.344 L22.625,20.5 L23.125,20.156 C25.072,18.791 27.439,18 30,18 z" fill="#E06D5F"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M20,17l-10,9l10,9v-6h5.5L20,23.5V17z M26.5,23L38,34.5V31l-2-4l-2-2l-4-2H26.5z M32,35.5v5.3
+	c1.4-0.3,2.6-0.9,3.8-1.6L32,35.5z"/>
+<path class="st0" d="M30,15c-3.4,0-6.5,1.1-9,3v5.1l16.4,16.4l-0.5,0.3C34.9,41.2,32.6,42,30,42c-4.5,0-8.4-2.5-10.4-6.1l-4.4-4
+	C16.1,39.3,22.4,45,30,45c8.3,0,15-6.7,15-15S38.3,15,30,15z M30,18c6.6,0,12,5.4,12,12c0,2.6-0.8,4.9-2.2,6.9l-0.3,0.5L22.6,20.5
+	l0.5-0.3C25.1,18.8,27.4,18,30,18z"/>
 </svg>
