@@ -125,6 +125,7 @@ export function uiFieldText(field, context) {
             var initSiema = new Siema({
                 selector: '.siema',
                 draggable: true,
+                loop: true
             });
             //Carousel buttons functionality
             document
