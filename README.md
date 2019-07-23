@@ -19,6 +19,10 @@ Fortunately, we have a project that can help you with that. [Check it out!](http
 
 See the [INSTALLATION.md](INSTALLATION.md)
 
+## Modifying the project
+
+If you'd like to create nor modify a preset, please check the docs in ./data/presets/README.md
+
 ## License
 
 iD is available under the [ISC License](https://opensource.org/licenses/ISC).
