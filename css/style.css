@@ -55,8 +55,8 @@ header {
     margin-top: 3rem;
 }
 
-.header-title-sub-text {
-    line-height: 2.4rem;
+.header-title-sub-text, .project-title-text {
+    line-height: 3rem;
 }
 
 .header-title-sub-container{
@@ -69,45 +69,53 @@ header {
 
 /* Font */
 
-.header-title-sub, .header-title-sub-text, .header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
+.header-title-sub, .header-title-sub-text, .header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2, .project-title-text {
     font-family: 'Cabin';
 }
 
 /* Weight */
 
-.header-title-sub  {
+.header-title-sub, .project-title, .footer-team  {
     font-weight: bold;
 }
 
-.header-title-sub-text {
+.header-title-sub-text, .project-title-text {
     font-weight: normal;
 }
 
 /* Font-size */
 
-.header-title-sub {
+.header-title-sub, .project-title {
     font-size: 3rem;
 }
 
-.header-title-sub-text {
+.header-title-sub-text, .project-title-text, .footer-team-name {
     font-size: 1.6rem;
 }
 
-.header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
-    font-size: 2.4rem;
+.header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2, .footer-team {
+    font-size: 2rem;
+}
+
+.footer-member-function {
+    font-size: 1.4rem;
 }
 
 /* Color */
 
-.header-title-sub {
+.header-title-sub, .project-title {
+    color: #e85c34;
+}
+
+.footer-member-function {
     color: #587015;
 }
 
-.header-title-sub-text {
+.header-title-sub-text, .project-title-text {
     color: #6d6d6d;
 }
 
-.header-title-sub-buttons-button-1 {
+.header-title-sub-buttons-button-1, .footer-team-name, .footer-team {
     color: #fffef6;
 }
 
@@ -120,7 +128,7 @@ header {
 .header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
     text-decoration: none;
     padding: 1.5rem 3rem;
-    border-radius: 1.4rem;
+    border-radius: 1rem;
 }
 
 .header-title-sub-buttons-button-1 {
@@ -142,7 +150,135 @@ header {
     color: #fffef6;
 }
 
+/* Project - article */
 
+.project-image {
+    width: 50rem;
+}
+
+
+/* Displays of Project - article */
+
+.project-title-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 15rem;
+    width: 40rem;
+    margin-top: -10rem;
+}
+
+.project-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100rem;
+    margin: 0 auto;
+    margin-top: 10rem;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #587015;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Using - article */
+
+.using-image {
+    width: 43rem;
+}
+
+
+/* Displays of using - article */
+
+.using-title-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 15rem;
+    width: 40rem;
+}
+
+.using-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90rem;
+    margin: 0 auto;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #96c11e;
+    padding: 5rem 0;
+    margin-top: 10rem;
+}
+
+.footer-logo {
+    width: 2rem;
+    opacity: 0.7;
+    transition: opacity 200ms ease;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+.team-member-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-member-margin {
+    margin-right: 1rem;
+}
+
+.footer-team-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 28rem;
+}
+
+.footer-member {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.footer-partners-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 28rem;
+}
+
+.footer-logo-partner {
+    width: 14rem;
+    opacity: 0.7;
+    transition: opacity 200ms ease;
+}
+
+.footer-logo-partner:hover {
+    opacity: 1;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90rem;
+    margin: 0 auto;
+}
 
 
 
