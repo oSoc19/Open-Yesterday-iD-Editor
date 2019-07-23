@@ -9,7 +9,7 @@ import { utilGetSetValue, utilNoAuto, utilRebind } from '../../util';
 //Siema is the image carousel library used for the marker image carousel feature
 import Siema from 'siema';
 
-import * as createImageModal from './addImageModal'; 
+import * as createImageModal from './addImageModal';
 
 import { login } from '../tools/uploadToWikimedia';
 import * as WikiMediaService from '../tools/uploadToWikimedia';
@@ -60,42 +60,41 @@ export function uiFieldText(field, context) {
 
         // Open Heritage Map: Display marker image(s)
         var inputImageField = document.getElementById('preset-input-image');
+
         var imagesURL = inputImageField ? inputImageField.value : null;
         //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
         if (imagesURL === null) {
-            console.log("url is null");
-
             wrap
-            //create div named 'image-features' and append to parent
-            .append('div')
-            .attr('class', 'image-features')
-            .merge(wrap);
+                //create div named 'image-features' and append to parent
+                .append('div')
+                .attr('class', 'image-features')
+                .merge(wrap);
 
             var imageFeatures = selection.selectAll('.image-features');
 
             imageFeatures
-            .append('div')
-            .attr('class', 'image-inputs')
-            .merge(imageFeatures)
-        } 
-        
+                .append('div')
+                .attr('class', 'image-inputs')
+                .merge(imageFeatures)
+        }
+
         else if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
             //split imagesURL-value into seperate URLS
             imagesURL = imagesURL.split(',');
 
             wrap
-            //create div named 'image-features' and append to parent
-            .append('div')
-            .attr('class', 'image-features')
-            .merge(wrap);
+                //create div named 'image-features' and append to parent
+                .append('div')
+                .attr('class', 'image-features')
+                .merge(wrap);
 
             var imageFeatures = selection.selectAll('.image-features');
 
             imageFeatures
-            .append('div')
-            .attr('class', 'image-inputs')
-            .merge(imageFeatures)
+                .append('div')
+                .attr('class', 'image-inputs')
+                .merge(imageFeatures)
 
             //make inputImagesField a child-element of div 'image-features
             var inputImageField = document.getElementById('preset-input-image');
@@ -103,16 +102,16 @@ export function uiFieldText(field, context) {
             imageInput.appendChild(inputImageField)
 
             imageFeatures
-            //add image container
-            .append('div')
-            .attr('class', 'image-view-box siema')
-            .merge(imageFeatures);
-            
+                //add image container
+                .append('div')
+                .attr('class', 'image-view-box siema')
+                .merge(imageFeatures);
+
             wrap
-            //add image carousel buttons containers
-            .append('div')
-            .attr('class', 'image-buttons')
-            .merge(wrap);
+                //add image carousel buttons containers
+                .append('div')
+                .attr('class', 'image-buttons')
+                .merge(wrap);
 
             var imageButtons = selection.selectAll('.image-buttons');
 
@@ -147,18 +146,23 @@ export function uiFieldText(field, context) {
             //Carousel buttons functionality
             document
                 .querySelector('.btn-prev')
-                .addEventListener('click', function() {
+                .addEventListener('click', function () {
                     initSiema.prev();
                 });
             document
                 .querySelector('.btn-next')
-                .addEventListener('click', function() {
+                .addEventListener('click', function () {
                     initSiema.next();
                 });
+        }
 
+        // Add the "add image" button if we got an image field.
+        if (inputImageField) {
+            let parentDiv = inputImageField.parentElement;
+            parentDiv.classList.add('add-image-field-container');
             //Create image modal window
             //Check rendering in addImageModal.js
-            createImageModal.createAddImageButton();
+            createImageModal.createAddImageButton(parentDiv);
             createImageModal.createModal();
 
             //Add image feature
@@ -170,12 +174,12 @@ export function uiFieldText(field, context) {
             function addImage() {
                 var pictures;
                 WikiMediaService.login();
-                document.getElementById('sendThePictureToWikimedia').onclick = function() {
-                    if(document.getElementById('submitPicture').files[0]) {
+                document.getElementById('sendThePictureToWikimedia').onclick = function () {
+                    if (document.getElementById('submitPicture').files[0]) {
                         pictures = document.getElementById('submitPicture').files[0];
                         var name = document.getElementById('preset-input-name').value;
                         WikiMediaService.upload(pictures, name);
-                    } else{
+                    } else {
                         alert(t("add-image-modal.abort"));
                     }
                 };
@@ -202,7 +206,7 @@ export function uiFieldText(field, context) {
 
         if (field.type === 'tel' && nominatim && _entity) {
             var center = _entity.extent(context.graph()).center();
-            nominatim.countryCode(center, function(err, countryCode) {
+            nominatim.countryCode(center, function (err, countryCode) {
                 if (err || !dataPhoneFormats[countryCode]) return;
                 wrap.selectAll('#' + fieldID).attr(
                     'placeholder',
@@ -222,16 +226,16 @@ export function uiFieldText(field, context) {
                 .enter()
                 .append('button')
                 .attr('tabindex', -1)
-                .attr('class', function(d) {
+                .attr('class', function (d) {
                     var which = d === 1 ? 'increment' : 'decrement';
                     return 'form-field-button ' + which;
                 })
                 .merge(buttons)
-                .on('click', function(d) {
+                .on('click', function (d) {
                     d3_event.preventDefault();
                     var raw_vals = input.node().value || '0';
                     var vals = raw_vals.split(';');
-                    vals = vals.map(function(v) {
+                    vals = vals.map(function (v) {
                         var num = parseFloat(v.trim(), 10);
                         return isFinite(num) ? clamped(num + d) : v.trim();
                     });
@@ -253,14 +257,14 @@ export function uiFieldText(field, context) {
     }
 
     function change(onInput) {
-        return function() {
+        return function () {
             var t = {};
             var val = utilGetSetValue(input).trim() || undefined;
 
             if (!onInput) {
                 if (field.type === 'number' && val !== undefined) {
                     var vals = val.split(';');
-                    vals = vals.map(function(v) {
+                    vals = vals.map(function (v) {
                         var num = parseFloat(v.trim(), 10);
                         return isFinite(num) ? clamped(num) : v.trim();
                     });
@@ -273,17 +277,17 @@ export function uiFieldText(field, context) {
         };
     }
 
-    i.entity = function(val) {
+    i.entity = function (val) {
         if (!arguments.length) return _entity;
         _entity = val;
         return i;
     };
 
-    i.tags = function(tags) {
+    i.tags = function (tags) {
         utilGetSetValue(input, tags[field.key] || '');
     };
 
-    i.focus = function() {
+    i.focus = function () {
         var node = input.node();
         if (node) node.focus();
     };

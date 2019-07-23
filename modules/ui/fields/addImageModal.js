@@ -2,9 +2,8 @@ import { dispatch as d3_dispatch } from 'd3-dispatch';
 import { select as d3_select, event as d3_event } from 'd3-selection';
 import { t, textDirection } from '../../util/locale';
 
-//Create add-image button
-function createAddImageButton() {
-    var imageInputsDiv = document.getElementsByClassName('image-inputs')[0];
+// Create the add-image button (appending it to the 'imageInputsDiv')
+function createAddImageButton(imageInputsDiv) {
     var addImage = document.createElement('button');
     addImage.className = 'btn-add-image';
     imageInputsDiv.appendChild(addImage);
