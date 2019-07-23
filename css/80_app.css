@@ -5835,6 +5835,12 @@ button.btn-carousel:hover {
      margin-top: 10px;
  }
 
+ div.add-image-field-container {
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row-reverse !important;
+ }
+
  button.btn-add-image {
      width: 30%;
      background-color: #96BF31;

@@ -64,7 +64,7 @@ export function uiFieldText(field, context) {
         var imagesURL = inputImageField ? inputImageField.value : null;
         //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
-        if (imagesURL === null) {
+        /*if (imagesURL === null) {
             wrap
                 //create div named 'image-features' and append to parent
                 .append('div')
@@ -77,9 +77,9 @@ export function uiFieldText(field, context) {
                 .append('div')
                 .attr('class', 'image-inputs')
                 .merge(imageFeatures)
-        }
+        }*/
 
-        else if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
+        if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
             //split imagesURL-value into seperate URLS
             imagesURL = imagesURL.split(',');
 
@@ -154,10 +154,11 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function () {
                     initSiema.next();
                 });
-            //Create image modal window
+            /*//Create image modal window
             //Check rendering in addImageModal.js
+            let parentDiv = inputImageField.parentElement;
             createImageModal.createAddImageButton(parentDiv);
-            createImageModal.createModal();
+            createImageModal.createModal();*/
 
             //Add image feature
             document.querySelector('.btn-add-image').addEventListener('click', addImage);
@@ -192,7 +193,7 @@ export function uiFieldText(field, context) {
         }
 
         // Add the "add image" button if we got an image field.
-        if (inputImageField && document.getElementsByClassName('btn-add-image').length < 1) {
+        else if (inputImageField && document.getElementsByClassName('btn-add-image').length < 1) {
             let parentDiv = inputImageField.parentElement;
             parentDiv.classList.add('add-image-field-container');
             //Create image modal window
