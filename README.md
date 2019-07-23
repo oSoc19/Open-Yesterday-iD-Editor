@@ -4,7 +4,7 @@
 
 <p align="center">With Open Heritage Map, you can preserve memories about objects or locations that no longer exists. Add or edit information about these memories, like a story or a photograph, on the geographical map and cherish them forever as historical data!</p>
 
-<p align="center">Open Heritage Map is an open Summer of Code 2019 (<a href="https://2019.summerofcode.be/">#oSoC19</a>) project, and made by Open Yesterday. It is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/">OpenStreetMap</a>. This project is also sponsored by <a href="http://www.erfgoedzuidwest.be/">erfgoed zuidwest</a>.</p>
+<p align="center">Open Heritage Map is an open Summer of Code 2019 (<a href="https://2019.summerofcode.be/" target="_blank">#oSoC19</a>) project, and made by Open Yesterday. It is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>. This project is also sponsored by <a href="http://www.erfgoedzuidwest.be/" target="_blank">erfgoed zuidwest</a>.</p>
 
 ## Accessing the project online
 
