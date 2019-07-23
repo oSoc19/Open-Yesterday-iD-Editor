@@ -1,0 +1,149 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fffef6
+}
+
+header {
+    margin-top: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title {
+    background-image: url("../assets/svg/title.svg");
+    background-size: 50rem;
+    background-repeat: no-repeat;
+    width: 50rem;
+    height: 27rem;
+}
+
+.header-title-hide {
+  display: none;
+}
+
+.header-illustration {
+    position: relative;
+    width: 72rem;
+}
+
+/* Displays */
+
+.header-title-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 50rem;
+    margin-left: 20rem;
+}
+
+.header-title-sub-container {
+    width: 40rem;
+}
+
+.header-title-sub-buttons {
+    margin-top: 3rem;
+}
+
+.header-title-sub-text {
+    line-height: 2.4rem;
+}
+
+.header-title-sub-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 20rem;
+}
+
+
+/* Font */
+
+.header-title-sub, .header-title-sub-text, .header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
+    font-family: 'Cabin';
+}
+
+/* Weight */
+
+.header-title-sub  {
+    font-weight: bold;
+}
+
+.header-title-sub-text {
+    font-weight: normal;
+}
+
+/* Font-size */
+
+.header-title-sub {
+    font-size: 3rem;
+}
+
+.header-title-sub-text {
+    font-size: 1.6rem;
+}
+
+.header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
+    font-size: 2.4rem;
+}
+
+/* Color */
+
+.header-title-sub {
+    color: #587015;
+}
+
+.header-title-sub-text {
+    color: #6d6d6d;
+}
+
+.header-title-sub-buttons-button-1 {
+    color: #fffef6;
+}
+
+.header-title-sub-buttons-button-2 {
+    color: #96c11e;
+}
+
+/* Buttons */
+
+.header-title-sub-buttons-button-1, .header-title-sub-buttons-button-2 {
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border-radius: 1.4rem;
+}
+
+.header-title-sub-buttons-button-1 {
+    background-color: #96c11e;
+    border: #96c11e solid 0.2rem;
+}
+
+.header-title-sub-buttons-button-2 {
+    border: #96c11e solid 0.2rem;
+    margin-left: 0.7rem;
+    transition: all 200ms ease;
+    transition-property: background-color, color;
+}
+
+/* Hover */
+
+.header-title-sub-buttons-button-2:hover {
+    background-color: #96c11e;
+    color: #fffef6;
+}
+
+
+
+
+
+

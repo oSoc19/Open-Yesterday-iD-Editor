@@ -1,6 +1,0 @@
-{
-    "key": "status",
-    "type": "combo",
-    "label": "Status",
-    "options": ["Existing","Vanished","Mostly vanished","Unclear"]
-}

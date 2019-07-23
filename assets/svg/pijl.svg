@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55.312" height="31.63" viewBox="0 0 55.312 31.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #96c11e;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="pijl.svg" class="cls-1" d="M899.231,1488.26l20.879,20.88,20.879-20.88" transform="translate(-892.469 -1485.03)"/>
+</svg>

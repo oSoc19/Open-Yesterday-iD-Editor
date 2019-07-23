@@ -1,7 +1,0 @@
-{
-    "key": "description",
-    "type": "textarea",
-    "label": "Description",
-    "placeholder": "",
-    "universal": true
-}
