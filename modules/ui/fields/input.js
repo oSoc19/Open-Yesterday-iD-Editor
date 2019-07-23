@@ -58,7 +58,7 @@ export function uiFieldText(field, context) {
             .call(utilNoAuto)
             .merge(input);
 
-        // Open Heritage Map: Display marker image(s)
+        // Open Heritage Map: Display and adding marker image(s)
         let inputImageField = document.getElementById('preset-input-image');
 
         // If we have an inputImageField, try to fetch is value, which is a comma-separated

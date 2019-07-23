@@ -41,3 +41,6 @@ iD also bundles portions of the following open source software.
 * [Mapillary JS (MIT)](https://github.com/mapillary/mapillary-js)
 * [name-suggestion-index (BSD-3-Clause)](https://github.com/osmlab/name-suggestion-index)
 * [osm-community-index (ISC)](https://github.com/osmlab/osm-community-index)
+
+What has been added as part of the Open Heritage Map project:
+* [Siema (MIT)] (https://github.com/pawelgrzybek/siema)
