@@ -43,4 +43,4 @@ iD also bundles portions of the following open source software.
 * [osm-community-index (ISC)](https://github.com/osmlab/osm-community-index)
 
 What has been added as part of the Open Heritage Map project:
-* [Siema (MIT)] (https://github.com/pawelgrzybek/siema)
+* [Siema (MIT)](https://github.com/pawelgrzybek/siema)
