@@ -1,16 +1,14 @@
-import { dispatch as d3_dispatch } from 'd3-dispatch';
-import { select as d3_select, event as d3_event } from 'd3-selection';
 import { t, textDirection } from '../../util/locale';
 
-//Create add-image button
-function createAddImageButton() {
-    var imageInputsDiv = document.getElementsByClassName('image-inputs')[0];
-    var addImage = document.createElement('button');
+// Create the add-image button (appending it to the 'imageInputsDiv')
+// Returns the HTMLButtonElement that was added.
+function createAddImageButton(imageInputsDiv) {
+    let addImage = document.createElement('button');
     addImage.className = 'btn-add-image';
-    imageInputsDiv.appendChild(addImage);
-    
-    var imageButton = document.getElementsByClassName('btn-add-image')[0];
-    imageButton.innerHTML = t('add-image-modal.addbutton');
+    imageInputsDiv.insertBefore(addImage, imageInputsDiv.firstChild);
+
+    addImage.innerHTML = t('add-image-modal.addbutton');
+    return addImage;
 }
 
 //Create add-image modal window
