@@ -6,6 +6,10 @@
 
 <p align="center">Open Heritage Map is an open Summer of Code 2019 (<a href="https://2019.summerofcode.be/">#oSoC19</a>) project, and made by Open Yesterday. It is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/">OpenStreetMap</a>. This project is also sponsored by <a href="http://www.erfgoedzuidwest.be/">erfgoed zuidwest</a>.</p>
 
+## Accessing the project online
+
+You can access our project online <a href="http://zuidwestprojecten.be/ikxploreermee/index.html" target="_blank">here</a>
+
 ## Installation, Cloning & Building
 
 See the [INSTALLATION.md](INSTALLATION.md)
