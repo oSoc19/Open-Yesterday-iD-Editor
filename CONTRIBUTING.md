@@ -287,66 +287,6 @@ Presets save time for iD users by automatically showing them the tags they are
 likely to add for a given feature. They are stored in `data/presets/presets`. If
 you're going to update the presets, [review the Presets README](/data/presets/README.md).
 
-
-## JavaScript
-
-iD uses ES5 syntax throughout the code, with the following exceptions:
-- [ES6 modules](http://exploringjs.com/es6/ch_modules.html) using `import` and
-`export` constructs. These are processed by [Rollup.js](https://rollupjs.org/guide/en)
-and not present in the distributed iD bundle.
-- Polyfills provided by [browser-polyfills](https://github.com/tiagomapmarques/browser-polyfills#what-does-it-have)
-  - `Promise`
-  - `fetch`
-  - `Map`
-  - `Set`
-  - `Array.find`
-  - `Array.findIndex`
-  - `Array.from`
-  - `Object.values`
-  - `Object.assign`
-  - `requestAnimationFrame (rAF)`
-
-ES5 syntax is required for:
-* IE11, which about 15-20% of our users still use
-* PhantomJS which runs our tests (it would be great to replace this!)
-
-We will introduce ES6 syntax eventually when it makes sense to do so.
-
-We use the [ES5 Airbnb style guide for JavaScript](https://github.com/airbnb/javascript/tree/es5-deprecated/es5) with
-only one difference:  **4 space soft tabs always for JavaScript, not 2.**
-
-No aligned `=`, no aligned arguments, spaces are either indents or the 1
-space between expressions. No hard tabs, ever.
-
-JavaScript code should pass through [ESLint](http://eslint.org/) with no warnings.
-
-
-## HTML
-
-There isn't much HTML in iD, but what there is is similar to JavaScript: 4 spaces
-always, indented by the level of the tree:
-
-```html
-<div>
-    <div></div>
-</div>
-```
-
-
-## CSS
-
-Just like HTML and JavaScript, 4 space soft tabs always.
-
-```css
-.radial-menu-tooltip {
-    background: rgba(255, 255, 255, 0.8);
-}
-```
-
-We write vanilla CSS with no preprocessing step. Since iD targets modern browsers,
-(Chrome, Firefox, Safari, Opera, IE11, and Edge) feel free to use newer features wisely.
-
-
 ## Tests
 
 Test your code and make sure it passes.
