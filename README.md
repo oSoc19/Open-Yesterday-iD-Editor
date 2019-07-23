@@ -10,6 +10,11 @@
 
 You can access our project online <a href="http://zuidwestprojecten.be/ikxploreermee/index.html" target="_blank">here</a>
 
+## Slippy Maps
+
+If you want to display a map with data from OHM on your website, a slippy map is what you're looking for!
+Fortunately, we have a project that can help you with that. [Check it out!](https://github.com/oSoc19/Open-Yesterday-SlippyMap)
+
 ## Installation, Cloning & Building
 
 See the [INSTALLATION.md](INSTALLATION.md)
