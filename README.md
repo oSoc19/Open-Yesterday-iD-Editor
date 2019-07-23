@@ -21,6 +21,7 @@ See [INSTALLATION.md](INSTALLATION.md)
 ## Modifying the project
 
 If you'd like to create nor modify a preset, please check the docs in ./data/presets/README.md
+If you are running your own backend (check: https://github.com/osoc19/Open-Yesterday-iD-Backend), you can change the link to the API in `./modules/ui/tools/uploadToWikimedia.js` file.
 
 ## License
 

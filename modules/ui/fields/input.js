@@ -152,11 +152,13 @@ export function uiFieldText(field, context) {
             var dropzone = document.getElementById('dropzone');
             function addImage() {
                 var pictures;
+                // This function is called by an eventHandler when we press the button, we then request to our online service that we can start to fetch the login on wikimedia
                 WikiMediaService.login();
                 document.getElementById('sendThePictureToWikimedia').onclick = function() {
                     if(document.getElementById('submitPicture').files[0]) {
                         pictures = document.getElementById('submitPicture').files[0];
                         var name = document.getElementById('preset-input-name').value;
+                        // When we select a picture and press the `send` button, we can ask our online service to send the picture by giving him, the name of the building + the picture itself
                         WikiMediaService.upload(pictures, name);
                     } else{
                         alert(t("add-image-modal.abort"));

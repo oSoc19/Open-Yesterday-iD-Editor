@@ -6,8 +6,8 @@ files located under the `data/presets` folder of the iD repository.
 #### Preset Files
 
 Presets are defined in JSON files located under `data/presets/presets`.  They're organized in a
-directory hierarchy based on OSM key/value pairs.  For example, the preset that matches
-the tag `leisure=park` is in the file `data/presets/presets/leisure/park.json`.
+directory hierarchy based on OSM key/value pairs.
+For this project we made custom presets that matched erfgoed zuidwest needs. You can find most of them in the `./data/presets/presets/building/` folder.
 
 #### Preset Schema
 
