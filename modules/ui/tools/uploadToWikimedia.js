@@ -3,7 +3,7 @@ export{
     upload
 };
 
-var apiURL = "http://localhost:3000/"
+var apiURL = "http://richeza.me:3000/"
 
 function login(){
     fetch(apiURL + "login")
