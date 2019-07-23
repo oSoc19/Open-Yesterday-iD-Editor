@@ -154,10 +154,45 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function () {
                     initSiema.next();
                 });
+            //Create image modal window
+            //Check rendering in addImageModal.js
+            createImageModal.createAddImageButton(parentDiv);
+            createImageModal.createModal();
+
+            //Add image feature
+            document.querySelector('.btn-add-image').addEventListener('click', addImage);
+            var container = document.getElementById('id-container');
+            var header = document.getElementById('header-map');
+            var modal = document.getElementById('add-image-modal');
+            var dropzone = document.getElementById('dropzone');
+            function addImage() {
+                var pictures;
+                WikiMediaService.login();
+                document.getElementById('sendThePictureToWikimedia').onclick = function () {
+                    if (document.getElementById('submitPicture').files[0]) {
+                        pictures = document.getElementById('submitPicture').files[0];
+                        var name = document.getElementById('preset-input-name').value;
+                        WikiMediaService.upload(pictures, name);
+                    } else {
+                        alert(t("add-image-modal.abort"));
+                    }
+                };
+                //Make modal window visible and let background blur when "add image" button is clicked
+                container.classList.add('blur');
+                header.classList.add('blur');
+                modal.classList.add('show');
+            }
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
+            function closeModal() {
+                //Hide modal window when close button is clicked
+                container.classList.remove('blur');
+                header.classList.remove('blur');
+                modal.classList.remove('show');
+            }
         }
 
         // Add the "add image" button if we got an image field.
-        if (inputImageField) {
+        if (inputImageField && document.getElementsByClassName('btn-add-image').length < 1) {
             let parentDiv = inputImageField.parentElement;
             parentDiv.classList.add('add-image-field-container');
             //Create image modal window
