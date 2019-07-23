@@ -59,53 +59,24 @@ export function uiFieldText(field, context) {
             .merge(input);
 
         // Open Heritage Map: Display marker image(s)
-        var inputImageField = document.getElementById('preset-input-image');
+        let inputImageField = document.getElementById('preset-input-image');
 
-        var imagesURL = inputImageField ? inputImageField.value : null;
-        //value of image-input field is one string with multiple URLS seperated by a comma
-        var renderedImage = document.getElementsByClassName('rendered-image');
-        /*if (imagesURL === null) {
-            wrap
-                //create div named 'image-features' and append to parent
-                .append('div')
-                .attr('class', 'image-features')
-                .merge(wrap);
+        // If we have an inputImageField, try to fetch is value, which is a comma-separated
+        // list of image links.
+        let imagesURL = inputImageField ? inputImageField.value : null;
+        let renderedImage = document.getElementsByClassName('rendered-image');
 
-            var imageFeatures = selection.selectAll('.image-features');
+        var parentDiv = document.getElementById('image-inputs');
 
-            imageFeatures
-                .append('div')
-                .attr('class', 'image-inputs')
-                .merge(imageFeatures)
-        }*/
-
-        if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
-            //split imagesURL-value into seperate URLS
+        if (imagesURL && imagesURL !== '' && (renderedImage.length == 0)) {
+            // Split imagesURL-value into seperate URLS
             imagesURL = imagesURL.split(',');
 
             wrap
-                //create div named 'image-features' and append to parent
-                .append('div')
-                .attr('class', 'image-features')
-                .merge(wrap);
-
-            var imageFeatures = selection.selectAll('.image-features');
-
-            imageFeatures
-                .append('div')
-                .attr('class', 'image-inputs')
-                .merge(imageFeatures)
-
-            //make inputImagesField a child-element of div 'image-features
-            var inputImageField = document.getElementById('preset-input-image');
-            var imageInput = document.getElementsByClassName('image-inputs')[0];
-            imageInput.appendChild(inputImageField)
-
-            imageFeatures
                 //add image container
                 .append('div')
                 .attr('class', 'image-view-box siema')
-                .merge(imageFeatures);
+                .merge(wrap);
 
             wrap
                 //add image carousel buttons containers
@@ -154,18 +125,12 @@ export function uiFieldText(field, context) {
                 .addEventListener('click', function () {
                     initSiema.next();
                 });
-            /*//Create image modal window
-            //Check rendering in addImageModal.js
-            let parentDiv = inputImageField.parentElement;
-            createImageModal.createAddImageButton(parentDiv);
-            createImageModal.createModal();*/
 
             //Add image feature
             document.querySelector('.btn-add-image').addEventListener('click', addImage);
             var container = document.getElementById('id-container');
             var header = document.getElementById('header-map');
             var modal = document.getElementById('add-image-modal');
-            var dropzone = document.getElementById('dropzone');
             function addImage() {
                 var pictures;
                 WikiMediaService.login();
@@ -192,10 +157,9 @@ export function uiFieldText(field, context) {
             }
         }
 
-        // Add the "add image" button if we got an image field.
-        else if (inputImageField && document.getElementsByClassName('btn-add-image').length < 1) {
-            let parentDiv = inputImageField.parentElement;
-            parentDiv.classList.add('add-image-field-container');
+        // Add the "add image" button if we got an image field (and if we don't already have a btn-add-image)
+        if (inputImageField && (document.getElementsByClassName('btn-add-image').length == 0)) {
+            parentDiv = (parentDiv != null) ? parentDiv : inputImageField.parentElement;
             //Create image modal window
             //Check rendering in addImageModal.js
             createImageModal.createAddImageButton(parentDiv);
@@ -206,7 +170,6 @@ export function uiFieldText(field, context) {
             var container = document.getElementById('id-container');
             var header = document.getElementById('header-map');
             var modal = document.getElementById('add-image-modal');
-            var dropzone = document.getElementById('dropzone');
             function addImage() {
                 var pictures;
                 WikiMediaService.login();
@@ -218,7 +181,7 @@ export function uiFieldText(field, context) {
                     } else {
                         alert(t("add-image-modal.abort"));
                     }
-                };
+                }; 
                 //Make modal window visible and let background blur when "add image" button is clicked
                 container.classList.add('blur');
                 header.classList.add('blur');

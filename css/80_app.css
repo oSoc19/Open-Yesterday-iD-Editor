@@ -5824,7 +5824,6 @@ button.btn-carousel:hover {
  }
 
  input#preset-input-image {
-     width: 68%;
      height: 40px;
  }
 
@@ -5842,7 +5841,6 @@ button.btn-carousel:hover {
  }
 
  button.btn-add-image {
-     width: 30%;
      background-color: #96BF31;
  }
 

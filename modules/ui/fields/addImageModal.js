@@ -1,15 +1,12 @@
-import { dispatch as d3_dispatch } from 'd3-dispatch';
-import { select as d3_select, event as d3_event } from 'd3-selection';
 import { t, textDirection } from '../../util/locale';
 
 // Create the add-image button (appending it to the 'imageInputsDiv')
 function createAddImageButton(imageInputsDiv) {
-    var addImage = document.createElement('button');
+    let addImage = document.createElement('button');
     addImage.className = 'btn-add-image';
     imageInputsDiv.appendChild(addImage);
-    
-    var imageButton = document.getElementsByClassName('btn-add-image')[0];
-    imageButton.innerHTML = t('add-image-modal.addbutton');
+
+    addImage.innerHTML = t('add-image-modal.addbutton');
 }
 
 //Create add-image modal window
