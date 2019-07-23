@@ -4,11 +4,10 @@
 
 <p align="center">With Open Heritage Map, you can preserve memories about objects or locations that no longer exists. Add or edit information about these memories, like a story or a photograph, on the geographical map and cherish them forever as historical data!</p>
 
-<p align="center">Open Heritage Map is an open Summer of Code 2019 (<a href="https://2019.summerofcode.be/" target="_blank">#oSoC19</a>) project, and made by Open Yesterday. It is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>. This project is also sponsored by <a href="http://www.erfgoedzuidwest.be/" target="_blank">erfgoed zuidwest</a>.</p>
+<p align="center">Open Heritage Map is an open Summer of Code 2019 (<a href="https://2019.summerofcode.be/" target="_blank">#oSoC19</a>) project, and made by Open Yesterday. It is based on iD (v2.15), a friendly JavaScript editor for <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>. This project is also sponsored by <a href="http://www.erfgoedzuidwest.
+be/" target="_blank">erfgoed zuidwest</a>.</p>
 
-## Accessing the project online
-
-You can access our project online <a href="http://zuidwestprojecten.be/ikxploreermee/index.html" target="_blank">here</a>
+<p align="center"><a href="http://zuidwestprojecten.be/ikxploreermee/index.html">See our project in action here!</a></p>
 
 ## Slippy Maps
 
@@ -17,7 +16,7 @@ Fortunately, we have a project that can help you with that. [Check it out!](http
 
 ## Installation, Cloning & Building
 
-See the [INSTALLATION.md](INSTALLATION.md)
+See [INSTALLATION.md](INSTALLATION.md)
 
 ## Modifying the project
 
