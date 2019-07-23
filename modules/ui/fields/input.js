@@ -63,7 +63,24 @@ export function uiFieldText(field, context) {
         var imagesURL = inputImageField ? inputImageField.value : null;
         //value of image-input field is one string with multiple URLS seperated by a comma
         var renderedImage = document.getElementsByClassName('rendered-image');
-        if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
+        if (imagesURL === null) {
+            console.log("url is null");
+
+            wrap
+            //create div named 'image-features' and append to parent
+            .append('div')
+            .attr('class', 'image-features')
+            .merge(wrap);
+
+            var imageFeatures = selection.selectAll('.image-features');
+
+            imageFeatures
+            .append('div')
+            .attr('class', 'image-inputs')
+            .merge(imageFeatures)
+        } 
+        
+        else if (imagesURL && imagesURL !== '' && renderedImage.length < 1) {
             //split imagesURL-value into seperate URLS
             imagesURL = imagesURL.split(',');
 
