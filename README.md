@@ -14,6 +14,11 @@ be/" target="_blank">erfgoed zuidwest</a>.</p>
 If you want to display a map with data from OHM on your website, a slippy map is what you're looking for!
 Fortunately, we have a project that can help you with that. [Check it out!](https://github.com/oSoc19/Open-Yesterday-SlippyMap)
 
+## Backend
+
+The "image upload" feature of this project depends on a lightweight backend written in NodeJS.
+- [Github link](https://github.com/oSoc19/Open-Yesterday-iD-Backend).
+
 ## Installation, Cloning & Building
 
 See [INSTALLATION.md](INSTALLATION.md)
