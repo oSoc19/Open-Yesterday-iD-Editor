@@ -1,12 +1,14 @@
 import { t, textDirection } from '../../util/locale';
 
 // Create the add-image button (appending it to the 'imageInputsDiv')
+// Returns the HTMLButtonElement that was added.
 function createAddImageButton(imageInputsDiv) {
     let addImage = document.createElement('button');
     addImage.className = 'btn-add-image';
-    imageInputsDiv.appendChild(addImage);
+    imageInputsDiv.insertBefore(addImage, imageInputsDiv.firstChild);
 
     addImage.innerHTML = t('add-image-modal.addbutton');
+    return addImage;
 }
 
 //Create add-image modal window
